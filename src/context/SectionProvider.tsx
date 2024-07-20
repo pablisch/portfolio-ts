@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
-import { ProjectObject } from "../Types/project.types";
-import { AboutObject } from "../Types/about.types";
+import { AboutObject, ProjectObject } from "../Types/data.types";
 
 export interface SectionContextType {
   section: string;

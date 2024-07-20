@@ -13,7 +13,7 @@ function App() {
 
   // the lines below 👇🏻are temp to stop error of unused blah blah blah
   useEffect(() => {
-    setTheme("normal");
+    setTheme("light");
   }, []);
 
   return (
