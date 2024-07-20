@@ -1,0 +1,37 @@
+:root {
+    --background-primary: #e0dbc3;
+    --background-secondary: #82c6d5;
+    --text-primary: #333;
+    --button-primary: #c6e0e1;
+}
+
+[data-theme="dark"] {
+    --background-primary: #333;
+    --background-secondary: #555;
+    --text-primary: #ffffff;
+    --button-primary: #82c6d5;
+}
+
+[data-theme="light"] {
+    --background-primary: #ffffff;
+    --background-secondary: #d4dadc;
+    --text-primary: #252525;
+    --button-primary: #d0d5d1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+button {
+    background-color: var(--button-primary);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+

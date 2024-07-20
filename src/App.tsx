@@ -1,30 +1,35 @@
 // import { useState } from 'react'
 
 import './App.css'
-import {useState} from "react";
-import {Routes} from "react-router";
+import {useEffect, useState} from "react";
+import {Route, Routes} from "react-router";
 import {BrowserRouter} from "react-router-dom";
 import Navbar from './features/Navbar/Navbar.tsx';
-import { useSectionContext} from "./Hooks/useSectionContext.tsx";
+import ProjectsPage from "./pages/ProjectsPage";
+import {SectionProvider} from "./context/SectionProvider.tsx";
 
 function App() {
   const [theme, setTheme] = useState('normal')
-
-    // the line below 👇🏻is temp to stop error of unused blah blah blah
+  
+  // the lines below 👇🏻are temp to stop error of unused blah blah blah
+  useEffect(() => {
     setTheme('normal')
-
-
+  }, [])
+  
+  
   return (
-      <div className="app" data-theme={theme}>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            {/*<Route path="/" element={<Home />} />*/}
-            {/*<Route path="/about" element={<About />} />*/}
-            {/*<Route path="/contact" element={<Contact />} />*/}
-          </Routes>
-        </BrowserRouter>
-      </div>
+    <SectionProvider>
+    <div className="app" data-theme={theme}>
+      <BrowserRouter>
+        <Navbar theme={theme} setTheme={setTheme} />
+        <Routes>
+          <Route path="/" element={<ProjectsPage/>}/>
+          {/*<Route path="/about" element={<About />} />*/}
+          {/*<Route path="/contact" element={<Contact />} />*/}
+        </Routes>
+      </BrowserRouter>
+    </div>
+    </SectionProvider>
   )
 }
 
