@@ -1,9 +1,11 @@
 // import React from 'react';
 
-function Navbar() {
+interface NavbarProps {
+
+}
+
+export default function Navbar({}: NavbarProps) {
     return (
         <div>Hello</div>
     );
 }
-
-export default Navbar;
