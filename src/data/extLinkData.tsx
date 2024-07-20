@@ -3,7 +3,7 @@ export const extLinkData = [
     // GITHUB
     name: "github",
     linkUrl: "https://github.com/pablisch",
-    clasNames: ["nav-btn", "github-link-btn"],
+    classNames: ["nav-btn", "github-link-btn"],
     // clasNames: 'nav-btn github-link-btn',
     burgerClassNames: ["burger-btn", "github-link-btn", "external-burger-btn"],
     avatarClassName: "avatar-hovered-github-link",
@@ -19,7 +19,7 @@ export const extLinkData = [
     // LINKEDIN
     name: "linkedIn",
     linkUrl: "https://www.linkedin.com/in/pablo-joyce/",
-    clasNames: ["nav-btn", "linkedin-link-btn"],
+    classNames: ["nav-btn", "linkedin-link-btn"],
     burgerClassNames: [
       "burger-btn",
       "linkedin-link-btn",

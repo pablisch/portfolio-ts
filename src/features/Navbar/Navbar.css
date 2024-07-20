@@ -1,0 +1,546 @@
+:root {
+  --nav-side-padding: 20px;
+  --fake-side-margin: 0.1px;
+  --nav-container-width: calc(85vw + (2 * var(--nav-side-padding)));
+  --navbar-height: 85px;
+  --app-max-width: 1100px;
+}
+
+/* UNDER NAVBAR BORDERS inc FADE BORDER */
+
+.nav-border-bar-1 {
+  height: 1px;
+}
+
+.nav-border-bar-1-retro {
+  background-color: var(--nav-bottom-bar-1-retro);
+}
+.nav-border-bar-1-light {
+  background-color: var(--nav-bottom-bar-1-light);
+}
+.nav-border-bar-1-dark {
+  background-color: var(--nav-bottom-bar-1-dark);
+}
+
+.nav-border-bar-2 {
+  height: 4px;
+  transition: background-color 2s ease;
+}
+
+.nav-border-bar-2-retro {
+  background-color: var(--nav-bottom-bar-2-retro);
+}
+.nav-border-bar-2-light {
+  background-color: var(--nav-bottom-bar-2-light);
+}
+.nav-border-bar-2-dark {
+  background-color: var(--nav-bottom-bar-2-dark);
+}
+
+.avatar-hovered-nav-border-bar-2 {
+  transition: background-color 2s ease;
+  background-color: var(--pink-500);
+}
+
+.nav-border-bar-3 {
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0);
+  background-size: 100% 100%;
+}
+
+.nav-border-bar-3-retro {
+  background: linear-gradient(
+    to bottom,
+    var(--nav-bottom-bar-3-retro-pt1) 0%,
+    var(--nav-bottom-bar-3-retro-pt2) 100%
+  );
+}
+.nav-border-bar-3-light {
+  background: linear-gradient(
+    to bottom,
+    var(--nav-bottom-bar-3-light-pt1) 0%,
+    var(--nav-bottom-bar-3-light-pt2) 100%
+  );
+}
+.nav-border-bar-3-dark {
+  background: linear-gradient(
+    to bottom,
+    var(--nav-bottom-bar-3-dark-pt1) 0%,
+    var(--nav-bottom-bar-3-dark-pt2) 100%
+  );
+}
+
+.avatar-hovered-nav-border-bar-3 {
+  background: linear-gradient(
+    to bottom,
+    var(--turquoise-200) 0%,
+    var(--turquoise-200-zero) 100%
+  );
+}
+
+/* MAIN NAVBAR STYLING */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-size: cover;
+  z-index: 1000;
+}
+
+.nav-retro {
+  background-color: var(--nav-back-retro);
+  transition: background-color 2s ease;
+}
+.nav-light {
+  background-color: var(--nav-back-light);
+  transition: background-color 2s ease;
+}
+.nav-dark {
+  background-color: var(--nav-back-dark);
+  transition: background-color 2s ease;
+}
+
+.avatar-hovered-navbar {
+  transition: background-color 2s ease;
+  background-color: var(--grey-blue-1300);
+}
+
+.nav-container {
+  /* outer container for all NAVBAR elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: calc(var(--app-max-width) + (2 * var(--nav-side-padding)) + 200px);
+  width: var(
+    --nav-container-width
+  ); /* USE SAME SETTING for .nav-container, .gallery-container, .focus-container & .footer-container */
+  margin: 0 auto;
+  padding: 0 var(--nav-side-padding);
+  overflow: hidden;
+  height: var(--navbar-height);
+}
+
+/* NAV LEFT - LOGO AND TITLE */
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.logo-image {
+  max-width: 60px;
+  margin-right: 15px;
+  opacity: 0.9;
+  transition: opacity 2s ease;
+  cursor: none;
+  border-radius: 100%;
+}
+
+.logo-image-dark {
+  border: 1px solid var(--whitish-300);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.9);
+}
+
+.avatar-hovered-avatar {
+  opacity: 0.1;
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 400px;
+  text-align: center;
+  height: 62px;
+  border-radius: 15px;
+  padding: 5px 15px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  margin-right: 5px;
+  max-width: 100px;
+}
+
+.nav-title-retro {
+  background-color: var(--nav-dark-btn-back-retro);
+  color: var(--nav-dark-btn-text-retro);
+  border: 1px var(--nav-dark-btn-border-retro) solid;
+}
+.nav-title-light {
+  background-color: var(--nav-dark-btn-back-light);
+  color: var(--nav-dark-btn-text-light);
+  border: 1px var(--nav-dark-btn-border-light) solid;
+}
+.nav-title-dark {
+  background-color: var(--nav-dark-btn-back-dark);
+  color: var(--nav-dark-btn-text-dark);
+  border: 1px var(--nav-dark-btn-border-dark) solid;
+}
+
+.abouts-title {
+  max-width: 195px;
+}
+
+.projects-title {
+  max-width: 225px;
+}
+
+.nav-title:hover {
+  transition: all 0.5s ease;
+}
+
+.nav-title-retro:hover {
+  background-color: var(--navText-darker);
+  color: var(--lime-300);
+  border: 1px var(--sea-green-400) solid;
+}
+.nav-title-light:hover {
+  background-color: var(--nav-dark-btn-back-hover-light);
+  color: var(--nav-dark-btn-text-hover-light);
+  border: 1px var(--sea-green-400) solid;
+}
+.nav-title-dark:hover {
+  background-color: var(--nav-dark-btn-back-hover-dark);
+  color: var(--nav-dark-btn-text-hover-dark);
+  border: 1px var(--sea-green-400) solid;
+}
+
+.avatar-hovered-nav-title {
+  transition:
+    background-color 2s ease,
+    border 2s ease,
+    color 2s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--grey-blue-1300) solid;
+  color: var(--lime-300);
+}
+
+nav h1 {
+  font-size: 2.2rem;
+  font-weight: normal;
+}
+
+/* NAV RIGHT - NAVLIST containing LINK BUTTONS */
+
+.navlist {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  max-width: 600px;
+}
+
+.navlist p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* NAV LINKS inc INTERNAL & EXTERNAL LINKS */
+
+.nav-btn {
+  flex: 0 0 20px;
+  text-align: center;
+  margin: 0 4px; /* Any change made here should also be made to margin in .github-link-btn  */
+  border-radius: 15px;
+  padding: 5px 3px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-btn-retro {
+  border: 1px var(--nav-light-btn-border-retro) solid;
+}
+.nav-btn-light {
+  border: 1px var(--nav-light-btn-border-light) solid;
+}
+.nav-btn-dark {
+  border: 1px var(--nav-light-btn-border-dark) solid;
+}
+
+.nav-link {
+  transition: all 0.5s ease;
+}
+
+.nav-link-retro {
+  background-color: var(--nav-light-btn-back-retro);
+  color: var(--nav-light-btn-text-retro);
+}
+.nav-link-light {
+  background-color: var(--nav-light-btn-back-light);
+  color: var(--nav-light-btn-text-light);
+}
+.nav-link-dark {
+  background-color: var(--nav-light-btn-back-dark);
+  color: var(--nav-light-btn-text-dark);
+}
+
+.nav-link-retro:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+.nav-link-light:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+.nav-link-dark:hover {
+  background-color: var(--nav-light-btn-back-hover-dark);
+  color: var(--nav-light-btn-text-hover-dark);
+  border: 1px var(--nav-light-btn-border-hover-dark) solid;
+}
+.nav-link-simple:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+
+.avatar-hovered-nav-link {
+  transition:
+    background-color 0.5s ease,
+    border 0.5s ease,
+    color 0.5s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--leaf-1100) solid;
+  color: var(--lime-500);
+}
+
+.nav-section-link {
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+.nav-section-link-retro {
+  background-color: var(--nav-dark-btn-back-retro);
+  color: var(--nav-dark-btn-text-retro);
+}
+.nav-section-link-light {
+  background-color: var(--nav-dark-btn-back-light);
+  color: var(--nav-dark-btn-text-light);
+}
+.nav-section-link-dark {
+  background-color: var(--nav-dark-btn-back-dark);
+  color: var(--nav-dark-btn-text-dark);
+}
+
+.nav-section-link-retro:hover {
+  background-color: var(--nav-light-btn-text-hover-retro);
+  color: var(--nav-dark-btn-text-hover-retro);
+}
+.nav-section-link-light:hover {
+  background-color: var(--nav-light-btn-back-hover-light);
+  color: var(--nav-dark-btn-text-hover-light);
+}
+.nav-section-link-dark:hover {
+  background-color: var(--nav-dark-btn-back-hover-dark);
+  color: var(--nav-dark-btn-text-hover-dark);
+}
+
+.avatar-hovered-nav-section-link {
+  transition:
+    background-color 0.5s ease,
+    border 0.5s ease,
+    color 0.5s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--leaf-1100) solid;
+  color: var(--lime-500);
+}
+
+.github-link-btn {
+  /* transition: all 0.5s ease; */
+  cursor: url("./looking-glass.png"), auto;
+}
+
+.github-link-btn-retro {
+  background-color: var(--nav-light-btn-back-retro);
+}
+.github-link-btn-light {
+  background-color: var(--nav-light-btn-back-light);
+}
+.github-link-btn-dark {
+  background-color: var(--nav-light-btn-back-dark);
+}
+
+.github-link-btn-retro:hover {
+  background-color: var(--github-back-hover-retro);
+  border: 1px var(--github-border-hover-retro) solid;
+}
+.github-link-btn-light:hover {
+  background-color: var(--github-back-hover-light);
+  border: 1px var(--github-border-hover-light) solid;
+}
+.github-link-btn-dark:hover {
+  background-color: var(--github-back-hover-dark);
+  border: 1px var(--github-border-hover-dark) solid;
+}
+
+.github-link-btn:hover .github-logo {
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+
+.github-logo {
+  max-height: 50px;
+  /* transition: opacity 2s ease, transform 2s ease; */
+  transition: all 2s ease-in-out;
+  opacity: 0.6;
+}
+
+.github-logo-dark {
+  opacity: 1;
+  filter: invert(0.7);
+}
+
+.github-link-btn:hover .github-logo-dark {
+  filter: invert(0);
+}
+
+.settings-icon-dark {
+  filter: invert(0);
+}
+
+.settings-btn-dark:hover .settings-icon-dark {
+  filter: invert(1);
+}
+
+.linkedin-link-btn {
+  transition: background-color 1s ease;
+  cursor: url("./looking-glass.png"), auto;
+}
+
+.linkedin-link-btn {
+  background-color: var(--linkedin-back-retro);
+  border: 1px var(--linkedin-border-retro) solid;
+}
+
+.linkedin-link-btn-light {
+  background-color: var(--linkedin-back-light);
+  border: 1px var(--linkedin-border-light) solid;
+}
+.linkedin-link-btn-dark {
+  background-color: var(--linkedin-back-dark);
+  border: 1px var(--linkedin-border-dark) solid;
+}
+
+.linkedin-link-btn:hover {
+  background-color: var(--linkedin-blue);
+  border: 1px var(--navText-darker) solid;
+}
+
+.linkedin-logo {
+  max-height: 40px;
+  transition: opacity 3s ease;
+  opacity: 1;
+}
+
+.avatar-hovered-github-link {
+  transition:
+    background-color 2s ease,
+    border 2s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--leaf-1100) solid;
+}
+
+.avatar-hovered-linkedin-logo {
+  transition: opacity 3s ease;
+  opacity: 0.1;
+}
+
+.settings-btn {
+  cursor: url("./smallaxe.png"), auto;
+}
+
+.rotate {
+  /* transition: transform 1s ease-in-out; */
+  transform: rotate(720deg);
+}
+
+/* HAMBURGER STYLING */
+
+.hamburger-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 5px;
+  /* display: none; */
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+.burger-bar {
+  display: block;
+  width: 35px;
+  height: 4px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.burger-bar-retro {
+  background-color: var(--sea-green-800-dull);
+  border: 1px solid var(--sea-green-800-dull);
+}
+.burger-bar-light {
+  background-color: var(--sea-green-800-dull);
+  border: 1px solid var(--sea-green-800-dull);
+}
+.burger-bar-dark {
+  background-color: var(--sea-green-800-dull);
+  border: 1px solid var(--sea-green-800-dull);
+}
+.burger-bar-simple {
+  background-color: var(--sea-green-800-dull);
+  border: 1px solid var(--sea-green-800-dull);
+}
+
+.hamburger:hover .burger-bar-retro {
+  background-color: var(--green-600);
+  border: 1px solid var(--green-600);
+}
+.hamburger:hover .burger-bar-light {
+  background-color: var(--green-600);
+  border: 1px solid var(--green-600);
+}
+.hamburger:hover .burger-bar-dark {
+  background-color: var(--green-600);
+  border: 1px solid var(--green-600);
+}
+.hamburger:hover .burger-bar-simple {
+  background-color: var(--green-600);
+  border: 1px solid var(--green-600);
+}
+
+.hamburger .pattie.burger-open {
+  opacity: 0;
+}
+
+.hamburger .buntop.burger-open {
+  transform: translateY(9px) rotate(-45deg);
+}
+
+.hamburger .bunbase.burger-open {
+  transform: translateY(-9px) rotate(45deg);
+}
+
+.hamburger:hover .pattie {
+  transform: rotate(90deg);
+  opacity: 1;
+}
+
+.hamburger:hover .buntop {
+  transform: translateY(9px) rotate(-30deg);
+}
+
+.hamburger:hover .bunbase {
+  transform: translateY(-9px) rotate(30deg);
+}

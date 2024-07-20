@@ -1,5 +1,8 @@
 // import React from 'react';
-import { useSectionContext } from "../../Hooks/useSectionContext.tsx";
+import { useSectionContext } from "../../hooks/useSectionContext.tsx";
+import { extNavLinkObject } from "../../types/data.types";
+import ExtNavLink from "./ExtNavLink.tsx";
+import { extLinkData } from "../../data/extLinkData.tsx";
 
 interface NavbarProps {
   theme: string;
@@ -8,6 +11,9 @@ interface NavbarProps {
 
 export default function Navbar({ theme, setTheme }: NavbarProps) {
   const { section } = useSectionContext();
+
+  // 👇🏻 TEMPORARY variable to mimic future functionality
+  const burgerMenuStage = 0;
 
   const handleThemeClick = () => {
     if (theme === "normal") {
@@ -26,6 +32,12 @@ export default function Navbar({ theme, setTheme }: NavbarProps) {
       <button onClick={handleThemeClick}>
         {theme === "normal" ? "normal" : theme === "dark" ? "dark" : "light"}
       </button>
+      {/* 👇🏻 EXTERNAL LINK BUTTONS */}
+      {extLinkData.length &&
+        burgerMenuStage < 2 &&
+        extLinkData.map((exLink: extNavLinkObject) => (
+          <ExtNavLink key={exLink.name} extLink={exLink} />
+        ))}
     </div>
   );
 }

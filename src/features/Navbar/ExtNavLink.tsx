@@ -1,8 +1,10 @@
 // import React from "react";
-import { extNavLinkObject } from "../../Types/data.types";
+import { extNavLinkObject } from "../../types/data.types";
+import "./Navbar.css";
 
 interface extNavLinkProps {
   extLink: extNavLinkObject;
+  key?: string;
 }
 
 function ExtNavLink({ extLink }: extNavLinkProps) {
