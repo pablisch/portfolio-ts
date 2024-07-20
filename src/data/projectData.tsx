@@ -75,23 +75,44 @@ export const projectData = [
         </p>
       </>
     ),
-    techBadges: [
-      { scale: "33" },
-      [
+    // techBadges: [
+    //   { scale: "33" },
+    //   [
+    //     // { src: "javascript/javascript-original.svg", alt: "javascript" },
+    //     // { src: "nodejs/nodejs-original.svg", alt: "nodejs" },
+    //     // { src: "npm/npm-original-wordmark.svg", alt: "npm" },
+    //     // { src: "react/react-original-wordmark.svg", alt: "react" },
+    //     // { src: "html5/html5-original.svg", alt: "html5" },
+    //     // { src: "css3/css3-original.svg", alt: "css3" },
+    //     { src: "git/git-original.svg", alt: "git", className: "tech-left-space-1" },
+    //     // {
+    //     //   src: "github/github-original.svg",
+    //     //   alt: "github",
+    //     //   className: "tech-left-space-1",
+    //     // },
+    //   ],
+    // ],
+    techBadges: {
+      scale: "33",
+      badges: [
         { src: "javascript/javascript-original.svg", alt: "javascript" },
         { src: "nodejs/nodejs-original.svg", alt: "nodejs" },
         { src: "npm/npm-original-wordmark.svg", alt: "npm" },
         { src: "react/react-original-wordmark.svg", alt: "react" },
         { src: "html5/html5-original.svg", alt: "html5" },
         { src: "css3/css3-original.svg", alt: "css3" },
-        { src: "git/git-original.svg", alt: "git", class: "tech-left-space-1" },
+        {
+          src: "git/git-original.svg",
+          alt: "git",
+          className: "tech-left-space-1",
+        },
         {
           src: "github/github-original.svg",
           alt: "github",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
       ],
-    ],
+    },
   },
   {
     // Gallery
@@ -151,37 +172,41 @@ export const projectData = [
         </p>
       </>
     ),
-    techBadges: [
-      { scale: "31" },
-      [
+    techBadges: {
+      scale: "31",
+      badges: [
         { src: "javascript/javascript-original.svg", alt: "javascript" },
         {
           src: "nodejs/nodejs-original.svg",
           alt: "nodejs",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
         { src: "npm/npm-original-wordmark.svg", alt: "npm" },
         {
           src: "express/express-original.svg",
           alt: "express",
-          class: "tech-left-space-2",
+          className: "tech-left-space-2",
         },
         {
           src: "mongodb/mongodb-original.svg",
           alt: "mongodb",
-          class: "tech-minus-space-1",
+          className: "tech-minus-space-1",
         },
         { src: "react/react-original-wordmark.svg", alt: "react" },
         { src: "html5/html5-original.svg", alt: "html5" },
         { src: "css3/css3-original.svg", alt: "css3" },
-        { src: "git/git-original.svg", alt: "git", class: "tech-left-space-1" },
+        {
+          src: "git/git-original.svg",
+          alt: "git",
+          className: "tech-left-space-1",
+        },
         {
           src: "github/github-original.svg",
           alt: "github",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
       ],
-    ],
+    },
   },
   {
     // FarceBook
@@ -263,37 +288,41 @@ export const projectData = [
         </p>
       </>
     ),
-    techBadges: [
-      { scale: "31" },
-      [
+    techBadges: {
+      scale: "31",
+      badges: [
         { src: "javascript/javascript-original.svg", alt: "javascript" },
         {
           src: "nodejs/nodejs-original.svg",
           alt: "nodejs",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
         { src: "npm/npm-original-wordmark.svg", alt: "npm" },
         {
           src: "express/express-original.svg",
           alt: "express",
-          class: "tech-left-space-2",
+          className: "tech-left-space-2",
         },
         {
           src: "mongodb/mongodb-original.svg",
           alt: "mongodb",
-          class: "tech-minus-space-1",
+          className: "tech-minus-space-1",
         },
         { src: "react/react-original-wordmark.svg", alt: "react" },
         { src: "html5/html5-original.svg", alt: "html5" },
         { src: "css3/css3-original.svg", alt: "css3" },
-        { src: "git/git-original.svg", alt: "git", class: "tech-left-space-1" },
+        {
+          src: "git/git-original.svg",
+          alt: "git",
+          className: "tech-left-space-1",
+        },
         {
           src: "github/github-original.svg",
           alt: "github",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
       ],
-    ],
+    },
   },
   {
     // Knot Very Useful
@@ -346,28 +375,32 @@ export const projectData = [
         </p>
       </>
     ),
-    techBadges: [
-      { scale: "35" },
-      [
+    techBadges: {
+      scale: "35",
+      badges: [
         { src: "javascript/javascript-original.svg", alt: "javascript" },
         {
           src: "html5/html5-original.svg",
           alt: "html5",
-          class: "tech-left-space-3",
+          className: "tech-left-space-3",
         },
         {
           src: "css3/css3-original.svg",
           alt: "css3",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
-        { src: "git/git-original.svg", alt: "git", class: "tech-left-space-1" },
+        {
+          src: "git/git-original.svg",
+          alt: "git",
+          className: "tech-left-space-1",
+        },
         {
           src: "github/github-original.svg",
           alt: "github",
-          class: "tech-left-space-2",
+          className: "tech-left-space-2",
         },
       ],
-    ],
+    },
   },
   {
     // Alternative Routes
@@ -446,44 +479,48 @@ export const projectData = [
         </p>
       </>
     ),
-    techBadges: [
-      { scale: "33" },
-      [
+    techBadges: {
+      scale: "33",
+      badges: [
         { src: "javascript/javascript-original.svg", alt: "javascript" },
         {
           src: "nodejs/nodejs-original.svg",
           alt: "nodejs",
-          class: "tech-left-space-2",
+          className: "tech-left-space-2",
         },
         {
           src: "npm/npm-original-wordmark.svg",
           alt: "npm",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
         {
           src: "express/express-original.svg",
           alt: "express",
-          class: "tech-left-space-2",
+          className: "tech-left-space-2",
         },
         {
           src: "mongodb/mongodb-original.svg",
           alt: "mongodb",
-          class: "tech-minus-space-1",
+          className: "tech-minus-space-1",
         },
         { src: "html5/html5-original.svg", alt: "html5" },
         {
           src: "css3/css3-original.svg",
           alt: "css3",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
-        { src: "git/git-original.svg", alt: "git", class: "tech-left-space-1" },
+        {
+          src: "git/git-original.svg",
+          alt: "git",
+          className: "tech-left-space-1",
+        },
         {
           src: "github/github-original.svg",
           alt: "github",
-          class: "tech-left-space-2",
+          className: "tech-left-space-2",
         },
       ],
-    ],
+    },
   },
   {
     // Eclipse
@@ -587,43 +624,47 @@ export const projectData = [
         </p>
       </>
     ),
-    techBadges: [
-      { scale: "31" },
-      [
+    techBadges: {
+      scale: "31",
+      badges: [
         { src: "javascript/javascript-original.svg", alt: "javascript" },
         {
           src: "react/react-original-wordmark.svg",
           alt: "react",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
         {
           src: "nodejs/nodejs-original.svg",
           alt: "nodejs",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
         {
           src: "npm/npm-original-wordmark.svg",
           alt: "npm",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
         {
           src: "html5/html5-original.svg",
           alt: "html5",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
         {
           src: "css3/css3-original.svg",
           alt: "css3",
-          class: "tech-left-space-1",
+          className: "tech-left-space-1",
         },
-        { src: "git/git-original.svg", alt: "git", class: "tech-left-space-1" },
+        {
+          src: "git/git-original.svg",
+          alt: "git",
+          className: "tech-left-space-1",
+        },
         {
           src: "github/github-original.svg",
           alt: "github",
-          class: "tech-left-space-2",
+          className: "tech-left-space-2",
         },
       ],
-    ],
+    },
   },
   // {
   //   // Picture Pad
@@ -721,10 +762,10 @@ export const projectData = [
   //     { scale: '35' },
   //     [
   //       { src: 'javascript/javascript-original.svg', alt: 'javascript' },
-  //       { src: 'html5/html5-original.svg', alt: 'html5', class: 'tech-left-space-3' },
-  //       { src: 'css3/css3-original.svg', alt: 'css3', class: 'tech-left-space-1' },
-  //       { src: 'git/git-original.svg', alt: 'git', class: 'tech-left-space-1' },
-  //       { src: 'github/github-original.svg', alt: 'github', class: 'tech-left-space-2'  },
+  //       { src: 'html5/html5-original.svg', alt: 'html5', className: 'tech-left-space-3' },
+  //       { src: 'css3/css3-original.svg', alt: 'css3', className: 'tech-left-space-1' },
+  //       { src: 'git/git-original.svg', alt: 'git', className: 'tech-left-space-1' },
+  //       { src: 'github/github-original.svg', alt: 'github', className: 'tech-left-space-2'  },
   //     ]
   //   ]
   // },
@@ -780,12 +821,12 @@ export const projectData = [
   //     { scale: '40' },
   //     [
   //       { src: 'ruby/ruby-original.svg', alt: 'ruby' },
-  //       { src: 'postgresql/postgresql-original.svg', alt: 'postgresql', class: 'tech-left-space-1' },
+  //       { src: 'postgresql/postgresql-original.svg', alt: 'postgresql', className: 'tech-left-space-1' },
   //       { src: 'html5/html5-original.svg', alt: 'html5' },
-  //       { src: 'css3/css3-original.svg', alt: 'css3', class: 'tech-left-space-1' },
-  //       { src: 'rspec/rspec-original.svg', alt: 'rspec', class: 'tech-left-space-1' },
-  //       { src: 'git/git-original.svg', alt: 'git', class: 'tech-left-space-1' },
-  //       { src: 'github/github-original.svg', alt: 'github', class: 'tech-left-space-2'  },
+  //       { src: 'css3/css3-original.svg', alt: 'css3', className: 'tech-left-space-1' },
+  //       { src: 'rspec/rspec-original.svg', alt: 'rspec', className: 'tech-left-space-1' },
+  //       { src: 'git/git-original.svg', alt: 'git', className: 'tech-left-space-1' },
+  //       { src: 'github/github-original.svg', alt: 'github', className: 'tech-left-space-2'  },
   //     ]
   //   ]
   // },

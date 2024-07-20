@@ -1,3 +1,1 @@
-export function linkData() {
-
-}
+export function linkData() {}

@@ -1,14 +1,25 @@
 import { ReactNode } from "react";
 
+interface techBadge {
+  src: string;
+  alt: string;
+  className?: string;
+}
+
+interface techBadgeObject {
+  scale: string;
+  badges: techBadge[];
+}
+
 export interface projectObject {
   id: string;
   identifier: string;
   name: string;
-  navName: string;
-  panelName: string;
+  navName?: string;
+  panelName?: string;
   image: string;
   appUrl: string;
-  apiWakeUpUrl: string | null;
+  apiWakeUpUrl?: string | null;
   repoUrl: string;
   summary: string;
   responsivenessText: string;
@@ -16,10 +27,7 @@ export interface projectObject {
   subheading: string;
   descriptionText: ReactNode;
   technologiesText: ReactNode;
-  techBadges: [
-    { scale: string },
-    { src: string; alt: string; class?: string }[],
-  ];
+  techBadges: techBadgeObject;
 }
 
 export interface aboutObject {

@@ -10,7 +10,11 @@ interface NavLinkProps {
   className: string;
 }
 
-function NavLink({ children, topic, className = 'nav-btn nav-link' }: NavLinkProps) {
+function NavLink({
+  children,
+  topic,
+  className = "nav-btn nav-link",
+}: NavLinkProps) {
   const {
     section,
     setFocusProjectId,
@@ -18,35 +22,38 @@ function NavLink({ children, topic, className = 'nav-btn nav-link' }: NavLinkPro
     setFocusAboutId,
     setSelectedAbout,
   } = useSectionContext();
-  
+
   const navigate = useNavigate();
-  
+
   const handleHoverStart = () => {
-    if (section === 'projects') setFocusProjectId(topic.id);
-    if (section === 'about') setFocusAboutId(topic.id);
+    if (section === "projects") setFocusProjectId(topic.id);
+    if (section === "about") setFocusAboutId(topic.id);
   };
-  
+
   const handleHoverEnd = () => {
-    setFocusProjectId('');
-    setFocusAboutId('');
+    setFocusProjectId("");
+    setFocusAboutId("");
   };
-  
+
   const handleClick = (topic: projectObject | aboutObject) => {
-    if (section === 'projects') setSelectedProject(topic);
-    if (section === 'about') setSelectedAbout(topic);
-    localStorage.setItem('selectedProject', JSON.stringify(topic));
-    navigate(`/${Number(topic.id) < 10 ? 'project' : 'more-about-me'}/${topic.id}`);
+    if (section === "projects") setSelectedProject(topic);
+    if (section === "about") setSelectedAbout(topic);
+    localStorage.setItem("selectedProject", JSON.stringify(topic));
+    navigate(
+      `/${Number(topic.id) < 10 ? "project" : "more-about-me"}/${topic.id}`,
+    );
     scrollToTop();
   };
-  
+
   return (
     <div
-      role='button'
+      role="button"
       id={`${topic.identifier}-nav-btn`}
       className={className}
       onClick={() => handleClick(topic)}
       onMouseOver={handleHoverStart}
-      onMouseLeave={handleHoverEnd}>
+      onMouseLeave={handleHoverEnd}
+    >
       {children}
     </div>
   );
