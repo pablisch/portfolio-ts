@@ -7,35 +7,22 @@ import NavLink from "./NavLink.tsx";
 import projectData from "../../data/projectData.tsx";
 import aboutData from "../../data/aboutData.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
+import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 
-interface NavbarProps {
-  theme: string;
-  setTheme: (theme: string) => void;
-}
-
-export default function Navbar({ theme, setTheme }: NavbarProps) {
-  const { section } = useSectionContext();
+export default function Navbar() {
+  const { theme, handleThemeChange } = useThemeContext();
   const { isBurgerMenuActive, burgerMenuStage } = useScreenWidthContext();
+  const { section } = useSectionContext();
 
   // 👇🏻 TEMPORARY variable to mimic future functionality
   const isAvatarHovered = false;
-
-  const handleThemeClick = () => {
-    if (theme === "normal") {
-      setTheme("dark");
-    } else if (theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("normal");
-    }
-  };
 
   return (
     <div>
       navbar
       <div>{section}</div>
-      <button onClick={handleThemeClick}>
-        {theme === "normal" ? "normal" : theme === "dark" ? "dark" : "light"}
+      <button onClick={handleThemeChange}>
+        {theme === "light" ? "light" : theme === "dark" ? "dark" : "colour"}
       </button>
       <div className="navlist">
         {/* 👇🏻 PROJECT LINKS */}
