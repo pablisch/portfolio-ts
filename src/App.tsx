@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./features/Navbar/Navbar.tsx";
 import ProjectsPage from "./pages/ProjectsPage";
-import { SectionProvider } from "./context/SectionProvider.tsx";
+import { SectionProvider } from "./context/SectionContext.tsx";
 
 function App() {
   const [theme, setTheme] = useState("normal");

@@ -75,23 +75,6 @@ export const projectData = [
         </p>
       </>
     ),
-    // techBadges: [
-    //   { scale: "33" },
-    //   [
-    //     // { src: "javascript/javascript-original.svg", alt: "javascript" },
-    //     // { src: "nodejs/nodejs-original.svg", alt: "nodejs" },
-    //     // { src: "npm/npm-original-wordmark.svg", alt: "npm" },
-    //     // { src: "react/react-original-wordmark.svg", alt: "react" },
-    //     // { src: "html5/html5-original.svg", alt: "html5" },
-    //     // { src: "css3/css3-original.svg", alt: "css3" },
-    //     { src: "git/git-original.svg", alt: "git", className: "tech-left-space-1" },
-    //     // {
-    //     //   src: "github/github-original.svg",
-    //     //   alt: "github",
-    //     //   className: "tech-left-space-1",
-    //     // },
-    //   ],
-    // ],
     techBadges: {
       scale: "33",
       badges: [

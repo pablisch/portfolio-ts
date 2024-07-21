@@ -1,17 +1,17 @@
 import React, { createContext, useState } from "react";
-import { AboutObject, ProjectObject } from "../types/data.types";
+import { aboutObject, projectObject } from "../types/data.types";
 
 export interface SectionContextType {
   section: string;
   setSection: (section: string) => void;
   focusProjectId: string;
   setFocusProjectId: (projectId: string) => void;
-  selectedProject: ProjectObject | null;
-  setSelectedProject: (project: ProjectObject | null) => void;
+  selectedProject: projectObject | null;
+  setSelectedProject: (project: projectObject | null) => void;
   focusAboutId: string;
   setFocusAboutId: (aboutId: string) => void;
-  selectedAbout: AboutObject | null;
-  setSelectedAbout: (about: AboutObject | null) => void;
+  selectedAbout: aboutObject | null;
+  setSelectedAbout: (about: aboutObject | null) => void;
 }
 
 export const SectionContext = createContext<SectionContextType>({
@@ -34,11 +34,11 @@ export const SectionProvider = ({
 }) => {
   const [section, setSection] = useState<string>("projects");
   const [focusProjectId, setFocusProjectId] = useState<string>("");
-  const [selectedProject, setSelectedProject] = useState<ProjectObject | null>(
+  const [selectedProject, setSelectedProject] = useState<projectObject | null>(
     null,
   );
   const [focusAboutId, setFocusAboutId] = useState<string>("");
-  const [selectedAbout, setSelectedAbout] = useState<AboutObject | null>(null);
+  const [selectedAbout, setSelectedAbout] = useState<aboutObject | null>(null);
 
   return (
     <SectionContext.Provider

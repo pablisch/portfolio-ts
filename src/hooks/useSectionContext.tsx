@@ -2,7 +2,7 @@ import { useContext } from "react";
 import {
   SectionContext,
   SectionContextType,
-} from "../context/SectionProvider.tsx";
+} from "../context/SectionContext.tsx";
 
 export const useSectionContext: () => SectionContextType = () => {
   const context = useContext(SectionContext);

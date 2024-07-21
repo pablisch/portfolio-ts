@@ -6,6 +6,7 @@ import { extLinkData } from "../../data/extLinkData.tsx";
 import NavLink from "./NavLink.tsx";
 import projectData from "../../data/projectData.tsx";
 import aboutData from "../../data/aboutData.tsx";
+import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 
 interface NavbarProps {
   theme: string;
@@ -14,10 +15,9 @@ interface NavbarProps {
 
 export default function Navbar({ theme, setTheme }: NavbarProps) {
   const { section } = useSectionContext();
+  const { isBurgerMenuActive, burgerMenuStage } = useScreenWidthContext();
 
   // 👇🏻 TEMPORARY variable to mimic future functionality
-  const burgerMenuStage = 0;
-  const isBurgerMenuVisible = false;
   const isAvatarHovered = false;
 
   const handleThemeClick = () => {
@@ -40,7 +40,7 @@ export default function Navbar({ theme, setTheme }: NavbarProps) {
       <div className="navlist">
         {/* 👇🏻 PROJECT LINKS */}
         {section === "projects" &&
-          !isBurgerMenuVisible &&
+          !isBurgerMenuActive &&
           projectData.map((project) => (
             <NavLink
               className={`nav-btn nav-btn-${theme} nav-link nav-link-${theme} ${
@@ -54,7 +54,7 @@ export default function Navbar({ theme, setTheme }: NavbarProps) {
           ))}
         {/* 👇🏻 ABOUT LINKS */}
         {section === "about" &&
-          !isBurgerMenuVisible &&
+          !isBurgerMenuActive &&
           aboutData.map((about) => (
             <NavLink
               className={`nav-btn nav-btn-${theme} nav-link nav-link-${theme} ${
