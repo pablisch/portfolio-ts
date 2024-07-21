@@ -1,13 +1,9 @@
-import { extNavLinkObject } from "../../types/data.types";
-import ExtNavLink from "./ExtNavLink.tsx";
-import { extLinkData } from "../../data/extLinkData.tsx";
-import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import NavLeft from "./NavLeft.tsx";
+import NavRight from "./NavRight.tsx";
 
 export default function Navbar() {
   const { theme, handleThemeChange } = useThemeContext();
-  const { burgerMenuStage } = useScreenWidthContext();
 
   // 👇🏻 TEMPORARY variable to mimic future functionality
 
@@ -18,13 +14,11 @@ export default function Navbar() {
           {theme === "light" ? "light" : theme === "dark" ? "dark" : "colour"}
         </button>
         <NavLeft />
-        {/* 👇🏻 EXTERNAL LINK BUTTONS */}
-        {extLinkData.length &&
-          burgerMenuStage < 2 &&
-          extLinkData.map((exLink: extNavLinkObject) => (
-            <ExtNavLink key={exLink.name} extLink={exLink} />
-          ))}
+        <NavRight />
       </div>
+      <div className={`nav-border-bar-1 nav-border-bar-1-${theme}`}></div>
+      <div className={`nav-border-bar-2 nav-border-bar-2-${theme}`}></div>
+      <div className={`nav-border-bar-3 nav-border-bar-3-${theme}`}></div>
     </nav>
   );
 }
