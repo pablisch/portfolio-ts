@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --navbar-height: 85px;
+
+  --pink-300: #f0b7b1;
+  --pink-500: #ffa69e;
+
+  --blue-50: #eff7fb;
+  --blue-100: #e4fafd;
+  --blue-100-0: #e4fafd00;
+  --blue-200: #d0f1f6;
+  --blue-400: #aed9e0;
+  --blue-500: #a2ccd2;
+
+  --whitish-100: #f0f5f5;
+  --whitish-200: #e9efef;
+  --whitish-300: #e0e8e8;
+  --whitish-400: #d7dede;
+  --whitish-500: #cad2d2;
+
+  --cream-100: #fdfbf5;
+  --cream-200: #fbfde3;
+  --cream-300: #faf3dd;
+
+  --lime-300: #b6fc4c;
+  --lime-500: #84b836;
+
+  --green-600: #53a335;
+  --green-700: #4f8e39;
+  --green-800: #467734;
+  --green-900: #325d23;
+
+  --leaf-100: #e7f1dd;
+  --leaf-200: #d0dcc4;
+  --leaf-300: #c8d5b9;
+  --leaf-700: #85a775;
+  --leaf-900: #6b7e62;
+  --leaf-1100: #4f6048;
+
+  --sea-green-200: #aecebf;
+  --sea-green-400: #8fc0a9;
+  --sea-green-600: #7aa490;
+  --sea-green-800-dull: #688477;
+  --sea-green-1000-dull: #4f5d57;
+
+  --turquoise-200: #b8f2e6;
+  --turquoise-200-zero: rgba(184, 242, 230, 0);
+  --turquoise-400: #68b0ab;
+
+  --grey-blue-200: #9399b0;
+  --grey-blue-400: #696d7d;
+  --grey-blue-700: #646465;
+  --grey-blue-800: #626364;
+  --grey-blue-900: #545657;
+  --grey-blue-1100: #484849;
+  --grey-blue-1300: #404041;
+  --grey-blue-1500: #323233;
+  --grey-blue-1700: #252527;
+
+  --fawn-200: #c2b6a3;
+  --fawn-400: #ac9a7a;
+
+  --linkedin-blue: #0077b5;
+  --linkedin-dark: #064364;
+
+  --a: rgb(243, 252, 253);
+}
