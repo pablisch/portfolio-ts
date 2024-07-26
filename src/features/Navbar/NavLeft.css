@@ -37,21 +37,21 @@
   max-width: 100px;
 }
 
-.nav-title-retro {
-  background-color: var(--nav-dark-btn-back-retro);
-  color: var(--nav-dark-btn-text-retro);
-  border: 1px var(--nav-dark-btn-border-retro) solid;
+.nav-title {
+  background-color: var(--nav-section-btn-background);
+  color: var(--nav-section-btn-text);
+  border: 1px var(--nav-section-btn-border) solid;
 }
-.nav-title-light {
-  background-color: var(--nav-dark-btn-back-light);
-  color: var(--nav-dark-btn-text-light);
-  border: 1px var(--nav-dark-btn-border-light) solid;
-}
-.nav-title-dark {
-  background-color: var(--nav-dark-btn-back-dark);
-  color: var(--nav-dark-btn-text-dark);
-  border: 1px var(--nav-dark-btn-border-dark) solid;
-}
+/*.nav-title-retro {*/
+/*  background-color: var(--nav-dark-btn-back-retro);*/
+/*  color: var(--nav-dark-btn-text-retro);*/
+/*  border: 1px var(--nav-dark-btn-border-retro) solid;*/
+/*}*/
+/*.nav-title-dark {*/
+/*  background-color: var(--nav-dark-btn-back-dark);*/
+/*  color: var(--nav-dark-btn-text-dark);*/
+/*  border: 1px var(--nav-dark-btn-border-dark) solid;*/
+/*}*/
 
 .abouts-title {
   max-width: 195px;
@@ -94,4 +94,88 @@
 nav h1 {
   font-size: 2.2rem;
   font-weight: normal;
+}
+
+.navlist {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  max-width: 600px;
+}
+
+.navlist p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* NAV LINKS inc INTERNAL & EXTERNAL LINKS */
+
+.nav-btn {
+  flex: 0 0 20px;
+  text-align: center;
+  margin: 0 4px; /* Any change made here should also be made to margin in .github-link-btn  */
+  border-radius: 15px;
+  padding: 5px 3px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+  border: 1px var(--nav-link-btn-border) solid;
+  background-color: var(--nav-link-btn-background);
+  color: var(--nav-link-btn-text);
+}
+
+/*.nav-btn-retro {*/
+/*  border: 1px var(--nav-light-btn-border-retro) solid;*/
+/*}*/
+/*.nav-btn-dark {*/
+/*  border: 1px var(--nav-light-btn-border-dark) solid;*/
+/*}*/
+
+.nav-link {
+  transition: all 0.5s ease;
+}
+
+/*.nav-link-retro {*/
+/*  background-color: var(--nav-light-btn-back-retro);*/
+/*  color: var(--nav-light-btn-text-retro);*/
+/*}*/
+/*.nav-link-dark {*/
+/*  background-color: var(--nav-light-btn-back-dark);*/
+/*  color: var(--nav-light-btn-text-dark);*/
+/*}*/
+
+.nav-link-retro:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+.nav-link-light:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+.nav-link-dark:hover {
+  background-color: var(--nav-light-btn-back-hover-dark);
+  color: var(--nav-light-btn-text-hover-dark);
+  border: 1px var(--nav-light-btn-border-hover-dark) solid;
+}
+.nav-link-simple:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+
+.avatar-hovered-nav-link {
+  transition:
+    background-color 0.5s ease,
+    border 0.5s ease,
+    color 0.5s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--leaf-1100) solid;
+  color: var(--lime-500);
 }

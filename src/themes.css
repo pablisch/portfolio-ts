@@ -1,7 +1,14 @@
 :root {
   --background-primary: #ffffff;
   --background-secondary: #d4dadc;
+
   --nav-background: #ffffff;
+  --nav-section-btn-background: var(--blue-100);
+  --nav-section-btn-text: var(--grey-blue-700);
+  --nav-section-btn-border: var(--sea-green-200);
+  --nav-link-btn-background: var(--whitish-100);
+  --nav-link-btn-text: var(--grey-blue-700);
+  --nav-link-btn-border: var(--sea-green-200);
   --text-primary: #252525;
   --button-primary: #d0d5d1;
   --nav-border-1: var(--blue-400);
