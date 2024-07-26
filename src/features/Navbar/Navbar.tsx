@@ -1,12 +1,7 @@
-// import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import NavLeft from "./NavLeft.tsx";
 import NavRight from "./NavRight.tsx";
 
 export default function Navbar() {
-  // const { theme } = useThemeContext();
-
-  // 👇🏻 TEMPORARY variable to mimic future functionality
-
   return (
     <nav>
       <div className="nav-container">

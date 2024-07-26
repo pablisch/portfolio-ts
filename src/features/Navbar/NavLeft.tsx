@@ -8,7 +8,8 @@ import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 
 export default function NavLeft() {
   const [isAvatarHovered, setIsAvatarHovered] = React.useState(false);
-  const { theme } = useThemeContext();
+  const { theme, handleAvatarHoverStart, handleAvatarHoverEnd } =
+    useThemeContext();
   const { section } = useSectionContext();
   const { isBurgerMenuActive } = useScreenWidthContext();
 
@@ -24,13 +25,13 @@ export default function NavLeft() {
         // src='/images/pablo-circle-avatar.png'
         src="/images/avatar-square-small4.png"
         alt="avatar icon"
-        onMouseEnter={() => setIsAvatarHovered(true)}
-        onMouseLeave={() => setIsAvatarHovered(false)}
+        onMouseEnter={handleAvatarHoverStart}
+        onMouseLeave={handleAvatarHoverEnd}
       />
       <div
         role="button"
         onClick={handleNavTitleClick}
-        className={`nav-title nav-title-${theme} ${
+        className={`nav-title ${
           isAvatarHovered ? "avatar-hovered-nav-title" : ""
         } ${section === "projects" ? "projects-title" : "abouts-title"}`}
       >
@@ -73,5 +74,3 @@ export default function NavLeft() {
     </section>
   );
 }
-
-// export default NavLeft;

@@ -1,11 +1,3 @@
-:root {
-  --nav-side-padding: 20px;
-  --fake-side-margin: 0.1px;
-  --nav-container-width: calc(85vw + (2 * var(--nav-side-padding)));
-  --navbar-height: 85px;
-  --app-max-width: 1100px;
-}
-
 /* UNDER NAVBAR BORDERS inc FADE BORDER */
 
 .nav-border-bar-1 {
@@ -33,33 +25,26 @@
   );
 }
 
-.nav-border-bar-3-retro {
-  background: linear-gradient(
-    to bottom,
-    var(--nav-bottom-bar-3-retro-pt1) 0%,
-    var(--nav-bottom-bar-3-retro-pt2) 100%
-  );
-}
-.nav-border-bar-3-light {
-  background: linear-gradient(
-    to bottom,
-    var(--nav-bottom-bar-3-light-pt1) 0%,
-    var(--nav-bottom-bar-3-light-pt2) 100%
-  );
-}
-.nav-border-bar-3-dark {
-  background: linear-gradient(
-    to bottom,
-    var(--nav-bottom-bar-3-dark-pt1) 0%,
-    var(--nav-bottom-bar-3-dark-pt2) 100%
-  );
-}
+/*.nav-border-bar-3-retro {*/
+/*  background: linear-gradient(*/
+/*    to bottom,*/
+/*    var(--nav-bottom-bar-3-retro-pt1) 0%,*/
+/*    var(--nav-bottom-bar-3-retro-pt2) 100%*/
+/*  );*/
+/*}*/
+/*.nav-border-bar-3-dark {*/
+/*  background: linear-gradient(*/
+/*    to bottom,*/
+/*    var(--nav-bottom-bar-3-dark-pt1) 0%,*/
+/*    var(--nav-bottom-bar-3-dark-pt2) 100%*/
+/*  );*/
+/*}*/
 
 .avatar-hovered-nav-border-bar-3 {
   background: linear-gradient(
     to bottom,
     var(--turquoise-200) 0%,
-    var(--turquoise-200-zero) 100%
+    var(--turquoise-200-0) 100%
   );
 }
 
@@ -71,20 +56,18 @@ nav {
   width: 100%;
   background-size: cover;
   z-index: 1000;
+  background-color: var(--nav-background);
+  transition: background-color 2s ease;
 }
 
-.nav-retro {
-  background-color: var(--nav-back-retro);
-  transition: background-color 2s ease;
-}
-.nav-light {
-  background-color: var(--nav-back-light);
-  transition: background-color 2s ease;
-}
-.nav-dark {
-  background-color: var(--nav-back-dark);
-  transition: background-color 2s ease;
-}
+/*.nav-retro {*/
+/*  background-color: var(--nav-back-retro);*/
+/*  transition: background-color 2s ease;*/
+/*}*/
+/*.nav-dark {*/
+/*  background-color: var(--nav-back-dark);*/
+/*  transition: background-color 2s ease;*/
+/*}*/
 
 .avatar-hovered-navbar {
   transition: background-color 2s ease;
