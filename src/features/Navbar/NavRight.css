@@ -129,7 +129,7 @@
 
 .github-link-btn {
   /* transition: all 0.5s ease; */
-  cursor: url("./looking-glass.png"), auto;
+  cursor: url("./navCursors/looking-glass.png"), auto;
 }
 
 .github-link-btn-retro {
@@ -186,7 +186,7 @@
 
 .linkedin-link-btn {
   transition: background-color 1s ease;
-  cursor: url("./looking-glass.png"), auto;
+  cursor: url("./navCursors/looking-glass.png"), auto;
 }
 
 .linkedin-link-btn {
@@ -228,7 +228,7 @@
 }
 
 .settings-btn {
-  cursor: url("./smallaxe.png"), auto;
+  cursor: url("./navCursors/smallaxe.png"), auto;
 }
 
 .rotate {
