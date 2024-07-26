@@ -5,6 +5,8 @@ import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import { extLinkData } from "../../data/extLinkData.tsx";
 import { extNavLinkObject } from "../../types/data.types.ts";
 import ExtNavLink from "./ExtNavLink.tsx";
+import "./NavRight.css";
+import "./Hamburger.css";
 
 export default function NavRight() {
   const { theme, handleThemeChange, isIconRotating } = useThemeContext();

@@ -1,0 +1,237 @@
+.navlist {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  max-width: 600px;
+}
+
+.navlist p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* NAV LINKS inc INTERNAL & EXTERNAL LINKS */
+
+.nav-btn {
+  flex: 0 0 20px;
+  text-align: center;
+  margin: 0 4px; /* Any change made here should also be made to margin in .github-link-btn  */
+  border-radius: 15px;
+  padding: 5px 3px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-btn-retro {
+  border: 1px var(--nav-light-btn-border-retro) solid;
+}
+.nav-btn-light {
+  border: 1px var(--nav-light-btn-border-light) solid;
+}
+.nav-btn-dark {
+  border: 1px var(--nav-light-btn-border-dark) solid;
+}
+
+.nav-link {
+  transition: all 0.5s ease;
+}
+
+.nav-link-retro {
+  background-color: var(--nav-light-btn-back-retro);
+  color: var(--nav-light-btn-text-retro);
+}
+.nav-link-light {
+  background-color: var(--nav-light-btn-back-light);
+  color: var(--nav-light-btn-text-light);
+}
+.nav-link-dark {
+  background-color: var(--nav-light-btn-back-dark);
+  color: var(--nav-light-btn-text-dark);
+}
+
+.nav-link-retro:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+.nav-link-light:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+.nav-link-dark:hover {
+  background-color: var(--nav-light-btn-back-hover-dark);
+  color: var(--nav-light-btn-text-hover-dark);
+  border: 1px var(--nav-light-btn-border-hover-dark) solid;
+}
+.nav-link-simple:hover {
+  background-color: var(--nav-light-btn-back-hover-retro);
+  color: var(--nav-light-btn-text-hover-retro);
+  border: 1px var(--nav-light-btn-border-hover-retro) solid;
+}
+
+.avatar-hovered-nav-link {
+  transition:
+    background-color 0.5s ease,
+    border 0.5s ease,
+    color 0.5s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--leaf-1100) solid;
+  color: var(--lime-500);
+}
+
+.nav-section-link {
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+.nav-section-link-retro {
+  background-color: var(--nav-dark-btn-back-retro);
+  color: var(--nav-dark-btn-text-retro);
+}
+.nav-section-link-light {
+  background-color: var(--nav-dark-btn-back-light);
+  color: var(--nav-dark-btn-text-light);
+}
+.nav-section-link-dark {
+  background-color: var(--nav-dark-btn-back-dark);
+  color: var(--nav-dark-btn-text-dark);
+}
+
+.nav-section-link-retro:hover {
+  background-color: var(--nav-light-btn-text-hover-retro);
+  color: var(--nav-dark-btn-text-hover-retro);
+}
+.nav-section-link-light:hover {
+  background-color: var(--nav-light-btn-back-hover-light);
+  color: var(--nav-dark-btn-text-hover-light);
+}
+.nav-section-link-dark:hover {
+  background-color: var(--nav-dark-btn-back-hover-dark);
+  color: var(--nav-dark-btn-text-hover-dark);
+}
+
+.avatar-hovered-nav-section-link {
+  transition:
+    background-color 0.5s ease,
+    border 0.5s ease,
+    color 0.5s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--leaf-1100) solid;
+  color: var(--lime-500);
+}
+
+.github-link-btn {
+  /* transition: all 0.5s ease; */
+  cursor: url("./looking-glass.png"), auto;
+}
+
+.github-link-btn-retro {
+  background-color: var(--nav-light-btn-back-retro);
+}
+.github-link-btn-light {
+  background-color: var(--nav-light-btn-back-light);
+}
+.github-link-btn-dark {
+  background-color: var(--nav-light-btn-back-dark);
+}
+
+.github-link-btn-retro:hover {
+  background-color: var(--github-back-hover-retro);
+  border: 1px var(--github-border-hover-retro) solid;
+}
+.github-link-btn-light:hover {
+  background-color: var(--github-back-hover-light);
+  border: 1px var(--github-border-hover-light) solid;
+}
+.github-link-btn-dark:hover {
+  background-color: var(--github-back-hover-dark);
+  border: 1px var(--github-border-hover-dark) solid;
+}
+
+.github-link-btn:hover .github-logo {
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+
+.github-logo {
+  max-height: 50px;
+  /* transition: opacity 2s ease, transform 2s ease; */
+  transition: all 2s ease-in-out;
+  opacity: 0.6;
+}
+
+.github-logo-dark {
+  opacity: 1;
+  filter: invert(0.7);
+}
+
+.github-link-btn:hover .github-logo-dark {
+  filter: invert(0);
+}
+
+.settings-icon-dark {
+  filter: invert(0);
+}
+
+.settings-btn-dark:hover .settings-icon-dark {
+  filter: invert(1);
+}
+
+.linkedin-link-btn {
+  transition: background-color 1s ease;
+  cursor: url("./looking-glass.png"), auto;
+}
+
+.linkedin-link-btn {
+  background-color: var(--linkedin-back-retro);
+  border: 1px var(--linkedin-border-retro) solid;
+}
+
+.linkedin-link-btn-light {
+  background-color: var(--linkedin-back-light);
+  border: 1px var(--linkedin-border-light) solid;
+}
+.linkedin-link-btn-dark {
+  background-color: var(--linkedin-back-dark);
+  border: 1px var(--linkedin-border-dark) solid;
+}
+
+.linkedin-link-btn:hover {
+  background-color: var(--linkedin-blue);
+  border: 1px var(--navText-darker) solid;
+}
+
+.linkedin-logo {
+  max-height: 40px;
+  transition: opacity 3s ease;
+  opacity: 1;
+}
+
+.avatar-hovered-github-link {
+  transition:
+    background-color 2s ease,
+    border 2s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--leaf-1100) solid;
+}
+
+.avatar-hovered-linkedin-logo {
+  transition: opacity 3s ease;
+  opacity: 0.1;
+}
+
+.settings-btn {
+  cursor: url("./smallaxe.png"), auto;
+}
+
+.rotate {
+  /* transition: transform 1s ease-in-out; */
+  transform: rotate(720deg);
+}

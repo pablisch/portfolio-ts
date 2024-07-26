@@ -1,0 +1,97 @@
+.nav-left {
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.logo-image {
+  max-width: 60px;
+  margin-right: 15px;
+  opacity: 0.9;
+  transition: opacity 2s ease;
+  cursor: none;
+  border-radius: 100%;
+}
+
+.logo-image-dark {
+  border: 1px solid var(--whitish-300);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.9);
+}
+
+.avatar-hovered-avatar {
+  opacity: 0.1;
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 400px;
+  text-align: center;
+  height: 62px;
+  border-radius: 15px;
+  padding: 5px 15px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  margin-right: 5px;
+  max-width: 100px;
+}
+
+.nav-title-retro {
+  background-color: var(--nav-dark-btn-back-retro);
+  color: var(--nav-dark-btn-text-retro);
+  border: 1px var(--nav-dark-btn-border-retro) solid;
+}
+.nav-title-light {
+  background-color: var(--nav-dark-btn-back-light);
+  color: var(--nav-dark-btn-text-light);
+  border: 1px var(--nav-dark-btn-border-light) solid;
+}
+.nav-title-dark {
+  background-color: var(--nav-dark-btn-back-dark);
+  color: var(--nav-dark-btn-text-dark);
+  border: 1px var(--nav-dark-btn-border-dark) solid;
+}
+
+.abouts-title {
+  max-width: 195px;
+}
+
+.projects-title {
+  max-width: 225px;
+}
+
+.nav-title:hover {
+  transition: all 0.5s ease;
+}
+
+.nav-title-retro:hover {
+  background-color: var(--navText-darker);
+  color: var(--lime-300);
+  border: 1px var(--sea-green-400) solid;
+}
+.nav-title-light:hover {
+  background-color: var(--nav-dark-btn-back-hover-light);
+  color: var(--nav-dark-btn-text-hover-light);
+  border: 1px var(--sea-green-400) solid;
+}
+.nav-title-dark:hover {
+  background-color: var(--nav-dark-btn-back-hover-dark);
+  color: var(--nav-dark-btn-text-hover-dark);
+  border: 1px var(--sea-green-400) solid;
+}
+
+.avatar-hovered-nav-title {
+  transition:
+    background-color 2s ease,
+    border 2s ease,
+    color 2s ease;
+  background-color: var(--grey-blue-1300);
+  border: 1px var(--grey-blue-1300) solid;
+  color: var(--lime-300);
+}
+
+nav h1 {
+  font-size: 2.2rem;
+  font-weight: normal;
+}

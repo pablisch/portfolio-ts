@@ -1,13 +1,12 @@
-import React from "react";
 import { useSectionContext } from "../../hooks/useSectionContext.tsx";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import projectData from "../../data/projectData.tsx";
 import NavLink from "./NavLink.tsx";
 import aboutData from "../../data/aboutData.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
+import "./NavLeft.css";
 
 export default function NavLeft() {
-  const [isAvatarHovered, setIsAvatarHovered] = React.useState(false);
   const { theme, handleAvatarHoverStart, handleAvatarHoverEnd } =
     useThemeContext();
   const { section } = useSectionContext();
@@ -31,9 +30,7 @@ export default function NavLeft() {
       <div
         role="button"
         onClick={handleNavTitleClick}
-        className={`nav-title ${
-          isAvatarHovered ? "avatar-hovered-nav-title" : ""
-        } ${section === "projects" ? "projects-title" : "abouts-title"}`}
+        className={`nav-title ${section === "projects" ? "projects-title" : "abouts-title"}`}
       >
         <h1 id="nav-section-title-text">
           {section === "projects"
