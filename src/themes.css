@@ -1,16 +1,29 @@
 :root {
   --background-primary: #ffffff;
   --background-secondary: #d4dadc;
+  --text-primary: #252525;
+  --button-primary: #d0d5d1;
 
   --nav-background: #ffffff;
-  --nav-section-btn-background: var(--blue-100);
-  --nav-section-btn-text: var(--grey-blue-700);
-  --nav-section-btn-border: var(--sea-green-200);
+
   --nav-link-btn-background: var(--whitish-100);
   --nav-link-btn-text: var(--grey-blue-700);
   --nav-link-btn-border: var(--sea-green-200);
-  --text-primary: #252525;
-  --button-primary: #d0d5d1;
+  --nav-link-btn-background-hover: #fff;
+  --nav-link-btn-text-hover: var(--grey-blue-700);
+  --nav-link-btn-border-hover: var(--grey-blue-200);
+
+  --nav-section-btn-background: var(--blue-100);
+  --nav-section-btn-background-hover: var(--grey-blue-400);
+
+  --github-background: var(--whitish-100);
+  --github-border: var(--sea-green-200);
+  --github-background-hover: #fff;
+  --github-border-hover: var(--grey-blue-400);
+  --linkedIn-background: var(--blue-500);
+  --linkedIn-border: var(--sea-green-600);
+  --linkedIn-border-hover: var(--grey-blue-1300);
+
   --nav-border-1: var(--blue-400);
   --nav-border-2: var(--blue-100);
   --nav-border-3-pt1: var(--grey-blue-200);

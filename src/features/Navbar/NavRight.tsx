@@ -18,7 +18,7 @@ export default function NavRight() {
     isBurgerMenuActive,
   } = useScreenWidthContext();
   return (
-    <section className="nav-right navlist" data-test="nav-right-container">
+    <section className="nav-right nav-list" data-test="nav-right-container">
       {/* 👇🏻 LINK TO PROJECTS SECTION */}
       {section === "about" && burgerMenuStage < 3 && (
         <Link

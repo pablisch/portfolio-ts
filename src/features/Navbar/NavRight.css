@@ -1,32 +1,14 @@
 .nav-section-link {
   transition: all 0.5s ease;
   text-decoration: none;
+  background-color: var(--nav-section-btn-background);
+  color: var(--nav-link-btn-text);
 }
 
-.nav-section-link-retro {
-  background-color: var(--nav-dark-btn-back-retro);
-  color: var(--nav-dark-btn-text-retro);
-}
-.nav-section-link-light {
-  background-color: var(--nav-dark-btn-back-light);
-  color: var(--nav-dark-btn-text-light);
-}
-.nav-section-link-dark {
-  background-color: var(--nav-dark-btn-back-dark);
-  color: var(--nav-dark-btn-text-dark);
-}
-
-.nav-section-link-retro:hover {
-  background-color: var(--nav-light-btn-text-hover-retro);
-  color: var(--nav-dark-btn-text-hover-retro);
-}
-.nav-section-link-light:hover {
-  background-color: var(--nav-light-btn-back-hover-light);
-  color: var(--nav-dark-btn-text-hover-light);
-}
-.nav-section-link-dark:hover {
-  background-color: var(--nav-dark-btn-back-hover-dark);
-  color: var(--nav-dark-btn-text-hover-dark);
+.nav-section-link:hover {
+  background-color: var(--nav-link-btn-background-hover);
+  color: var(--nav-link-btn-text-hover);
+  border: 1px var(--nav-section-btn-background-hover) solid;
 }
 
 .avatar-hovered-nav-section-link {
@@ -40,31 +22,14 @@
 }
 
 .github-link-btn {
-  /* transition: all 0.5s ease; */
   cursor: url("./navCursors/looking-glass.png"), auto;
+  background-color: var(--github-background);
+  border: 1px var(--github-border) solid;
 }
 
-.github-link-btn-retro {
-  background-color: var(--nav-light-btn-back-retro);
-}
-.github-link-btn-light {
-  background-color: var(--nav-light-btn-back-light);
-}
-.github-link-btn-dark {
-  background-color: var(--nav-light-btn-back-dark);
-}
-
-.github-link-btn-retro:hover {
-  background-color: var(--github-back-hover-retro);
-  border: 1px var(--github-border-hover-retro) solid;
-}
-.github-link-btn-light:hover {
-  background-color: var(--github-back-hover-light);
-  border: 1px var(--github-border-hover-light) solid;
-}
-.github-link-btn-dark:hover {
-  background-color: var(--github-back-hover-dark);
-  border: 1px var(--github-border-hover-dark) solid;
+.github-link-btn:hover {
+  background-color: var(--github-background-hover);
+  border: 1px var(--github-border-hover) solid;
 }
 
 .github-link-btn:hover .github-logo {
@@ -74,7 +39,6 @@
 
 .github-logo {
   max-height: 50px;
-  /* transition: opacity 2s ease, transform 2s ease; */
   transition: all 2s ease-in-out;
   opacity: 0.6;
 }
@@ -102,22 +66,13 @@
 }
 
 .linkedIn-link-btn {
-  background-color: var(--linkedIn-back-retro);
-  border: 1px var(--linkedIn-border-retro) solid;
-}
-
-.linkedIn-link-btn-light {
-  background-color: var(--linkedIn-back-light);
-  border: 1px var(--linkedIn-border-light) solid;
-}
-.linkedIn-link-btn-dark {
-  background-color: var(--linkedIn-back-dark);
-  border: 1px var(--linkedIn-border-dark) solid;
+  background-color: var(--linkedIn-background);
+  border: 1px var(--linkedIn-border) solid;
 }
 
 .linkedIn-link-btn:hover {
   background-color: var(--linkedIn-blue);
-  border: 1px var(--navText-darker) solid;
+  border: 1px var(--linkedIn-border-hover) solid;
 }
 
 .linkedIn-logo {
@@ -126,24 +81,63 @@
   opacity: 1;
 }
 
-.avatar-hovered-github-link {
-  transition:
-    background-color 2s ease,
-    border 2s ease;
-  background-color: var(--grey-blue-1300);
-  border: 1px var(--leaf-1100) solid;
-}
-
-.avatar-hovered-linkedIn-logo {
-  transition: opacity 3s ease;
-  opacity: 0.1;
-}
-
 .settings-btn {
   cursor: url("./navCursors/smallaxe.png"), auto;
 }
 
 .rotate {
-  /* transition: transform 1s ease-in-out; */
   transform: rotate(720deg);
 }
+
+/*.nav-section-link-retro {*/
+/*  background-color: var(--nav-dark-btn-back-retro);*/
+/*  color: var(--nav-dark-btn-text-retro);*/
+/*}*/
+/*.nav-section-link-dark {*/
+/*  background-color: var(--nav-dark-btn-back-dark);*/
+/*  color: var(--nav-dark-btn-text-dark);*/
+/*}*/
+
+/*.nav-section-link-retro:hover {*/
+/*  background-color: var(--nav-light-btn-text-hover-retro);*/
+/*  color: var(--nav-dark-btn-text-hover-retro);*/
+/*}*/
+
+/*.nav-section-link-dark:hover {*/
+/*  background-color: var(--nav-dark-btn-back-hover-dark);*/
+/*  color: var(--nav-dark-btn-text-hover-dark);*/
+/*}*/
+
+/*.github-link-btn-retro {*/
+/*  background-color: var(--nav-light-btn-back-retro);*/
+/*}*/
+/*.github-link-btn-dark {*/
+/*  background-color: var(--nav-light-btn-back-dark);*/
+/*}*/
+
+/*.github-link-btn-retro:hover {*/
+/*  background-color: var(--github-back-hover-retro);*/
+/*  border: 1px var(--github-border-hover-retro) solid;*/
+/*}*/
+/*.github-link-btn-dark:hover {*/
+/*  background-color: var(--github-back-hover-dark);*/
+/*  border: 1px var(--github-border-hover-dark) solid;*/
+/*}*/
+
+/*.linkedIn-link-btn-dark {*/
+/*  background-color: var(--linkedIn-back-dark);*/
+/*  border: 1px var(--linkedIn-border-dark) solid;*/
+/*}*/
+
+/*.avatar-hovered-github-link {*/
+/*  transition:*/
+/*    background-color 2s ease,*/
+/*    border 2s ease;*/
+/*  background-color: var(--grey-blue-1300);*/
+/*  border: 1px var(--leaf-1100) solid;*/
+/*}*/
+
+/*.avatar-hovered-linkedIn-logo {*/
+/*  transition: opacity 3s ease;*/
+/*  opacity: 0.1;*/
+/*}*/

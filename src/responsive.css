@@ -100,7 +100,7 @@
   .nav-container {
     height: calc(var(--navbar-height) - 15px);
   }
-  .navlist {
+  .nav-list {
     justify-content: flex-end;
   }
   .burger-open-spacer {
