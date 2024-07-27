@@ -36,9 +36,10 @@ function NavLink({
   };
 
   const handleClick = (topic: projectObject | aboutObject) => {
-    if (section === "projects") setSelectedProject(topic);
-    if (section === "about") setSelectedAbout(topic);
-    localStorage.setItem("selectedProject", JSON.stringify(topic));
+    if (section === "projects" && topic.id)
+      setSelectedProject(topic as projectObject);
+    if (section === "about" && topic.id) setSelectedAbout(topic as aboutObject);
+    localStorage.setItem("selectedTopic", JSON.stringify(topic));
     navigate(
       `/${Number(topic.id) < 10 ? "project" : "more-about-me"}/${topic.id}`,
     );
@@ -48,7 +49,7 @@ function NavLink({
   return (
     <div
       role="button"
-      id={`${topic.identifier}-nav-btn`}
+      data-test={`${topic.identifier}-nav-btn`}
       className={className}
       onClick={() => handleClick(topic)}
       onMouseOver={handleHoverStart}

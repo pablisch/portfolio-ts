@@ -50,9 +50,6 @@ export interface aboutObject {
 interface extNavLinkImage {
   src: string;
   alt: string;
-  id: string;
-  className: string;
-  avatarClassName: string;
 }
 
 export interface extNavLinkObject {
@@ -60,6 +57,5 @@ export interface extNavLinkObject {
   linkUrl: string;
   classNames: string[];
   burgerClassNames: string[];
-  avatarClassName: string;
   image: extNavLinkImage;
 }

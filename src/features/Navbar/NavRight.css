@@ -96,31 +96,31 @@
   filter: invert(1);
 }
 
-.linkedin-link-btn {
+.linkedIn-link-btn {
   transition: background-color 1s ease;
   cursor: url("./navCursors/looking-glass.png"), auto;
 }
 
-.linkedin-link-btn {
-  background-color: var(--linkedin-back-retro);
-  border: 1px var(--linkedin-border-retro) solid;
+.linkedIn-link-btn {
+  background-color: var(--linkedIn-back-retro);
+  border: 1px var(--linkedIn-border-retro) solid;
 }
 
-.linkedin-link-btn-light {
-  background-color: var(--linkedin-back-light);
-  border: 1px var(--linkedin-border-light) solid;
+.linkedIn-link-btn-light {
+  background-color: var(--linkedIn-back-light);
+  border: 1px var(--linkedIn-border-light) solid;
 }
-.linkedin-link-btn-dark {
-  background-color: var(--linkedin-back-dark);
-  border: 1px var(--linkedin-border-dark) solid;
+.linkedIn-link-btn-dark {
+  background-color: var(--linkedIn-back-dark);
+  border: 1px var(--linkedIn-border-dark) solid;
 }
 
-.linkedin-link-btn:hover {
-  background-color: var(--linkedin-blue);
+.linkedIn-link-btn:hover {
+  background-color: var(--linkedIn-blue);
   border: 1px var(--navText-darker) solid;
 }
 
-.linkedin-logo {
+.linkedIn-logo {
   max-height: 40px;
   transition: opacity 3s ease;
   opacity: 1;
@@ -134,7 +134,7 @@
   border: 1px var(--leaf-1100) solid;
 }
 
-.avatar-hovered-linkedin-logo {
+.avatar-hovered-linkedIn-logo {
   transition: opacity 3s ease;
   opacity: 0.1;
 }

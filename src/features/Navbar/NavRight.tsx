@@ -9,7 +9,7 @@ import "./NavRight.css";
 import "./Hamburger.css";
 
 export default function NavRight() {
-  const { theme, handleThemeChange, isIconRotating } = useThemeContext();
+  const { handleThemeChange, isIconRotating } = useThemeContext();
   const { section } = useSectionContext();
   const {
     burgerMenuStage,
@@ -18,13 +18,13 @@ export default function NavRight() {
     isBurgerMenuActive,
   } = useScreenWidthContext();
   return (
-    <section className="nav-right navlist">
+    <section className="nav-right navlist" data-test="nav-right-container">
       {/* 👇🏻 LINK TO PROJECTS SECTION */}
       {section === "about" && burgerMenuStage < 3 && (
         <Link
           to="/"
-          id="projects-section-link"
-          className={`nav-btn nav-btn-${theme} nav-section-link nav-section-link-${theme}`}
+          data-test="projects-section-link"
+          className="nav-btn nav-section-link"
         >
           Software Projects
         </Link>
@@ -33,8 +33,8 @@ export default function NavRight() {
       {section === "projects" && burgerMenuStage < 3 && (
         <Link
           to="/more-about-me"
-          id="about-section-link"
-          className={`nav-btn nav-btn-${theme} nav-section-link nav-section-link-${theme} `}
+          data-test="about-section-link"
+          className="nav-btn nav-section-link"
         >
           More About Me
         </Link>
@@ -47,34 +47,38 @@ export default function NavRight() {
         ))}
       <div
         role="button"
-        id="settings-nav-btn"
-        className={`nav-btn nav-btn-${theme} github-link-btn github-link-btn-${theme} settings-btn settings-btn-${theme}`}
+        data-test="settings-nav-btn"
+        className="nav-btn github-link-btn settings-btn"
         onClick={handleThemeChange}
       >
         <img
-          id="settings-icon"
+          data-test="settings-icon"
           src="/images/settings-gear.png"
           alt="settings button"
-          className={`github-logo github-logo-${theme} settings-icon settings-icon-${theme} ${
+          className={`github-logo settings-icon ${
             isIconRotating ? "rotate" : ""
           }`}
         />
       </div>
       {isBurgerMenuActive && (
         <div className="hamburger-box">
-          <div id="hamburger" className="hamburger" onClick={handleBurgerClick}>
+          <div
+            data-test="hamburger"
+            className="hamburger"
+            onClick={handleBurgerClick}
+          >
             <span
-              className={`burger-bar burger-bar-${theme} buntop ${
+              className={`burger-bar bun-top ${
                 isBurgerMenuOpen ? "burger-open" : ""
               }`}
             ></span>
             <span
-              className={`burger-bar burger-bar-${theme} pattie ${
+              className={`burger-bar pattie ${
                 isBurgerMenuOpen ? "burger-open" : ""
               }`}
             ></span>
             <span
-              className={`burger-bar burger-bar-${theme} bunbase ${
+              className={`burger-bar bun-base ${
                 isBurgerMenuOpen ? "burger-open" : ""
               }`}
             ></span>

@@ -1,37 +1,32 @@
 // import React from "react";
 import { extNavLinkObject } from "../../types/data.types";
 import "./Navbar.css";
+import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 
 interface extNavLinkProps {
   extLink: extNavLinkObject;
-  key?: string;
+  key: string;
 }
 
 function ExtNavLink({ extLink }: extNavLinkProps) {
-  // 👇🏻 TEMPORARY variables to mimic future functionality
-  const linkContext = "normal";
-  const isAvatarHovered = false;
+  const { isBurgerMenuActive } = useScreenWidthContext();
 
   const navClasses = extLink.classNames.join(" ");
   const burgerClasses = extLink.burgerClassNames.join(" ");
 
-  const linkClassNames = linkContext === "normal" ? navClasses : burgerClasses;
-
   return (
     <a
       href={extLink.linkUrl}
-      id={`${extLink.name}-nav-btn`}
-      className={`${linkClassNames} ${isAvatarHovered ? extLink.avatarClassName : ""}`}
+      data-test={`${extLink.name}-nav-btn`}
+      className={isBurgerMenuActive ? burgerClasses : navClasses}
       target="_blank"
       rel="noreferrer"
     >
       <img
         src={`/images/${extLink.image.src}`}
         alt={extLink.image.alt}
-        id={extLink.image.id}
-        className={`${extLink.image.className} ${
-          isAvatarHovered ? extLink.image.avatarClassName : ""
-        }`}
+        data-test={`${extLink.name}-logo`}
+        className={`${extLink.name}-logo`}
       />
     </a>
   );

@@ -19,7 +19,7 @@ export default function NavLeft() {
   return (
     <section className="nav-left">
       <img
-        id="nav-logo"
+        data-test="nav-logo"
         className={`logo-image logo-image-${theme}`}
         // src='/images/pablo-circle-avatar.png'
         src="/images/avatar-square-small4.png"
@@ -28,11 +28,12 @@ export default function NavLeft() {
         onMouseLeave={handleAvatarHoverEnd}
       />
       <div
+        data-test="nav-section-title-btn"
         role="button"
         onClick={handleNavTitleClick}
         className={`nav-title ${section === "projects" ? "projects-title" : "abouts-title"}`}
       >
-        <h1 id="nav-section-title-text">
+        <h1 data-test="nav-section-title-text">
           {section === "projects"
             ? "My Projects"
             : section === "about"
@@ -40,7 +41,7 @@ export default function NavLeft() {
               : ""}
         </h1>
       </div>
-      <div className="navlist">
+      <div className="navlist" data-test="topic-links-container">
         {/* 👇🏻 PROJECT LINKS */}
         {section === "projects" &&
           !isBurgerMenuActive &&
