@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from "react";
 import { scrollToTop } from "../helpers/pageHelpers";
 
 export interface ScreenWidthContextType {
-  screenWidth: number;
   isBurgerMenuActive: boolean;
   burgerMenuStage: number;
   isBurgerMenuOpen: boolean;
@@ -10,7 +9,6 @@ export interface ScreenWidthContextType {
 }
 
 export const ScreenWidthContext = createContext<ScreenWidthContextType>({
-  screenWidth: window.innerWidth,
   isBurgerMenuActive: false,
   burgerMenuStage: 1,
   isBurgerMenuOpen: false,
@@ -67,7 +65,6 @@ export const ScreenWidthProvider = ({
   return (
     <ScreenWidthContext.Provider
       value={{
-        screenWidth,
         isBurgerMenuActive,
         burgerMenuStage,
         isBurgerMenuOpen,

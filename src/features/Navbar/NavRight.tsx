@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import React from "react";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import { Link } from "react-router-dom";
 import { useSectionContext } from "../../hooks/useSectionContext.tsx";

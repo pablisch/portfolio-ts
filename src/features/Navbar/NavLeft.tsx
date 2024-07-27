@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import React from "react";
 import { useSectionContext } from "../../hooks/useSectionContext.tsx";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import projectData from "../../data/projectData.tsx";

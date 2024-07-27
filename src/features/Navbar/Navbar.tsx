@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import React from "react";
 import NavLeft from "./NavLeft.tsx";
 import NavRight from "./NavRight.tsx";
 
