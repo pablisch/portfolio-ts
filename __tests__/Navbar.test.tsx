@@ -3,6 +3,7 @@
 import React from "react";
 // import '@testing-library/jest-dom/extend-expect'
 import { test, describe, expect, vi } from "vitest";
+// const { test, describe, expect, vi } = require("vitest");
 import Navbar from "../src/features/Navbar/Navbar";
 import {
   render,
@@ -61,7 +62,7 @@ describe("Navbar", () => {
     // screen.debug();
 
     // Assert
-    // expect(navbar).toBeInTheDocument();
+    expect(navbar).toBeInTheDocument();
     expect(navbar).not.toBeNull();
   });
 });
