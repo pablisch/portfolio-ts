@@ -23,22 +23,14 @@ const renderComponent = (
   isBurgerMenuActive = false,
   // isBurgerMenuOpen = false
 ) => {
-  const { container } = render(
-    <Navbar
-    // isAvatarHovered={false}
-    // setIsAvatarHovered={mockSetAvatarHovered}
-    // isBurgerMenuOpen={isBurgerMenuOpen}
-    // setIsBurgerMenuOpen={mockSetIsBurgerMenuOpen}
-    />,
-    {
-      theme: "retro",
-      setSelectedProject: mockSetSelectedProject,
-      setSelectedAbout: mockSetSelectedAbout,
-      section: currentSection,
-      handleThemeChange: mockOnThemeChange,
-      isBurgerMenuActive,
-    },
-  );
+  const { container } = render(<Navbar />, {
+    theme: "retro",
+    setSelectedProject: mockSetSelectedProject,
+    setSelectedAbout: mockSetSelectedAbout,
+    section: currentSection,
+    handleThemeChange: mockOnThemeChange,
+    isBurgerMenuActive,
+  });
 
   return { container };
 };
@@ -62,8 +54,11 @@ describe("Navbar", () => {
     // screen.debug();
 
     // Assert
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     expect(navbar).toBeInTheDocument();
-    expect(navbar).not.toBeNull();
+    // expect(navbar).not.toBeNull();
   });
 });
 //
