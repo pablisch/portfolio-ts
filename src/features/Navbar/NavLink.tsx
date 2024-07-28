@@ -7,7 +7,7 @@ import { scrollToTop } from "../../helpers/pageHelpers.ts";
 interface NavLinkProps {
   children: React.ReactNode;
   topic: projectObject | aboutObject;
-  className: string;
+  className?: string;
 }
 
 function NavLink({

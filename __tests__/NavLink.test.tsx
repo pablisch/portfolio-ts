@@ -1,34 +1,33 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import React from "react";
-import { test, describe, expect, vi } from "vitest";
-import Navbar from "../src/features/Navbar/Navbar";
+import { test, describe, expect, vi, beforeEach } from "vitest";
+import NavLink from "../src/features/Navbar/NavLink";
 import {
   render,
   // screen,
-  // within
+  within,
 } from "../test-setup/mockedContextProviders/MockAllContext";
-// import user from '@testing-library/user-event';
+import user from "@testing-library/user-event";
+import { projectData } from "../src/data/projectData";
 
-// const mockSetAvatarHovered = vi.fn();
-// const mockSetIsBurgerMenuOpen = vi.fn();
+const mockSetFocusProjectId = vi.fn();
+const mockSetFocusAboutId = vi.fn();
 const mockSetSelectedProject = vi.fn();
 const mockSetSelectedAbout = vi.fn();
-const mockOnThemeChange = vi.fn();
+const exampleProject = projectData[0];
 
-const renderComponent = (
-  currentSection = "projects",
-  isBurgerMenuActive = false,
-  // isBurgerMenuOpen = false
-) => {
-  const { container } = render(<Navbar />, {
-    theme: "light",
-    setSelectedProject: mockSetSelectedProject,
-    setSelectedAbout: mockSetSelectedAbout,
-    section: currentSection,
-    handleThemeChange: mockOnThemeChange,
-    isBurgerMenuActive,
-  });
+const renderComponent = (currentSection = "projects") => {
+  const { container } = render(
+    <NavLink children={exampleProject.navName} topic={exampleProject} />,
+    {
+      section: currentSection,
+      setFocusProjectId: mockSetFocusProjectId,
+      setSelectedProject: mockSetSelectedProject,
+      setFocusAboutId: mockSetFocusAboutId,
+      setSelectedAbout: mockSetSelectedAbout,
+    },
+  );
 
   return { container };
 };
@@ -43,20 +42,71 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
-describe("Navbar", () => {
-  test("renders the Navbar component", () => {
+describe("first project NavLink", () => {
+  beforeEach(() => {
+    vi.clearAllMocks(); // or vi.resetAllMocks();
+  });
+  test(`renders the NavLink component with a button of expected text, "${exampleProject.navName}"`, () => {
     // Arrange
     const { container } = renderComponent();
-    const navbar = container.querySelector("nav");
+    const LupoNavLink = within(container).getByRole("button", {
+      name: /LUPO/i,
+    });
     // screen.logTestingPlaygroundURL();
     // screen.debug();
 
     // Assert
-
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    expect(navbar).toBeInTheDocument();
-    // expect(navbar).not.toBeNull();
+    expect(LupoNavLink).toBeInTheDocument();
+  });
+
+  test(`clicking the NavLink button calls the setFocusProjectId function once`, () => {
+    // Arrange
+    const { container } = renderComponent();
+    const lupoNavLink = within(container).getByRole("button", {
+      name: /LUPO/i,
+    });
+
+    // Act
+    lupoNavLink.click();
+
+    // Assert
+    expect(mockSetSelectedProject).toHaveBeenCalledTimes(1);
+  });
+
+  test(`hovering over the NavLink button calls the setFocusProjectId function once`, async () => {
+    // Arrange
+    const { container } = renderComponent();
+    const lupoNavLink = within(container).getByRole("button", {
+      name: /LUPO/i,
+    });
+
+    // Act
+    await user.hover(lupoNavLink);
+
+    // Assert
+    expect(mockSetFocusProjectId).toHaveBeenCalledTimes(1);
+  });
+
+  test(`hovering or unhovering over the NavLink button calls the setFocusProjectId function once`, async () => {
+    // Arrange
+    const { container } = renderComponent();
+    const lupoNavLink = within(container).getByRole("button", {
+      name: /LUPO/i,
+    });
+
+    // Act
+    await user.hover(lupoNavLink);
+
+    // Assert
+    expect(mockSetFocusProjectId).toHaveBeenCalledTimes(1);
+
+    // Act
+    await user.unhover(lupoNavLink);
+
+    // Assert
+    expect(mockSetFocusProjectId).toHaveBeenCalledTimes(2);
   });
 });
 //
