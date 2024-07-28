@@ -31,8 +31,8 @@ function NavLink({
   };
 
   const handleHoverEnd = () => {
-    setFocusProjectId("");
-    setFocusAboutId("");
+    if (section === "projects") setFocusProjectId("");
+    if (section === "about") setFocusAboutId("");
   };
 
   const handleClick = (topic: projectObject | aboutObject) => {
