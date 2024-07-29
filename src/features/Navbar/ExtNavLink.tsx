@@ -25,6 +25,7 @@ function ExtNavLink({ extLink }: extNavLinkProps) {
       rel="noreferrer"
     >
       <img
+        role="image"
         src={`/images/${extLink.image.src}`}
         alt={extLink.image.alt}
         data-test={`${extLink.name}-logo`}

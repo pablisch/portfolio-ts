@@ -5,7 +5,7 @@ import { test, describe, expect, vi, beforeEach } from "vitest";
 import NavLink from "../src/features/Navbar/NavLink";
 import {
   render,
-  screen,
+  // screen,
   within,
 } from "../test-setup/mockedContextProviders/MockAllContext";
 import user from "@testing-library/user-event";
@@ -20,7 +20,6 @@ const mockSetSelectedAbout = vi.fn();
 
 const exampleProject: projectObject = projectData[0];
 const exampleAbout: aboutObject = aboutData[0];
-console.log("about:", exampleAbout);
 
 const renderComponent = (
   currentSection: string = "projects",

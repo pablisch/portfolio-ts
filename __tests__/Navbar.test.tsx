@@ -5,7 +5,7 @@ import { test, describe, expect, vi } from "vitest";
 import Navbar from "../src/features/Navbar/Navbar";
 import {
   render,
-  // screen,
+  screen,
   // within
 } from "../test-setup/mockedContextProviders/MockAllContext";
 // import user from '@testing-library/user-event';
@@ -48,7 +48,7 @@ describe("Navbar", () => {
     // Arrange
     const { container } = renderComponent();
     const navbar = container.querySelector("nav");
-    // screen.logTestingPlaygroundURL();
+    screen.logTestingPlaygroundURL();
     // screen.debug();
 
     // Assert
