@@ -12,6 +12,7 @@ import user from "@testing-library/user-event";
 import { projectData } from "../src/data/projectData";
 import { aboutData } from "../src/data/aboutData";
 import { aboutObject, projectObject } from "../src/types/data.types";
+import { scrollToTop } from "../src/helpers/pageHelpers";
 
 const mockSetFocusProjectId = vi.fn();
 const mockSetFocusAboutId = vi.fn();
@@ -49,6 +50,10 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
+vi.mock("../src/helpers/pageHelpers", () => ({
+  scrollToTop: vi.fn(),
+}));
+
 describe("first project NavLink", () => {
   beforeEach(() => {
     vi.clearAllMocks(); // or vi.resetAllMocks();
@@ -82,6 +87,8 @@ describe("first project NavLink", () => {
     // Assert
     expect(mockSetSelectedProject).toHaveBeenCalledTimes(1);
     expect(mockSetSelectedAbout).toHaveBeenCalledTimes(0);
+    expect(mockNavigate).toHaveBeenCalledTimes(1);
+    expect(scrollToTop).toHaveBeenCalledTimes(1);
   });
 
   test(`hovering over the project NavLink button calls the setFocusProjectId function once`, async () => {
@@ -93,6 +100,21 @@ describe("first project NavLink", () => {
 
     // Act
     await user.hover(lupoNavLink);
+
+    // Assert
+    expect(mockSetFocusProjectId).toHaveBeenCalledTimes(1);
+    expect(mockSetFocusAboutId).toHaveBeenCalledTimes(0);
+  });
+
+  test(`unhovering the project NavLink button calls the setFocusProjectId function once`, async () => {
+    // Arrange
+    const { container } = renderComponent();
+    const lupoNavLink = within(container).getByRole("button", {
+      name: /LUPO/i,
+    });
+
+    // Act
+    await user.unhover(lupoNavLink);
 
     // Assert
     expect(mockSetFocusProjectId).toHaveBeenCalledTimes(1);
@@ -148,6 +170,8 @@ describe("first about NavLink", () => {
     // Assert
     expect(mockSetSelectedAbout).toHaveBeenCalledTimes(1);
     expect(mockSetSelectedProject).toHaveBeenCalledTimes(0);
+    expect(mockNavigate).toHaveBeenCalledTimes(1);
+    expect(scrollToTop).toHaveBeenCalledTimes(1);
   });
 
   test(`hovering over the about NavLink button calls the setFocusProjectId function once`, async () => {

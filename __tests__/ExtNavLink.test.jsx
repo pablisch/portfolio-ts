@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import React from "react";
-import { test, describe, expect, vi } from "vitest";
+import { test, describe, expect, vi, beforeEach, afterEach } from "vitest";
 import ExtNavLink from "../src/features/Navbar/ExtNavLink";
 import {
   render,
@@ -10,11 +10,10 @@ import {
 } from "../test-setup/mockedContextProviders/MockAllContext";
 // import user from "@testing-library/user-event";
 import { extLinkData } from "../src/data/extLinkData";
-import { extNavLinkObject } from "../src/types/data.types";
 
 const renderComponent = (
-  currentExtLink: extNavLinkObject = extLinkData[0],
-  isBurgerMenuActive: boolean = false,
+  currentExtLink = extLinkData[0],
+  isBurgerMenuActive = false,
 ) => {
   const { container } = render(
     <ExtNavLink key={currentExtLink.linkUrl} extLink={currentExtLink} />,
@@ -37,6 +36,17 @@ vi.mock("react-router-dom", async () => {
 });
 
 describe("first project NavLink", () => {
+  let openSpy;
+
+  beforeEach(() => {
+    // Spy on window.open using globalThis
+    openSpy = vi.spyOn(globalThis, "open").mockImplementation(() => null);
+  });
+
+  afterEach(() => {
+    openSpy.mockRestore();
+  });
+
   test(`renders the GitHub ExtNavLink component`, () => {
     // Arrange
     const { container } = renderComponent();
@@ -50,29 +60,26 @@ describe("first project NavLink", () => {
     // screen.debug();
 
     // Assert
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     expect(githubLink).toBeInTheDocument();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     expect(githubLogoImage).toBeInTheDocument();
   });
 
-  // test(`clicking the project NavLink button calls the setFocusProjectId function once`, () => {
-  //   // Arrange
-  //   const { container } = renderComponent();
-  //   const lupoNavLink = within(container).getByRole("button", {
-  //     name: /LUPO/i,
-  //   });
-  //
-  //   // Act
-  //   lupoNavLink.click();
-  //
-  //   // Assert
-  //   expect(mockSetSelectedProject).toHaveBeenCalledTimes(1);
-  //   expect(mockSetSelectedAbout).toHaveBeenCalledTimes(0);
-  // });
-  //
+  test(`clicking the project NavLink button calls the setFocusProjectId function once`, () => {
+    // Arrange
+    const { container } = renderComponent();
+    const githubLink = within(container).getByRole("link", {
+      name: /github/i,
+    });
+
+    // Act
+    githubLink.click();
+
+    // Assert
+    expect(githubLink).toHaveAttribute("href", "https://github.com/pablisch");
+    expect(githubLink).toHaveAttribute("target", "_blank");
+    expect(githubLink).toHaveAttribute("rel", "noreferrer");
+  });
+
   // test(`hovering over the project NavLink button calls the setFocusProjectId function once`, async () => {
   //   // Arrange
   //   const { container } = renderComponent();
