@@ -44,7 +44,7 @@ export default function NavLeft() {
               : ""}
         </h1>
       </div>
-      <div className="nav-list" data-test="topic-links-container">
+      <div className="nav-list" data-test="topic-links-container" id="blah">
         {/* 👇🏻 PROJECT LINKS */}
         {section === "projects" &&
           !isBurgerMenuActive &&
