@@ -6,23 +6,20 @@ import Navbar from "../src/features/Navbar/Navbar";
 import {
   render,
   screen,
-  // within
+  within
 } from "../test-setup/mockedContextProviders/MockAllContext";
 // import user from '@testing-library/user-event';
 
-// const mockSetAvatarHovered = vi.fn();
-// const mockSetIsBurgerMenuOpen = vi.fn();
 const mockSetSelectedProject = vi.fn();
 const mockSetSelectedAbout = vi.fn();
 const mockOnThemeChange = vi.fn();
 
-const renderComponent = (
+const renderComponent = ( currentTheme = "light",
   currentSection = "projects",
   isBurgerMenuActive = false,
-  // isBurgerMenuOpen = false
 ) => {
   const { container } = render(<Navbar />, {
-    theme: "light",
+    theme: currentTheme,
     setSelectedProject: mockSetSelectedProject,
     setSelectedAbout: mockSetSelectedAbout,
     section: currentSection,
@@ -52,36 +49,36 @@ describe("Navbar", () => {
     // screen.debug();
 
     // Assert
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     expect(navbar).toBeInTheDocument();
-    // expect(navbar).not.toBeNull();
   });
+
+  test("it has an avatar logo, a project section button, six project links, a link to the about section, github and linkedin links and a settings button when section === 'projects'", () => {
+  // Arrange
+  const { container } = renderComponent();
+  const avatar = screen.getByRole('img', { name: /avatar icon/i });
+  const myProjectsButton = within(container).getByRole('button', { name: /my projects/i });
+  // const myProjectsButton = screen.getByRole('button', { name: /my projects/i });
+  // const projectLinksContainer = screen.getByRole('generic', { name: /blah/i });
+  const projectLinksContainer = container.querySelector("div[data-test='topic-links-container']");
+  const projectLinks = within(projectLinksContainer).getAllByRole('button', {});
+  const smallAboutSectionLink = screen.getByRole('link', {
+    name: /more about me/i,
+  });
+  const extLinks = screen.getAllByRole('link', { name: /github|linkedin/i });
+  const settingsButton = screen.getByRole('button', { name: /settings/i });
+
+  // Assert
+  expect(avatar).toBeInTheDocument();
+  expect(myProjectsButton).toBeInTheDocument();
+  expect(projectLinks).toHaveLength(6);
+  expect(projectLinks[0].textContent).toBe('LUPO');
+  expect(smallAboutSectionLink).toBeInTheDocument();
+  expect(extLinks).toHaveLength(2);
+  expect(settingsButton).toBeInTheDocument();
+});
 });
 //
-// test("it has an avatar logo, a project section button, six project links, a link to the about section, github and linkedin links and a settings button when section === 'projects'", () => {
-//   // Arrange
-//   const { container } = renderComponent();
-//   const avatar = screen.getByRole('img', { name: /avatar icon/i });
-//   const sectionButton = screen.getByRole('button', { name: /my projects/i });
-//   const projectLinksContainer = container.querySelector('#section-links');
-//   const projectLinks = within(projectLinksContainer).getAllByRole('button', {});
-//   const otherSectionLink = screen.getByRole('link', {
-//     name: /more about me/i,
-//   });
-//   const extLinks = screen.getAllByRole('link', { name: /github|linkedin/i });
-//   const settingsButton = screen.getByRole('button', { name: /settings/i });
-//
-//   // Assert
-//   expect(avatar).toBeInTheDocument();
-//   expect(sectionButton).toBeInTheDocument();
-//   expect(projectLinks).toHaveLength(6);
-//   expect(projectLinks[0].textContent).toBe('LUPO');
-//   expect(otherSectionLink).toBeInTheDocument();
-//   expect(extLinks).toHaveLength(2);
-//   expect(settingsButton).toBeInTheDocument();
-// });
+
 //
 // test("it has an avatar logo, an about section button, six about links, a link to the projects section, github and linkedin links and a settings button when section === 'about'", () => {
 //   // Arrange
