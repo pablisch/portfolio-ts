@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import React from "react";
 import { test, describe, expect, vi, beforeEach } from "vitest";
 import NavLink from "../src/features/Navbar/NavLink";
@@ -11,7 +9,6 @@ import {
 import user from "@testing-library/user-event";
 import { projectData } from "../src/data/projectData";
 import { aboutData } from "../src/data/aboutData";
-import { aboutObject, projectObject } from "../src/types/data.types";
 import { scrollToTop } from "../src/helpers/pageHelpers";
 
 const mockSetFocusProjectId = vi.fn();
@@ -19,12 +16,12 @@ const mockSetFocusAboutId = vi.fn();
 const mockSetSelectedProject = vi.fn();
 const mockSetSelectedAbout = vi.fn();
 
-const exampleProject: projectObject = projectData[0];
-const exampleAbout: aboutObject = aboutData[0];
+const exampleProject = projectData[0];
+const exampleAbout = aboutData[0];
 
 const renderComponent = (
-  currentSection: string = "projects",
-  currentTopic: projectObject | aboutObject = exampleProject,
+  currentSection = "projects",
+  currentTopic = exampleProject,
 ) => {
   const { container } = render(
     <NavLink children={currentTopic.navName} topic={currentTopic} />,
@@ -69,8 +66,6 @@ describe("first project NavLink", () => {
     // screen.debug();
 
     // Assert
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     expect(LupoNavLink).toBeInTheDocument();
   });
 
@@ -152,8 +147,6 @@ describe("first about NavLink", () => {
     // screen.debug();
 
     // Assert
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     expect(spaceNavLink).toBeInTheDocument();
   });
 

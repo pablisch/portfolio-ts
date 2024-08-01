@@ -1,12 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import React from "react";
 import { test, describe, expect, vi } from "vitest";
 import Navbar from "../src/features/Navbar/Navbar";
 import {
   render,
   screen,
-  within
+  within,
 } from "../test-setup/mockedContextProviders/MockAllContext";
 // import user from '@testing-library/user-event';
 
@@ -14,7 +12,8 @@ const mockSetSelectedProject = vi.fn();
 const mockSetSelectedAbout = vi.fn();
 const mockOnThemeChange = vi.fn();
 
-const renderComponent = ( currentTheme = "light",
+const renderComponent = (
+  currentTheme = "light",
   currentSection = "projects",
   isBurgerMenuActive = false,
 ) => {
@@ -45,132 +44,73 @@ describe("Navbar", () => {
     // Arrange
     const { container } = renderComponent();
     const navbar = container.querySelector("nav");
-    screen.logTestingPlaygroundURL();
+    // screen.logTestingPlaygroundURL();
     // screen.debug();
 
     // Assert
     expect(navbar).toBeInTheDocument();
   });
 
-  test("it has an avatar logo, a project section button, six project links, a link to the about section, github and linkedin links and a settings button when section === 'projects'", () => {
-  // Arrange
-  const { container } = renderComponent();
-  const avatar = screen.getByRole('img', { name: /avatar icon/i });
-  const myProjectsButton = within(container).getByRole('button', { name: /my projects/i });
-  // const myProjectsButton = screen.getByRole('button', { name: /my projects/i });
-  // const projectLinksContainer = screen.getByRole('generic', { name: /blah/i });
-  const projectLinksContainer = container.querySelector("div[data-test='topic-links-container']");
-  const projectLinks = within(projectLinksContainer).getAllByRole('button', {});
-  const smallAboutSectionLink = screen.getByRole('link', {
-    name: /more about me/i,
+  test("navbar has an avatar logo, a project section button, six project links, a link to the about section, github and linkedin links and a settings button when section === 'projects'", () => {
+    // Arrange
+    const { container } = renderComponent();
+    const avatar = screen.getByRole("img", { name: /avatar icon/i });
+    const myProjectsButton = within(container).getByRole("button", {
+      name: /my projects/i,
+    });
+    const projectLinksContainer = container.querySelector(
+      "div[data-test='topic-links-container']",
+    );
+    const projectLinks = within(projectLinksContainer).getAllByRole(
+      "button",
+      {},
+    );
+    const smallAboutSectionLink = screen.getByRole("link", {
+      name: /more about me/i,
+    });
+    const extLinks = screen.getAllByRole("link", { name: /github|linkedin/i });
+    const settingsButton = screen.getByRole("button", { name: /settings/i });
+
+    // Assert
+    expect(avatar).toBeInTheDocument();
+    expect(myProjectsButton).toBeInTheDocument();
+    expect(projectLinks).toHaveLength(6);
+    expect(projectLinks[0].textContent).toBe("LUPO");
+    expect(smallAboutSectionLink).toBeInTheDocument();
+    expect(extLinks).toHaveLength(2);
+    expect(settingsButton).toBeInTheDocument();
   });
-  const extLinks = screen.getAllByRole('link', { name: /github|linkedin/i });
-  const settingsButton = screen.getByRole('button', { name: /settings/i });
 
-  // Assert
-  expect(avatar).toBeInTheDocument();
-  expect(myProjectsButton).toBeInTheDocument();
-  expect(projectLinks).toHaveLength(6);
-  expect(projectLinks[0].textContent).toBe('LUPO');
-  expect(smallAboutSectionLink).toBeInTheDocument();
-  expect(extLinks).toHaveLength(2);
-  expect(settingsButton).toBeInTheDocument();
+  test("navbar has three border div elements", () => {
+    // Arrange
+    const { container } = renderComponent();
+    const borderDivs = container.querySelectorAll(
+      "div[class^='nav-border-bar-']",
+    );
+
+    // Assert
+    expect(borderDivs).toHaveLength(3);
+  });
+
+  test("navbar has an avatar logo, a project section button, six project links, a link to the about section, github and linkedin links and a settings button when section === 'about'", () => {
+    // Arrange
+    const { container } = renderComponent("light", "about");
+    // screen.logTestingPlaygroundURL();
+    const aboutMeButton = within(container).getByRole("button", {
+      name: /About Me/i,
+    });
+    const aboutLinksContainer = container.querySelector(
+      "div[data-test='topic-links-container']",
+    );
+    const aboutLinks = within(aboutLinksContainer).getAllByRole("button", {});
+    const smallProjectSectionLink = screen.getByRole("link", {
+      name: /Software Projects/i,
+    });
+
+    // Assert
+    expect(aboutMeButton).toBeInTheDocument();
+    expect(aboutLinks).toHaveLength(6);
+    expect(aboutLinks[0].textContent).toBe("Space Explorer");
+    expect(smallProjectSectionLink).toBeInTheDocument();
+  });
 });
-});
-//
-
-//
-// test("it has an avatar logo, an about section button, six about links, a link to the projects section, github and linkedin links and a settings button when section === 'about'", () => {
-//   // Arrange
-//   const { container } = renderComponent('about');
-//   const sectionButton = screen.getByRole('button', { name: /about me/i });
-//   const projectLinksContainer = container.querySelector('#section-links');
-//   const projectLinks = within(projectLinksContainer).getAllByRole('button', {});
-//   const otherSectionLink = screen.getByRole('link', {
-//     name: /software projects/i,
-//   });
-//
-//   // Assert
-//   expect(sectionButton).toBeInTheDocument();
-//   expect(projectLinks).toHaveLength(6);
-//   expect(projectLinks[0].textContent).toBe('Space Explorer');
-//   expect(otherSectionLink).toBeInTheDocument();
-// });
-
-// test('isAvatarHovered is called when avatar is hovered over or unhovered', async () => {
-//   // Arrange
-//   renderComponent();
-//   const avatar = screen.getByRole('img', { name: /avatar icon/i });
-//
-//   // Act
-//   await user.hover(avatar);
-//
-//   // Assert
-//   expect(mockSetAvatarHovered).toHaveBeenCalledTimes(1);
-//
-//   // Act
-//   await user.unhover(avatar);
-//
-//   // Assert
-//   expect(mockSetAvatarHovered).toHaveBeenCalledTimes(2);
-// });
-//
-// test('it calls handleNavTitleClick when section button is clicked', async () => {
-//   // Arrange
-//   renderComponent();
-//   const sectionButton = screen.getByRole('button', { name: /my projects/i });
-//
-//   // Act
-//   await user.click(sectionButton);
-//
-//   // Assert
-//   expect(mockNavigate).toHaveBeenCalledTimes(1);
-//   expect(mockNavigate).toHaveBeenCalledWith('/');
-//   expect(mockSetSelectedProject).toHaveBeenCalledTimes(1);
-//   expect(mockSetSelectedProject).toHaveBeenCalledWith({});
-//   expect(mockSetSelectedAbout).toHaveBeenCalledTimes(1);
-//   expect(mockSetSelectedAbout).toHaveBeenCalledWith({});
-//
-//   // Act
-//   await user.click(sectionButton);
-//
-//   // Assert
-//   expect(mockSetSelectedProject).toHaveBeenCalledTimes(2);
-// });
-//
-// test('it calls onThemeChange when settings button is clicked', async () => {
-//   // Arrange
-//   renderComponent();
-//   const settingsButton = screen.getByRole('button', { name: /settings/i });
-//
-//   // Act
-//   await user.click(settingsButton);
-//
-//   // Assert
-//   expect(mockOnThemeChange).toHaveBeenCalledTimes(1);
-// });
-//
-// test('it calls handleBurgerClick when hamburger button is clicked', async () => {
-//   // Arrange
-//   const { container } = renderComponent('projects', true);
-//   const hamburgerMenu = screen.getByRole('button', { name: /menu/i });
-//   const HamburgerMenuMiddleBar = container.querySelector('.pattie');
-//
-//   // Act
-//   await user.click(hamburgerMenu);
-//
-//   // Assert
-//   expect(HamburgerMenuMiddleBar).toBeInTheDocument();
-//   expect(mockSetIsBurgerMenuOpen).toHaveBeenCalledTimes(1);
-//   expect(mockSetIsBurgerMenuOpen).toHaveBeenCalledWith(true);
-// });
-//
-// test('it does not show the middle hamburger menu bar when the menu is open', () => {
-//   // Arrange
-//   const { container } = renderComponent('projects', true, true);
-//   const HamburgerMenuMiddleBar = container.querySelector('.pattie');
-//
-//   // Assert
-//   expect(HamburgerMenuMiddleBar).toHaveClass('burger-open');
-// });
-// });
