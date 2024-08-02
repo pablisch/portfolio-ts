@@ -20,7 +20,7 @@ export default function NavLeft() {
   };
 
   return (
-    <section className="nav-left">
+    <section className="nav-left" data-test="nav-left-container">
       <img
         data-test="nav-logo"
         className={`logo-image logo-image-${theme}`}
