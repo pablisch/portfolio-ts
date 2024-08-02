@@ -1,15 +1,15 @@
 import React from "react";
 import { test, describe, expect, vi, beforeEach } from "vitest";
-import NavLink from "../src/features/Navbar/NavLink";
+import NavLink from "../../src/features/Navbar/NavLink.tsx";
 import {
   render,
   // screen,
   within,
-} from "../test-setup/mockedContextProviders/MockAllContext";
+} from "../../test-setup/mockedContextProviders/MockAllContext.tsx";
 import user from "@testing-library/user-event";
-import { projectData } from "../src/data/projectData";
-import { aboutData } from "../src/data/aboutData";
-import { scrollToTop } from "../src/helpers/pageHelpers";
+import { projectData } from "../../src/data/projectData.tsx";
+import { aboutData } from "../../src/data/aboutData.tsx";
+import { scrollToTop } from "../../src/helpers/pageHelpers.ts";
 
 const mockSetFocusProjectId = vi.fn();
 const mockSetFocusAboutId = vi.fn();
@@ -47,7 +47,7 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
-vi.mock("../src/helpers/pageHelpers", () => ({
+vi.mock("../../src/helpers/pageHelpers", () => ({
   scrollToTop: vi.fn(),
 }));
 

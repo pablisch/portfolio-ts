@@ -1,11 +1,11 @@
 import React from "react";
 import { test, describe, expect, vi } from "vitest";
-import Navbar from "../src/features/Navbar/Navbar";
+import Navbar from "../../src/features/Navbar/Navbar.tsx";
 import {
   render,
   screen,
   within,
-} from "../test-setup/mockedContextProviders/MockAllContext";
+} from "../../test-setup/mockedContextProviders/MockAllContext.tsx";
 // import user from '@testing-library/user-event';
 
 const mockSetSelectedProject = vi.fn();

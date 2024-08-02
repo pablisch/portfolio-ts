@@ -1,13 +1,13 @@
 import React from "react";
 import { test, describe, expect, vi } from "vitest";
-import ExtNavLink from "../src/features/Navbar/ExtNavLink";
+import ExtNavLink from "../../src/features/Navbar/ExtNavLink.tsx";
 import {
   render,
   // screen,
   within,
-} from "../test-setup/mockedContextProviders/MockAllContext";
+} from "../../test-setup/mockedContextProviders/MockAllContext.tsx";
 // import user from "@testing-library/user-event";
-import { extLinkData } from "../src/data/extLinkData";
+import { extLinkData } from "../../src/data/extLinkData.tsx";
 
 const renderComponent = (
   currentExtLink = extLinkData[0],
