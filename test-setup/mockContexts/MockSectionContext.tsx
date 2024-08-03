@@ -5,7 +5,7 @@ import { aboutObject, projectObject } from "../../src/types/data.types";
 interface MockSectionContextProps {
   children: ReactNode;
   section: string;
-  setSection: (section: string) => void;
+  handleSectionChange: () => void;
   focusProjectId: string;
   setFocusProjectId: (projectId: string) => void;
   selectedProject: projectObject | null;
@@ -19,7 +19,7 @@ interface MockSectionContextProps {
 const MockSectionContext: React.FC<MockSectionContextProps> = ({
   children,
   section = "projects",
-  setSection = () => {},
+  handleSectionChange = () => {},
   focusProjectId = "",
   setFocusProjectId = () => {},
   focusAboutId = "",
@@ -33,7 +33,7 @@ const MockSectionContext: React.FC<MockSectionContextProps> = ({
     <SectionContext.Provider
       value={{
         section,
-        setSection,
+        handleSectionChange,
         focusProjectId,
         setFocusProjectId,
         focusAboutId,

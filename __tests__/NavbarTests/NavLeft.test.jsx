@@ -90,8 +90,7 @@ describe("NavLeft component", () => {
     await user.click(myProjectsButton);
 
     // Assert
-    // TODO this should fail when btn is implemented
-    expect(mockNavigate).toHaveBeenCalledTimes(0);
+    expect(mockNavigate).toHaveBeenCalledTimes(1);
   });
 
   test("handleAvatarHoverStart is called when the navbar avatar is hovered over", async () => {

@@ -8,23 +8,24 @@ import NavLink from "./NavLink.tsx";
 import aboutData from "../../data/aboutData.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import "./NavLeft.css";
+import { useNavigate } from "react-router-dom";
 
 export default function NavLeft() {
-  const { theme, handleAvatarHoverStart, handleAvatarHoverEnd } =
-    useThemeContext();
+  const { handleAvatarHoverStart, handleAvatarHoverEnd } = useThemeContext();
   const { section } = useSectionContext();
   const { isBurgerMenuActive } = useScreenWidthContext();
 
+  const navigate = useNavigate();
+
   const handleNavTitleClick = () => {
-    console.log("NavTitle clicked");
+    navigate("/projects");
   };
 
   return (
     <section className="nav-left" data-test="nav-left-container">
       <img
         data-test="nav-logo"
-        className={`logo-image logo-image-${theme}`}
-        // src='/images/pablo-circle-avatar.png'
+        className="logo-image"
         src="/images/avatar-square-small4.png"
         alt="avatar icon"
         onMouseEnter={handleAvatarHoverStart}

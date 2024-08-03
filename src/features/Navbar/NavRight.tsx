@@ -13,7 +13,7 @@ import "./Hamburger.css";
 
 export default function NavRight() {
   const { handleThemeChange, isIconRotating } = useThemeContext();
-  const { section } = useSectionContext();
+  const { section, handleSectionChange } = useSectionContext();
   const {
     burgerMenuStage,
     handleBurgerClick,
@@ -25,6 +25,7 @@ export default function NavRight() {
       {/* 👇🏻 LINK TO PROJECTS SECTION */}
       {section === "about" && burgerMenuStage < 3 && (
         <Link
+          onClick={handleSectionChange}
           to="/"
           data-test="projects-section-link"
           className="nav-btn nav-section-link"
@@ -35,7 +36,8 @@ export default function NavRight() {
       {/* 👇🏻 LINK TO ABOUT ME SECTION */}
       {section === "projects" && burgerMenuStage < 3 && (
         <Link
-          to="/more-about-me"
+          onClick={handleSectionChange}
+          to="/about-me"
           data-test="about-section-link"
           className="nav-btn nav-section-link"
         >

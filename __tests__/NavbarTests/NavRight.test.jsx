@@ -10,6 +10,7 @@ import user from "@testing-library/user-event";
 
 const mockHandleBurgerClick = vi.fn();
 const mockHandleThemeChange = vi.fn();
+const mockHandleSectionChange = vi.fn();
 
 const renderComponent = (
   currentBurgerMenuStage = 1,
@@ -22,6 +23,7 @@ const renderComponent = (
     handleThemeChange: mockHandleThemeChange,
     isIconRotating,
     section: currentSection,
+    handleSectionChange: mockHandleSectionChange,
     burgerMenuStage: currentBurgerMenuStage,
     handleBurgerClick: mockHandleBurgerClick,
     isBurgerMenuOpen,
@@ -71,7 +73,8 @@ describe("NavRight component", () => {
     await user.click(smallAboutSectionLink);
 
     // Assert
-    expect(smallAboutSectionLink).toHaveAttribute("href", "/more-about-me");
+    expect(mockHandleSectionChange).toHaveBeenCalledTimes(1);
+    expect(smallAboutSectionLink).toHaveAttribute("href", "/about-me");
   });
 
   test("the settings button calls the handleThemeChange function when clicked", async () => {

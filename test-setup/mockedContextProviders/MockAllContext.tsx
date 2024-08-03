@@ -19,7 +19,7 @@ interface CustomRenderProps {
   isBurgerMenuOpen?: boolean;
   handleBurgerClick?: () => void;
   section?: string;
-  setSection?: () => void;
+  handleSectionChange?: () => void;
   focusProjectId?: string;
   setFocusProjectId?: () => void;
   focusAboutId?: string;
@@ -43,7 +43,7 @@ const customRender = (
     isBurgerMenuOpen = false,
     handleBurgerClick = () => {},
     section = "projects",
-    setSection = () => {},
+    handleSectionChange = () => {},
     focusProjectId = "",
     setFocusProjectId = () => {},
     focusAboutId = "",
@@ -71,7 +71,7 @@ const customRender = (
       >
         <MockSectionContext
           section={section}
-          setSection={setSection}
+          handleSectionChange={handleSectionChange}
           focusProjectId={focusProjectId}
           setFocusProjectId={setFocusProjectId}
           focusAboutId={focusAboutId}

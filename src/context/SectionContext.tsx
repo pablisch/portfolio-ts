@@ -3,7 +3,7 @@ import { aboutObject, projectObject } from "../types/data.types";
 
 export interface SectionContextType {
   section: string;
-  setSection: (section: string) => void;
+  handleSectionChange: () => void;
   focusProjectId: string;
   setFocusProjectId: (projectId: string) => void;
   selectedProject: projectObject | null;
@@ -16,7 +16,7 @@ export interface SectionContextType {
 
 export const SectionContext = createContext<SectionContextType>({
   section: "projects",
-  setSection: () => {},
+  handleSectionChange: () => {},
   focusProjectId: "",
   setFocusProjectId: () => {},
   selectedProject: null,
@@ -40,11 +40,16 @@ export const SectionProvider = ({
   const [focusAboutId, setFocusAboutId] = useState<string>("");
   const [selectedAbout, setSelectedAbout] = useState<aboutObject | null>(null);
 
+  const handleSectionChange = () => {
+    const newSection = section === "projects" ? "about" : "projects";
+    setSection(newSection);
+  };
+
   return (
     <SectionContext.Provider
       value={{
         section,
-        setSection,
+        handleSectionChange,
         focusProjectId,
         setFocusProjectId,
         selectedProject,
