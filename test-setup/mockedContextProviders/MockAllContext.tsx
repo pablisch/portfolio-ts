@@ -12,6 +12,8 @@ interface CustomRenderProps {
   theme?: string;
   handleThemeChange?: () => void;
   isIconRotating?: boolean;
+  handleAvatarHoverStart?: () => void;
+  handleAvatarHoverEnd?: () => void;
   isBurgerMenuActive?: boolean;
   burgerMenuStage?: number;
   isBurgerMenuOpen?: boolean;
@@ -34,6 +36,8 @@ const customRender = (
     theme = "light",
     handleThemeChange = () => {},
     isIconRotating = false,
+    handleAvatarHoverStart = () => {},
+    handleAvatarHoverEnd = () => {},
     isBurgerMenuActive = false,
     burgerMenuStage = 1,
     isBurgerMenuOpen = false,
@@ -56,6 +60,8 @@ const customRender = (
       theme={theme}
       handleThemeChange={handleThemeChange}
       isIconRotating={isIconRotating}
+      handleAvatarHoverStart={handleAvatarHoverStart}
+      handleAvatarHoverEnd={handleAvatarHoverEnd}
     >
       <MockScreenWidthContext
         isBurgerMenuActive={isBurgerMenuActive}
