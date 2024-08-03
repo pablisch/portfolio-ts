@@ -3,6 +3,7 @@
   text-decoration: none;
   background-color: var(--nav-section-btn-background);
   color: var(--nav-link-btn-text);
+  min-width: var(--nav-link-width);
 }
 
 .nav-section-link:hover {

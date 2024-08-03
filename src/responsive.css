@@ -1,4 +1,4 @@
-@media (max-width: 1300px) {
+@media (max-width: 1350px) {
   .nav-container {
     width: 95vw;
   }
@@ -8,40 +8,33 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1250px) {
+  :root {
+    --nav-title-btn-width: 180px;
+  }
   .nav-title h1 {
     font-size: 1.8rem;
   }
-  .abouts-title {
-    max-width: 165px;
-  }
-  .projects-title {
-    max-width: 195px;
-  }
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 1200px) {
+  :root {
+    --nav-title-btn-width: 160px;
+    --nav-btn-height: 57px;
+  }
   .nav-title h1 {
     font-size: 1.55rem;
   }
   .nav-title {
-    height: 57px;
-    max-width: 125px;
     line-height: 0.9;
   }
   .github-logo {
     max-height: 45px;
   }
-  .linkedIn-logo {
-    max-height: 37px;
-  }
   .nav-btn {
     font-size: 0.8rem;
     min-width: 65px;
     margin: 0 3px;
-  }
-  .logo-image {
-    max-width: 55px;
   }
   .nav-container {
     height: calc(var(--navbar-height) - 10px);
@@ -52,9 +45,17 @@
   }
 }
 
-@media (max-width: 1035px) {
+@media (max-width: 1080px) {
+  :root {
+    --nav-title-btn-width: 215px;
+    --nav-btn-height: 54px;
+  }
+  .nav-section-link {
+    min-width: 100px;
+    font-size: 1.1rem;
+  }
   .nav-title h1 {
-    font-size: 1.5rem;
+    font-size: 2.1rem;
   }
   .github-logo {
     max-height: 40px;
@@ -62,29 +63,8 @@
   .linkedIn-logo {
     max-height: 35px;
   }
-  .nav-btn {
-    font-size: 0.7rem;
-    min-width: 60px;
-    margin: 0 2px;
-  }
-  .project-panel,
-  .about-panel {
-    margin: 15px;
-  }
-  .nav-title {
-    height: 54px;
-    max-width: 125px;
-    line-height: 0.85;
-  }
-  .logo-image {
-    max-width: 52px;
-  }
   .nav-container {
     height: calc(var(--navbar-height) - 12px);
-  }
-  .project-box,
-  .about-box {
-    margin: calc(var(--navbar-height) - 17px) auto 0;
   }
 }
 

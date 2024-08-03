@@ -11,7 +11,7 @@ interface extNavLinkProps {
 }
 
 function ExtNavLink({ extLink }: extNavLinkProps) {
-  const { isBurgerMenuActive } = useScreenWidthContext();
+  const { burgerMenuStage } = useScreenWidthContext();
 
   const navClasses = extLink.classNames.join(" ");
   const burgerClasses = extLink.burgerClassNames.join(" ");
@@ -20,7 +20,7 @@ function ExtNavLink({ extLink }: extNavLinkProps) {
     <a
       href={extLink.linkUrl}
       data-test={`${extLink.name}-nav-btn`}
-      className={isBurgerMenuActive ? burgerClasses : navClasses}
+      className={burgerMenuStage > 1 ? burgerClasses : navClasses}
       target="_blank"
       rel="noreferrer"
     >

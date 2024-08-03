@@ -25,7 +25,7 @@ export const ScreenWidthProvider = ({
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState<boolean>(false);
   const [burgerMenuStage, setBurgerMenuStage] = useState<number>(1);
   // burgerMenu stages:
-  // 1 @ < 950px width: burger menu contains only project/about links
+  // 1 @ < 1080px width: burger menu contains only project/about links
   // 2 @ < 650px width: burger menu contains project/about links and external links (GitHub & LinkedIn)
   // 3 @ < 390px width: burger menu contains project/about links, external links (GitHub & LinkedIn) and a link to the other (project/about) section
 
@@ -45,7 +45,7 @@ export const ScreenWidthProvider = ({
   }, []);
 
   useEffect(() => {
-    if (screenWidth > 950) {
+    if (screenWidth > 1080) {
       setIsBurgerMenuActive(false);
       setBurgerMenuStage(0);
     } else if (screenWidth > 650) {

@@ -4,8 +4,12 @@ export const extLinkData = [
     name: "github",
     linkUrl: "https://github.com/pablisch",
     classNames: ["nav-btn", "github-link-btn"],
-    clasNames: "nav-btn github-link-btn",
-    burgerClassNames: ["burger-btn", "github-link-btn", "external-burger-btn"],
+    burgerClassNames: [
+      "nav-btn",
+      "burger-btn",
+      "github-link-btn",
+      "external-burger-btn",
+    ],
     image: {
       src: "github-logo.png",
       alt: "GitHub logo",

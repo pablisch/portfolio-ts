@@ -5,7 +5,7 @@
 }
 
 .logo-image {
-  max-width: 60px;
+  max-width: var(--nav-btn-height);
   margin-right: 15px;
   opacity: 0.9;
   transition: opacity 2s ease;
@@ -28,27 +28,17 @@
   justify-content: center;
   flex: 1 400px;
   text-align: center;
-  height: 62px;
+  height: var(--nav-btn-height);
   border-radius: 15px;
-  padding: 5px 15px;
+  /*padding: 5px;*/
   transition: all 0.5s ease;
   cursor: pointer;
   margin-right: 5px;
-  max-width: 100px;
-}
-
-.nav-title {
+  max-width: var(--nav-title-btn-width);
+  min-width: var(--nav-title-btn-width);
   background-color: var(--nav-section-btn-background);
   color: var(--nav-link-btn-text);
   border: 1px var(--nav-link-btn-border) solid;
-}
-
-.abouts-title {
-  max-width: 195px;
-}
-
-.projects-title {
-  max-width: 225px;
 }
 
 .nav-title:hover {
@@ -66,7 +56,6 @@ nav h1 {
 .nav-list {
   display: flex;
   justify-content: flex-start;
-  /* align-items: center; */
   max-width: 600px;
 }
 
@@ -88,7 +77,8 @@ nav h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 70px;
+  min-width: var(--nav-link-width);
+  height: var(--nav-btn-height);
   transition: all 1s ease-in-out;
   cursor: pointer;
   border: 1px var(--nav-link-btn-border) solid;

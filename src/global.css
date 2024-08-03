@@ -1,7 +1,13 @@
 :root {
-  --nav-side-padding: 20px;
+  /* APP SIZE VARS */
+  --app-max-width: 1100px;
   --fake-side-margin: 0.1px;
+
+  /* NAVBAR SIZE VARS */
   --nav-container-width: calc(85vw + (2 * var(--nav-side-padding)));
   --navbar-height: 85px;
-  --app-max-width: 1100px;
+  --nav-side-padding: 20px;
+  --nav-title-btn-width: 215px;
+  --nav-btn-height: 62px;
+  --nav-link-width: 73px;
 }
