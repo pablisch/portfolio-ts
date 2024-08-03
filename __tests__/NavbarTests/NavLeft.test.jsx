@@ -1,5 +1,5 @@
 import React from "react";
-import { test, describe, expect, vi } from "vitest";
+import { test, describe, expect, vi, beforeEach } from "vitest";
 import NavLeft from "../../src/features/Navbar/NavLeft.tsx";
 import {
   render,
@@ -40,6 +40,10 @@ const renderComponent = (
 };
 
 describe("NavLeft component", () => {
+  beforeEach(() => {
+    vi.clearAllMocks(); // or vi.resetAllMocks();
+  });
+
   test("renders the NavLeft component", () => {
     // Arrange
     const { container } = renderComponent();
@@ -101,5 +105,18 @@ describe("NavLeft component", () => {
     // Assert
     expect(mockHandleAvatarHoverStart).toHaveBeenCalledTimes(1);
     expect(mockHandleAvatarHoverEnd).toHaveBeenCalledTimes(0);
+  });
+
+  test("handleAvatarHoverEnd is called when the navbar avatar is unhovered", async () => {
+    // Arrange
+    renderComponent();
+    const avatar = screen.getByRole("img", { name: /avatar icon/i });
+
+    // Act
+    await user.unhover(avatar);
+
+    // Assert
+    expect(mockHandleAvatarHoverStart).toHaveBeenCalledTimes(0);
+    expect(mockHandleAvatarHoverEnd).toHaveBeenCalledTimes(1);
   });
 });
