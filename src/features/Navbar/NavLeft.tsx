@@ -27,19 +27,19 @@ export default function NavLeft() {
       <img
         data-test="nav-logo"
         className="logo-image"
-        src="/images/avatar-square-small4.png"
+        src="/images/avatar-round-small3.png"
         alt="avatar icon"
         onMouseEnter={handleAvatarHoverStart}
         onMouseLeave={handleAvatarHoverEnd}
       />
       {/* TITLE - Current section */}
       <div
-        data-test="nav-section-title-btn"
+        data-test={`nav-${section}-title-btn`}
         role="button"
         onClick={handleNavTitleClick}
         className="nav-title"
       >
-        <h1 data-test="nav-section-title-text">
+        <h1 data-test={`nav-${section}-title-text`}>
           {section === "projects"
             ? "My Projects"
             : section === "about"

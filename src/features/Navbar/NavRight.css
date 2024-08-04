@@ -7,74 +7,79 @@
 
 /* LINK TO OTHER SECTION */
 .nav-section-link {
-  transition: all 0.5s ease;
+  transition: var(--std-transition);
   text-decoration: none;
-  background-color: var(--nav-section-btn-background);
-  color: var(--nav-btn-text);
+  background-color: var(--nav-section-btn-bg);
+  color: var(--nav-btn-txt);
   min-width: var(--nav-btn-width);
 }
 
 .nav-section-link:hover {
-  background-color: var(--nav-btn-background-hover);
-  color: var(--nav-btn-text-hover);
-  border: 1px var(--nav-section-btn-background-hover) solid;
+  background-color: var(--nav-section-btn-bg-hvr);
+  color: var(--nav-btn-txt-hvr);
+  border: 1px var(--nav-btn-brd-hvr) solid;
 }
 
 /* GITHUB LINK BTN */
 .github-link-btn {
   cursor: url("./navCursors/looking-glass.png"), auto;
-  background-color: var(--github-background);
-  border: 1px var(--github-border) solid;
+  background-color: var(--github-bg);
+  border: 1px var(--github-brd) solid;
 }
 
 .github-link-btn:hover {
-  background-color: var(--github-background-hover);
-  border: 1px var(--github-border-hover) solid;
-}
-
-.github-link-btn:hover .github-logo {
-  transition: all 0.5s ease;
-  opacity: 1;
+  background-color: var(--github-bg-hvr);
+  border: 1px var(--github-brd-hvr) solid;
 }
 
 .github-logo {
   max-height: 50px;
-  transition: all 2s ease-in-out;
-  opacity: 0.6;
+  transition: var(--std-transition);
+  opacity: var(--github-logo-opacity);
+  filter: invert(var(--github-logo-inversion));
 }
 
-.github-logo-dark {
-  opacity: 1;
-  filter: invert(0.7);
-}
-
-.github-link-btn:hover .github-logo-dark {
-  filter: invert(0);
+.github-link-btn:hover .github-logo {
+  transition: var(--std-transition);
+  opacity: var(--github-logo-opacity-hvr);
 }
 
 /* LINKEDIN LINK BTN */
 .linkedIn-link-btn {
-  transition: background-color 1s ease;
+  transition: var(--std-transition);
   cursor: url("./navCursors/looking-glass.png"), auto;
 }
 
 .linkedIn-link-btn {
-  background-color: var(--linkedIn-background);
-  border: 1px var(--linkedIn-border) solid;
+  background-color: var(--linkedIn-bg);
+  border: 1px var(--linkedIn-brd) solid;
 }
 
 .linkedIn-link-btn:hover {
   background-color: var(--linkedIn-blue);
-  border: 1px var(--linkedIn-border-hover) solid;
+  border: 1px var(--linkedIn-brd-hvr) solid;
 }
 
 .linkedIn-logo {
   max-height: 40px;
-  transition: opacity 3s ease;
-  opacity: 1;
+  transition: var(--std-transition);
+  opacity: var(--linkedIn-logo-opacity);
 }
 
-/* SETTINGS (THEME) BTN */
+.linkedIn-link-btn:hover .linkedIn-logo {
+  opacity: var(--linkedIn-logo-opacity-hvr);
+}
+
+/* THEME BTN */
+.theme-btn {
+  background: var(--theme-btn-bg);
+}
+
+.theme-btn:hover {
+  background: var(--theme-btn-bg-hvr);
+}
+
+/* SETTINGS BTN */
 .settings-btn {
   cursor: url("./navCursors/smallaxe.png"), auto;
 }
@@ -119,16 +124,16 @@
 
 /*.github-link-btn-retro:hover {*/
 /*  background-color: var(--github-back-hover-retro);*/
-/*  border: 1px var(--github-border-hover-retro) solid;*/
+/*  border: 1px var(--github-brd-hover-retro) solid;*/
 /*}*/
 /*.github-link-btn-dark:hover {*/
 /*  background-color: var(--github-back-hover-dark);*/
-/*  border: 1px var(--github-border-hover-dark) solid;*/
+/*  border: 1px var(--github-brd-hover-dark) solid;*/
 /*}*/
 
 /*.linkedIn-link-btn-dark {*/
 /*  background-color: var(--linkedIn-back-dark);*/
-/*  border: 1px var(--linkedIn-border-dark) solid;*/
+/*  border: 1px var(--linkedIn-brd-dark) solid;*/
 /*}*/
 
 /*.avatar-hovered-github-link {*/

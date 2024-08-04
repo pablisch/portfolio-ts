@@ -15,8 +15,8 @@
   width: 35px;
   height: 4px;
   margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: var(--std-transition);
+  transition: var(--std-transition);
   z-index: 1;
   background-color: var(--sea-green-800-dull);
   border: 1px solid var(--sea-green-800-dull);

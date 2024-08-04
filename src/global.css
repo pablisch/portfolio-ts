@@ -3,6 +3,9 @@
   --app-max-width: 1100px;
   --fake-side-margin: 0.1px;
 
+  /* MISC APP VARS */
+  --std-transition: all 0.3s ease-in-out;
+
   /* NAVBAR SIZE VARS */
   --nav-container-width: calc(85vw + (2 * var(--nav-side-padding)));
   --navbar-height: 85px;

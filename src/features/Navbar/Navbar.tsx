@@ -7,9 +7,11 @@ import NavRight from "./NavRight.tsx";
 export default function Navbar() {
   return (
     <nav>
-      <div className="nav-container">
-        <NavLeft />
-        <NavRight />
+      <div className="navbar">
+        <div className="nav-container">
+          <NavLeft />
+          <NavRight />
+        </div>
       </div>
       <div className={`nav-border-bar-1`}></div>
       <div className={`nav-border-bar-2`}></div>

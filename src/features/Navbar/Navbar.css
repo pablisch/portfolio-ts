@@ -4,8 +4,13 @@ nav {
   width: 100%;
   background-size: cover;
   z-index: 1000;
-  background-color: var(--nav-background);
-  transition: background-color 2s ease;
+  transition: var(--std-transition);
+  /*display: none;*/
+}
+
+/* NAVBAR contains the main navbar colour */
+.navbar {
+  background-color: var(--nav-bg);
 }
 
 /* outer container for all NAVBAR elements */
@@ -24,32 +29,28 @@ nav {
 /* NAVBAR BORDER CSS */
 
 .nav-border-bar-1 {
-  height: 1px;
-  background-color: var(--nav-border-1);
+  height: var(--nav-brd-1-height);
+  background-color: var(--nav-brd-1);
 }
 
 .nav-border-bar-2 {
-  height: 4px;
-  background-color: var(--nav-border-2);
-  transition: background-color 2s ease;
+  height: var(--nav-brd-2-height);
+  background-color: var(--nav-brd-2);
+  transition: var(--std-transition);
 }
 
 .nav-border-bar-3 {
   height: 25px;
-  background: linear-gradient(
-    to bottom,
-    var(--blue-100) 0%,
-    var(--blue-100-0) 100%
-  );
+  background: var(--nav-brd-3-gradient);
 }
 
 /*.nav-retro {*/
 /*  background-color: var(--nav-back-retro);*/
-/*  transition: background-color 2s ease;*/
+/*  transition: var(--std-transition);
 /*}*/
 /*.nav-dark {*/
 /*  background-color: var(--nav-back-dark);*/
-/*  transition: background-color 2s ease;*/
+/*  transition: var(--std-transition);
 /*}*/
 
 /*.nav-border-bar-3-retro {*/

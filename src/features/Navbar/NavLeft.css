@@ -9,9 +9,10 @@
   max-width: var(--nav-btn-height);
   margin-right: 15px;
   opacity: 0.9;
-  transition: opacity 2s ease;
+  transition: var(--std-transition);
   cursor: none;
   border-radius: 100%;
+  border: 1px var(--avatar-brd) solid;
 }
 
 .logo-image-dark {
@@ -33,26 +34,26 @@
   height: var(--nav-btn-height);
   border-radius: 15px;
   /*padding: 5px;*/
-  transition: all 0.5s ease;
+  transition: var(--std-transition);
   cursor: pointer;
   margin-right: 5px;
   max-width: var(--nav-title-btn-width);
   min-width: var(--nav-title-btn-width);
-  background-color: var(--nav-section-btn-background);
-  border: 1px var(--nav-btn-border) solid;
+  background-color: var(--nav-section-btn-bg);
+  border: 1px var(--nav-btn-brd) solid;
 }
 
 .nav-title:hover {
-  transition: all 0.5s ease;
-  background-color: var(--nav-btn-background-hover);
-  color: var(--nav-btn-text-hover);
-  border: 1px var(--nav-btn-border-hover) solid;
+  transition: var(--std-transition);
+  background-color: var(--nav-btn-bg-hvr);
+  color: var(--nav-btn-txt-hvr);
+  border: 1px var(--nav-btn-brd-hvr) solid;
 }
 
 nav h1 {
   font-size: 2.2rem;
   font-weight: normal;
-  color: var(--nav-btn-text);
+  color: var(--nav-btn-txt);
 }
 
 /* CURRENT SECTION TOPIC LINK BTN LIST */
@@ -82,17 +83,17 @@ nav h1 {
   justify-content: center;
   min-width: var(--nav-btn-width);
   height: var(--nav-btn-height);
-  transition: all 0.5s ease-in-out;
+  transition: var(--std-transition);
   cursor: pointer;
-  border: 1px var(--nav-btn-border) solid;
-  background-color: var(--nav-btn-background);
-  color: var(--nav-btn-text);
+  border: 1px var(--nav-btn-brd) solid;
+  background-color: var(--nav-btn-bg);
+  color: var(--nav-btn-txt);
 }
 
 .nav-btn:hover {
-  background-color: var(--nav-btn-background-hover);
-  color: var(--nav-btn-text-hover);
-  border: 1px var(--nav-btn-border-hover) solid;
+  background-color: var(--nav-btn-bg-hvr);
+  color: var(--nav-btn-txt-hvr);
+  border: 1px var(--nav-btn-brd-hvr) solid;
 }
 
 /*.nav-title-retro {*/

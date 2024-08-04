@@ -54,12 +54,12 @@ describe("NavRight component", () => {
       name: /more about me/i,
     });
     const extLinks = screen.getAllByRole("link", { name: /github|linkedin/i });
-    const settingsButton = screen.getByRole("button", { name: /settings/i });
+    const themeButton = screen.getByRole("button", { name: /Light Theme/i });
 
     // Assert
     expect(smallAboutSectionLink).toBeInTheDocument();
     expect(extLinks).toHaveLength(2);
-    expect(settingsButton).toBeInTheDocument();
+    expect(themeButton).toBeInTheDocument();
   });
 
   test("the About section link button Navigates to the 'More About Me' page", async () => {
@@ -80,10 +80,10 @@ describe("NavRight component", () => {
   test("the settings button calls the handleThemeChange function when clicked", async () => {
     // Arrange
     renderComponent();
-    const settingsButton = screen.getByRole("button", { name: /settings/i });
+    const themeButton = screen.getByRole("button", { name: /Light Theme/i });
 
     // Act
-    await user.click(settingsButton);
+    await user.click(themeButton);
 
     // Assert
     expect(mockHandleThemeChange).toHaveBeenCalledTimes(1);

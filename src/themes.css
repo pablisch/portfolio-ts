@@ -1,52 +1,223 @@
 :root {
-  --background-primary: #ffffff;
-  --background-secondary: #d4dadc;
-  --text-primary: #252525;
-  --button-primary: #d0d5d1;
+  --bg-pri: var(--white);
+  --txt-pri: var(--grey-blue-700);
 
-  --nav-background: #ffffff;
+  --btn-pri-bg: var(--whitish-100);
+  --btn-pri-txt: var(--txt-pri);
+  --btn-pri-brd: var(--sea-green-200);
+  --btn-pri-bg-hvr: var(--white);
+  --btn-pri-txt-hvr: var(--grey-blue-700);
+  --btn-pri-brd-hvr: var(--grey-blue-200);
 
-  --nav-btn-background: var(--whitish-100);
-  --nav-btn-text: var(--grey-blue-700);
-  --nav-btn-border: var(--sea-green-200);
-  --nav-btn-background-hover: #fff;
-  --nav-btn-text-hover: var(--grey-blue-700);
-  --nav-btn-border-hover: var(--grey-blue-200);
+  --nav-bg: var(--bg-pri);
+  --avatar-brd: var(--dull-blue-1500);
 
-  --nav-section-btn-background: var(--blue-100);
-  --nav-section-btn-background-hover: var(--grey-blue-400);
+  --nav-btn-bg: var(--btn-pri-bg);
+  --nav-btn-txt: var(--btn-pri-txt);
+  --nav-btn-brd: var(--btn-pri-brd);
+  --nav-btn-bg-hvr: var(--btn-pri-bg-hvr);
+  --nav-btn-txt-hvr: var(--btn-pri-txt-hvr);
+  --nav-btn-brd-hvr: var(--btn-pri-brd-hvr);
 
-  --github-background: var(--whitish-100);
-  --github-border: var(--sea-green-200);
-  --github-background-hover: #fff;
-  --github-border-hover: var(--grey-blue-400);
-  --linkedIn-background: var(--blue-500);
-  --linkedIn-border: var(--sea-green-600);
-  --linkedIn-border-hover: var(--grey-blue-1300);
+  --nav-section-btn-bg: var(--blue-75);
+  --nav-section-btn-bg-hvr: var(--btn-pri-bg-hvr);
 
-  --nav-border-1: var(--blue-400);
-  --nav-border-2: var(--blue-100);
-  --nav-border-3-pt1: var(--grey-blue-200);
+  --github-bg: var(--whitish-100);
+  --github-brd: var(--btn-pri-brd);
+  --github-bg-hvr: var(--white);
+  --github-brd-hvr: var(--grey-blue-400);
+  --github-logo-opacity: 0.6;
+  --github-logo-opacity-hvr: 0.6;
+  --github-logo-inversion: 0;
+  --linkedIn-bg: var(--blue-500);
+  --linkedIn-brd: var(--sea-green-600);
+  --linkedIn-brd-hvr: var(--grey-blue-1300);
+  --linkedIn-logo-opacity: 1;
+  --linkedIn-logo-opacity-hvr: 1;
+  --theme-btn-bg: linear-gradient(
+    to right,
+    var(--blue-400) 0%,
+    var(--white) 20%,
+    var(--white) 75%,
+    var(--blue-200) 100%
+  );
+  --theme-btn-bg-hvr: linear-gradient(
+    to right,
+    var(--blue-500) 0%,
+    var(--white) 20%,
+    var(--white) 75%,
+    var(--blue-300) 100%
+  );
+
+  --nav-brd-1: var(--blue-400);
+  --nav-brd-1-height: 1px;
+  --nav-brd-2: var(--blue-100);
+  --nav-brd-2-height: 4px;
+  --nav-brd-3-gradient: linear-gradient(
+    to bottom,
+    var(--blue-100) 0%,
+    var(--blue-100-0) 100%
+  );
 }
 
 [data-theme="Dark"] {
-  --background-primary: #333;
-  --background-secondary: #555;
-  --nav-background: var(--grey-blue-1700);
-  --text-primary: #ffffff;
-  --button-primary: #82c6d5;
+  --bg-pri: var(--grey-blue-1700);
+  --txt-pri: var(--cream-200);
+
+  --btn-pri-bg: var(--grey-blue-1500);
+  --btn-pri-txt: var(--txt-pri);
+  --btn-pri-brd: var(--sea-green-1000-dull);
+  --btn-pri-bg-hvr: var(--grey-blue-1900);
+  --btn-pri-txt-hvr: var(--cream-200);
+  --btn-pri-brd-hvr: var(--sea-green-800-dull);
+
+  --nav-bg: var(--grey-blue-1700);
+  --avatar-brd: var(--sea-green-600);
+
+  --nav-btn-bg: var(--btn-pri-bg);
+  --nav-btn-txt: var(--btn-pri-txt);
+  --nav-btn-brd: var(--btn-pri-brd);
+  --nav-btn-bg-hvr: var(--btn-pri-bg-hvr);
+  --nav-btn-txt-hvr: var(--btn-pri-txt-hvr);
+  --nav-btn-brd-hvr: var(--btn-pri-brd-hvr);
+
+  --nav-section-btn-bg: var(--dull-blue-1400);
+  --nav-section-btn-bg-hvr: var(--grey-blue-1800);
+
+  --github-bg: var(--btn-pri-bg);
+  --github-brd: var(--btn-pri-brd);
+  --github-bg-hvr: var(--btn-pri-bg-hvr);
+  --github-brd-hvr: var(--grey-blue-400);
+  --github-logo-opacity: 0.6;
+  --github-logo-opacity-hvr: 1;
+  --github-logo-inversion: 1;
+  --linkedIn-bg: var(--btn-pri-bg);
+  --linkedIn-brd: var(--btn-pri-brd);
+  --linkedIn-brd-hvr: var(--grey-blue-1300);
+  --linkedIn-logo-opacity: 0.6;
+  --linkedIn-logo-opacity-hvr: 1;
+  --theme-btn-bg: linear-gradient(
+    to right,
+    var(--black) 0%,
+    var(--grey-blue-1700) 20%,
+    var(--grey-blue-1500) 55%,
+    var(--grey-blue-2100) 90%,
+    var(--black) 100%
+  );
+  --theme-btn-bg-hvr: linear-gradient(
+    to right,
+    var(--black) 0%,
+    var(--grey-blue-1700) 30%,
+    var(--grey-blue-1100) 65%,
+    var(--grey-blue-1500) 75%,
+    /*var(--grey-blue-1900) 90%,*/ var(--black) 100%
+  );
+
+  --nav-brd-1: var(--black);
+  --nav-brd-1-height: 4px;
+  --nav-brd-2: var(--sea-green-600);
+  --nav-brd-2-height: 1px;
+  --nav-brd-3-gradient: linear-gradient(
+    to bottom,
+    var(--leaf-1400) 0%,
+    var(--leaf-1400-0) 100%
+  );
 }
 
 [data-theme="Colour"] {
-  --background-primary: #e0dbc3;
-  --background-secondary: #82c6d5;
-  --text-primary: #333;
-  --button-primary: #c6e0e1;
+  --bg-pri: var(--salmon-300);
+  --bg-sec: var(--blue-600);
+  --txt-pri: var(--grey-blue-700);
+
+  --btn-pri-bg: var(--whitish-100);
+  --btn-pri-txt: var(--txt-pri);
+  --btn-pri-brd: var(--sea-green-200);
+  --btn-pri-bg-hvr: var(--white);
+  --btn-pri-txt-hvr: var(--grey-blue-700);
+  --btn-pri-brd-hvr: var(--grey-blue-200);
+
+  --nav-bg: var(--bg-sec);
+  --avatar-brd: var(--dull-blue-1500);
+
+  --nav-btn-bg: var(--lime-leaf-100);
+  --nav-btn-txt: var(--btn-pri-txt);
+  --nav-btn-brd: var(--cream-100);
+  --nav-btn-bg-hvr: var(--btn-pri-bg-hvr);
+  --nav-btn-txt-hvr: var(--btn-pri-txt-hvr);
+  --nav-btn-brd-hvr: var(--btn-pri-brd-hvr);
+
+  --nav-section-btn-bg: var(--lime-leaf-200);
+  --nav-section-btn-bg-hvr: var(--btn-pri-bg-hvr);
+
+  --github-bg: var(--whitish-100);
+  --github-brd: var(--btn-pri-brd);
+  --github-bg-hvr: var(--white);
+  --github-brd-hvr: var(--grey-blue-400);
+  --github-logo-opacity: 0.6;
+  --github-logo-opacity-hvr: 0.6;
+  --github-logo-inversion: 0;
+  --linkedIn-bg: var(--blue-400);
+  --linkedIn-brd: var(--sea-green-600);
+  --linkedIn-brd-hvr: var(--grey-blue-1300);
+  --linkedIn-logo-opacity: 1;
+  --linkedIn-logo-opacity-hvr: 1;
+  --theme-btn-bg: linear-gradient(
+    to bottom,
+    var(--nav-btn-bg) 0%,
+    var(--bg-sec) 5%,
+    var(--bg-pri) 30%
+  );
+  --theme-btn-bg-hvr: linear-gradient(
+    to bottom,
+    #f86b6b 0%,
+    var(--nav-btn-bg) 17%,
+    var(--nav-btn-bg) 83%,
+    #7171f3 100%
+  );
+
+  --nav-brd-1: var(--leaf-300);
+  --nav-brd-1-height: 3px;
+  --nav-brd-2: var(--leaf-600);
+  --nav-brd-2-height: 2px;
+  --nav-brd-3-gradient: linear-gradient(
+    to bottom,
+    var(--pink-300) 0%,
+    var(--pink-300-0) 100%
+  );
 }
 
 [data-theme="Anomaly"] {
-  --background-primary: var(--turquoise-200);
-  --background-secondary: var(--turquoise-400);
-  --text-primary: #333;
-  --button-primary: #c6e0e1;
+  --bg-pri: var(--turquoise-200);
+  --bg-sec: var(--turquoise-400);
+  --txt-pri: #333;
+  --btn-pri-bg: #c6e0e1;
+
+  --nav-bg: var(--grey-blue-1700);
+
+  --nav-btn-bg: var(--whitish-100);
+  --nav-btn-txt: var(--grey-blue-700);
+  --nav-btn-brd: var(--sea-green-200);
+  --nav-btn-bg-hvr: #fff;
+  --nav-btn-txt-hvr: var(--grey-blue-700);
+  --nav-btn-brd-hvr: var(--grey-blue-200);
+
+  --nav-section-btn-bg: var(--blue-100);
+  --nav-section-btn-bg-hvr: var(--grey-blue-400);
+
+  --github-bg: var(--whitish-100);
+  --github-brd: var(--sea-green-200);
+  --github-bg-hvr: #fff;
+  --github-brd-hvr: var(--grey-blue-400);
+  --linkedIn-bg: var(--blue-500);
+  --linkedIn-brd: var(--sea-green-600);
+  --linkedIn-brd-hvr: var(--grey-blue-1300);
+  --theme-btn-bg: linear-gradient(
+    to bottom,
+    var(--blue-100) 0%,
+    var(--blue-100-0) 100%
+  );
+
+  --nav-brd-1: var(--blue-400);
+  --nav-brd-2: var(--blue-100);
+  --nav-brd-3-pt1: var(--grey-blue-200);
 }

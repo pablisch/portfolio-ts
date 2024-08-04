@@ -69,7 +69,7 @@ describe("Navbar", () => {
       name: /more about me/i,
     });
     const extLinks = screen.getAllByRole("link", { name: /github|linkedin/i });
-    const settingsButton = screen.getByRole("button", { name: /settings/i });
+    const themeButton = screen.getByRole("button", { name: /Light Theme/i });
 
     // Assert
     expect(avatar).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe("Navbar", () => {
     expect(projectLinks[0].textContent).toBe("LUPO");
     expect(smallAboutSectionLink).toBeInTheDocument();
     expect(extLinks).toHaveLength(2);
-    expect(settingsButton).toBeInTheDocument();
+    expect(themeButton).toBeInTheDocument();
   });
 
   test("navbar has three border div elements", () => {
