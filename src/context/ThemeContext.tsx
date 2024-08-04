@@ -45,7 +45,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (isAvatarHovered) {
-      setTheme("Light");
+      setTheme("Anomaly");
     } else {
       setTheme(coreTheme);
     }
