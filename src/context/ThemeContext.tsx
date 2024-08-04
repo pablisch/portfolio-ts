@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-const coreThemeStyles = ["colour", "light", "dark"];
+const coreThemeStyles = ["Light", "Dark", "Colour"];
 
 export interface ThemeContextType {
   theme: string;
@@ -11,7 +11,7 @@ export interface ThemeContextType {
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: "colour",
+  theme: coreThemeStyles[0],
   handleThemeChange: () => {},
   isIconRotating: false,
   handleAvatarHoverStart: () => {},
@@ -19,7 +19,7 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [coreTheme, setCoreTheme] = useState<string>("light");
+  const [coreTheme, setCoreTheme] = useState<string>(coreThemeStyles[0]);
   const [theme, setTheme] = useState<string>(coreTheme);
   const [isAvatarHovered, setIsAvatarHovered] = useState<boolean>(false);
   const [isIconRotating, setIsIconRotating] = useState<boolean>(false);
@@ -45,7 +45,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (isAvatarHovered) {
-      setTheme("avatar");
+      setTheme("Light");
     } else {
       setTheme(coreTheme);
     }

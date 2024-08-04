@@ -29,7 +29,7 @@
   --nav-border-3-pt1: var(--grey-blue-200);
 }
 
-[data-theme="dark"] {
+[data-theme="Dark"] {
   --background-primary: #333;
   --background-secondary: #555;
   --nav-background: var(--grey-blue-1700);
@@ -37,14 +37,14 @@
   --button-primary: #82c6d5;
 }
 
-[data-theme="colour"] {
+[data-theme="Colour"] {
   --background-primary: #e0dbc3;
   --background-secondary: #82c6d5;
   --text-primary: #333;
   --button-primary: #c6e0e1;
 }
 
-[data-theme="avatar"] {
+[data-theme="Anomaly"] {
   --background-primary: var(--turquoise-200);
   --background-secondary: var(--turquoise-400);
   --text-primary: #333;

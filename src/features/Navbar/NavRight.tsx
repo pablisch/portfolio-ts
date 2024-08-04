@@ -10,9 +10,10 @@ import { extNavLinkObject } from "../../types/data.types.ts";
 import ExtNavLink from "./ExtNavLink.tsx";
 import "./NavRight.css";
 import "./Hamburger.css";
+const settings = false;
 
 export default function NavRight() {
-  const { handleThemeChange, isIconRotating } = useThemeContext();
+  const { theme, handleThemeChange, isIconRotating } = useThemeContext();
   const { section, handleSectionChange } = useSectionContext();
   const {
     burgerMenuStage,
@@ -50,21 +51,35 @@ export default function NavRight() {
         extLinkData.map((exLink: extNavLinkObject) => (
           <ExtNavLink key={exLink.name} extLink={exLink} />
         ))}
+
+      {/* Theme btn */}
       <div
         role="button"
-        data-test="settings-nav-btn"
-        className="nav-btn github-link-btn settings-btn"
+        data-test="theme-btn"
+        className="nav-btn nav-link theme-btn"
         onClick={handleThemeChange}
       >
-        <img
-          data-test="settings-icon"
-          src="/images/settings-gear.png"
-          alt="settings button"
-          className={`github-logo settings-icon ${
-            isIconRotating ? "rotate" : ""
-          }`}
-        />
+        {`${theme} Theme`}
       </div>
+
+      {/* Settings btn */}
+      {settings && (
+        <div
+          role="button"
+          data-test="settings-nav-btn"
+          className="nav-btn github-link-btn settings-btn"
+          onClick={handleThemeChange}
+        >
+          <img
+            data-test="settings-icon"
+            src="/images/settings-gear.png"
+            alt="settings button"
+            className={`github-logo settings-icon ${
+              isIconRotating ? "rotate" : ""
+            }`}
+          />
+        </div>
+      )}
       {isBurgerMenuActive && (
         <div className="hamburger-box">
           <div

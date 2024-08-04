@@ -1,3 +1,11 @@
+.nav-right {
+  display: flex;
+  justify-content: end;
+}
+
+/* NOTE: For .nav-btn see NavLeft.css */
+
+/* LINK TO OTHER SECTION */
 .nav-section-link {
   transition: all 0.5s ease;
   text-decoration: none;
@@ -12,16 +20,7 @@
   border: 1px var(--nav-section-btn-background-hover) solid;
 }
 
-.avatar-hovered-nav-section-link {
-  transition:
-    background-color 0.5s ease,
-    border 0.5s ease,
-    color 0.5s ease;
-  background-color: var(--grey-blue-1300);
-  border: 1px var(--leaf-1100) solid;
-  color: var(--lime-500);
-}
-
+/* GITHUB LINK BTN */
 .github-link-btn {
   cursor: url("./navCursors/looking-glass.png"), auto;
   background-color: var(--github-background);
@@ -53,14 +52,7 @@
   filter: invert(0);
 }
 
-.settings-icon-dark {
-  filter: invert(0);
-}
-
-.settings-btn-dark:hover .settings-icon-dark {
-  filter: invert(1);
-}
-
+/* LINKEDIN LINK BTN */
 .linkedIn-link-btn {
   transition: background-color 1s ease;
   cursor: url("./navCursors/looking-glass.png"), auto;
@@ -82,8 +74,17 @@
   opacity: 1;
 }
 
+/* SETTINGS (THEME) BTN */
 .settings-btn {
   cursor: url("./navCursors/smallaxe.png"), auto;
+}
+
+.settings-icon-dark {
+  filter: invert(0);
+}
+
+.settings-btn-dark:hover .settings-icon-dark {
+  filter: invert(1);
 }
 
 .rotate {

@@ -8,18 +8,16 @@ nav {
   transition: background-color 2s ease;
 }
 
+/* outer container for all NAVBAR elements */
 .nav-container {
-  /* outer container for all NAVBAR elements */
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: calc(var(--app-max-width) + (2 * var(--nav-side-padding)) + 200px);
-  width: var(
-    --nav-container-width
-  ); /* USE SAME SETTING for .nav-container, .gallery-container, .focus-container & .footer-container */
+  width: var(--nav-container-width);
+  /* USE SAME WIDTH SETTING for .nav-container, .gallery-container, .focus-container & .footer-container */
   margin: 0 auto;
   padding: 0 var(--nav-side-padding);
-  overflow: hidden;
   height: var(--navbar-height);
 }
 

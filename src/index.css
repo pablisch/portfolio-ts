@@ -24,7 +24,8 @@ body {
 }
 
 .app {
-  color: #606060;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
   transition: background-color 3s ease;
   /*min-height: calc(100vh - var(--navbar-height));*/
   min-height: 100vh;
