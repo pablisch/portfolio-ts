@@ -10,11 +10,7 @@ interface NavLinkProps {
   className?: string;
 }
 
-function NavLink({
-  children,
-  topic,
-  className = "nav-btn nav-link",
-}: NavLinkProps) {
+function NavLink({ children, topic, className = "nav-btn" }: NavLinkProps) {
   const {
     section,
     setFocusProjectId,

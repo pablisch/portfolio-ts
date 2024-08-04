@@ -56,7 +56,7 @@ export default function NavRight() {
       <div
         role="button"
         data-test="theme-btn"
-        className="nav-btn nav-link theme-btn"
+        className="nav-btn theme-btn"
         onClick={handleThemeChange}
       >
         {`${theme} Theme`}
@@ -68,7 +68,7 @@ export default function NavRight() {
           role="button"
           data-test="settings-nav-btn"
           className="nav-btn github-link-btn settings-btn"
-          onClick={handleThemeChange}
+          onClick={() => console.log("Settings button clicked")}
         >
           <img
             data-test="settings-icon"

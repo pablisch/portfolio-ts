@@ -6,12 +6,12 @@
 
   --nav-background: #ffffff;
 
-  --nav-link-btn-background: var(--whitish-100);
-  --nav-link-btn-text: var(--grey-blue-700);
-  --nav-link-btn-border: var(--sea-green-200);
-  --nav-link-btn-background-hover: #fff;
-  --nav-link-btn-text-hover: var(--grey-blue-700);
-  --nav-link-btn-border-hover: var(--grey-blue-200);
+  --nav-btn-background: var(--whitish-100);
+  --nav-btn-text: var(--grey-blue-700);
+  --nav-btn-border: var(--sea-green-200);
+  --nav-btn-background-hover: #fff;
+  --nav-btn-text-hover: var(--grey-blue-700);
+  --nav-btn-border-hover: var(--grey-blue-200);
 
   --nav-section-btn-background: var(--blue-100);
   --nav-section-btn-background-hover: var(--grey-blue-400);

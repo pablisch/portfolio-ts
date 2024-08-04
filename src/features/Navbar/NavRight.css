@@ -10,13 +10,13 @@
   transition: all 0.5s ease;
   text-decoration: none;
   background-color: var(--nav-section-btn-background);
-  color: var(--nav-link-btn-text);
-  min-width: var(--nav-link-width);
+  color: var(--nav-btn-text);
+  min-width: var(--nav-btn-width);
 }
 
 .nav-section-link:hover {
-  background-color: var(--nav-link-btn-background-hover);
-  color: var(--nav-link-btn-text-hover);
+  background-color: var(--nav-btn-background-hover);
+  color: var(--nav-btn-text-hover);
   border: 1px var(--nav-section-btn-background-hover) solid;
 }
 

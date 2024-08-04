@@ -53,11 +53,7 @@ export default function NavLeft() {
         {section === "projects" &&
           !isBurgerMenuActive &&
           projectData.map((project) => (
-            <NavLink
-              className="nav-btn nav-link"
-              key={project.id}
-              topic={project}
-            >
+            <NavLink className="nav-btn" key={project.id} topic={project}>
               {project.navName || project.name}
             </NavLink>
           ))}
@@ -65,7 +61,7 @@ export default function NavLeft() {
         {section === "about" &&
           !isBurgerMenuActive &&
           aboutData.map((about) => (
-            <NavLink className="nav-btn nav-link" key={about.id} topic={about}>
+            <NavLink className="nav-btn" key={about.id} topic={about}>
               {about.navName || about.name}
             </NavLink>
           ))}
