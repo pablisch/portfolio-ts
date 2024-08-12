@@ -1,0 +1,37 @@
+.single-row-container {
+  display: flex;
+  width: 100%;
+}
+
+.panel {
+  flex: 1;
+  background-color: rgb(84, 179, 211);
+  transition: all 1.5s ease-out;
+  height: 10vh;
+  margin: 0.1vw;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.panel.active {
+  /* with a 4 panel width, flex-grow 5.08 lines up the 1/4 and 3/4 divides perfectly in tests on a full window 16" MBP. */
+  flex-grow: 5.08;
+  height: 70vh;
+}
+
+.panel.passive {
+  flex-grow: 1;
+}
+
+/*.row.*/
+
+.passive-row {
+  height: 30vh;
+}
+
+.active-row {
+  height: 70vh;
+}
