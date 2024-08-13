@@ -8,9 +8,19 @@
 
   /* NAVBAR SIZE VARS */
   --nav-container-width: calc(85vw + (2 * var(--nav-side-padding)));
-  --navbar-height: 85px;
+  --navbar-height: 9vh;
+  --nav-brd-3-height: 25px;
+  /* SEE themes.css for nav border heights for 1 & 2 */
   --nav-side-padding: 20px;
   --nav-title-btn-width: 215px;
   --nav-btn-height: 62px;
   --nav-btn-width: 73px;
+
+  /*--nav-total-height: calc(var(--navbar-height) + var(--nav-brd-1-height) + var(--nav-brd-2-height)) + var(--nav-brd-3-height)*/
+
+  /* STRETCH MATRIX */
+  --total-height: 80vh;
+  --active-height: 60vh;
+  --inactive-height: calc((var(--total-height) - var(--active-height)) / 2);
+  --passive-height: calc(var(--total-height) / 3);
 }

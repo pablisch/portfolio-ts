@@ -28,7 +28,12 @@ body {
   color: var(--txt-pri);
   transition: var(--std-transition);
   /*min-height: calc(100vh - var(--navbar-height));*/
-  min-height: 100vh;
+  /*min-height: 100vh;*/
+}
+
+.subnav {
+  margin-top: calc(var(--navbar-height) + 25px);
+  min-height: 88vh;
 }
 
 button {

@@ -16,11 +16,13 @@ function App() {
       <div className="app" data-theme={theme}>
         <BrowserRouter>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Navigate to="/projects" />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/about-me" element={<AboutPage />} />
-          </Routes>
+          <div className="subnav">
+            <Routes>
+              <Route path="/" element={<Navigate to="/projects" />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/about-me" element={<AboutPage />} />
+            </Routes>
+          </div>
         </BrowserRouter>
       </div>
     </SectionProvider>
