@@ -13,7 +13,7 @@ export default function StretchMatrix() {
   };
 
   return (
-    <div className="rows-container">
+    <div className="matrix-container">
       {[...Array(3).keys()].map((index) => (
         <MatrixRow
           key={`row-${index}`}
@@ -101,8 +101,8 @@ function MatrixPanel({
       onMouseEnter={() => onMouseEnterCol(colIndex)}
       onMouseLeave={onMouseExitCol}
     >
-      <p className="text">{`Column ${colIndex}`}</p>
-      <p className="text">{`Row ${rowIndex}`}</p>
+      {/*<p className="text">{`Column ${colIndex}`}</p>*/}
+      {/*<p className="text">{`Row ${rowIndex}`}</p>*/}
     </div>
   );
 }

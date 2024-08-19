@@ -1,4 +1,7 @@
-.rows-container {
+.matrix-container {
+  max-width: var(--app-max-width);
+  /*max-width: 1200px;*/
+  margin: 0 auto;
   /*min-height: calc(100vh);*/
   /*max-height: calc(100vh);*/
 }
@@ -10,7 +13,8 @@
 
 .panel {
   flex: 1;
-  background-color: rgb(84, 179, 211);
+  background-color: #def;
+  border: 1px solid #ddd;
   transition: all 1.5s ease-out;
   height: 10vh;
   margin: 0.3vw;
