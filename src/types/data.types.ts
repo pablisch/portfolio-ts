@@ -59,3 +59,10 @@ export interface extNavLinkObject {
   burgerClassNames: string[];
   image: extNavLinkImage;
 }
+
+export interface topicDataObject {
+  id: string;
+  panelName: string;
+  summary: string;
+}
+

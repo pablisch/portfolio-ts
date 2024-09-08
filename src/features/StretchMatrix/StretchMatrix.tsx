@@ -1,5 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./StretchMatrix.css";
+
+import {projectPanelData} from "../../data/projectData.tsx";
+import {aboutPanelData} from "../../data/aboutData.tsx";
+import { topicDataObject } from "../../types/data.types.ts";
+
+// console.log(projectPanelData[0])
+// console.log(projectPanelData[1])
+// console.log(projectPanelData[2])
+// console.log(projectPanelData[3])
+// console.log(projectPanelData[4])
+// console.log(projectPanelData[5])
+
+const topicData = [
+  [projectPanelData[0], projectPanelData[1], aboutPanelData[0], aboutPanelData[1]],
+  [projectPanelData[2], projectPanelData[3], aboutPanelData[2], aboutPanelData[3]],
+  [projectPanelData[4], projectPanelData[5], aboutPanelData[4], aboutPanelData[5]],
+]
 
 export default function StretchMatrix() {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
@@ -17,7 +34,7 @@ export default function StretchMatrix() {
       {[...Array(3).keys()].map((index) => (
         <MatrixRow
           key={`row-${index}`}
-          // className={`row`}
+          rowData={topicData[index]}
           rowIndex={index}
           hoveredRow={hoveredRow}
           handleMouseEnterRow={handleMouseEnterRow}
@@ -29,6 +46,7 @@ export default function StretchMatrix() {
 }
 
 interface MatrixRowProps {
+  rowData: Array<topicDataObject>;
   rowIndex: number;
   hoveredRow: number | null;
   handleMouseEnterRow: (index: number) => void;
@@ -36,6 +54,7 @@ interface MatrixRowProps {
 }
 
 function MatrixRow({
+  rowData,
   rowIndex,
   hoveredRow,
   handleMouseEnterRow,
@@ -51,9 +70,9 @@ function MatrixRow({
     setHoveredColumn(null);
   };
 
-  useEffect(() => {
-    console.log(`focus - col: ${hoveredColumn}, row: ${hoveredRow}`);
-  });
+  // useEffect(() => {
+  //   console.log(`focus - col: ${hoveredColumn}, row: ${hoveredRow}`);
+  // });
 
   return (
     <div
@@ -64,6 +83,7 @@ function MatrixRow({
       {[...Array(4).keys()].map((index) => (
         <MatrixPanel
           key={index}
+          panelData={rowData[index]}
           rowIndex={rowIndex}
           colIndex={index}
           hoveredRow={hoveredRow}
@@ -77,6 +97,7 @@ function MatrixRow({
 }
 
 interface MatrixPanelProps {
+  panelData: topicDataObject;
   rowIndex: number;
   colIndex: number;
   hoveredRow: number | null;
@@ -86,6 +107,7 @@ interface MatrixPanelProps {
 }
 
 function MatrixPanel({
+  panelData,
   rowIndex,
   colIndex,
   hoveredRow,
@@ -96,13 +118,15 @@ function MatrixPanel({
   const isHovered = hoveredColumn === colIndex;
 
   return (
-    <div
+    <li
       className={`panel ${isHovered ? "active" : hoveredColumn === null ? "passive" : ""} ${hoveredRow === rowIndex ? "active-row" : hoveredRow === null ? "passive-row" : ""}`}
       onMouseEnter={() => onMouseEnterCol(colIndex)}
       onMouseLeave={onMouseExitCol}
+      
     >
-      {/*<p className="text">{`Column ${colIndex}`}</p>*/}
-      {/*<p className="text">{`Row ${rowIndex}`}</p>*/}
-    </div>
+      <p>{panelData.id}</p>
+      <p>{panelData.panelName}</p>
+      <p>{panelData.summary}</p>
+    </li>
   );
 }
