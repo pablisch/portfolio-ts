@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import React from "react";
-import { useSectionContext } from "../../hooks/useSectionContext.tsx";
+import { useFocusTopicContext } from "../../hooks/useFocusTopicContext.tsx";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import projectData from "../../data/projectData.tsx";
 import NavLink from "./NavLink.tsx";
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function NavLeft() {
   const { handleAvatarHoverStart, handleAvatarHoverEnd } = useThemeContext();
-  const { section } = useSectionContext();
+  const { section } = useFocusTopicContext();
   const { isBurgerMenuActive } = useScreenWidthContext();
 
   const navigate = useNavigate();

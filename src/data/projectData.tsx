@@ -819,11 +819,12 @@ export const projectData = [
   // },
 ];
 
-export const projectPanelData = projectData.map(project => ({
+export const projectPanelData = projectData.map((project) => ({
   id: project.id,
   panelName: project.panelName || project.name,
-  summary: project.summary
-}))
+  summary: project.summary,
+  image: project.image,
+}));
 
 // console.log(projectPanelData)
 

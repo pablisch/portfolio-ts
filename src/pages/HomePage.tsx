@@ -1,10 +1,10 @@
 // import React from 'react';
-import "./SectionPage.css";
+import "./HomePage.css";
 import StretchMatrix from "../features/StretchMatrix/StretchMatrix.tsx";
 
-function ProjectsPage() {
+function HomePage() {
   // return <div className="projects-container"></div>;
   return <StretchMatrix />;
 }
 
-export default ProjectsPage;
+export default HomePage;

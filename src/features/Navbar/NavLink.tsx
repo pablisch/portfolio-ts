@@ -1,6 +1,6 @@
 import React from "react";
 import { aboutObject, projectObject } from "../../types/data.types.ts";
-import { useSectionContext } from "../../hooks/useSectionContext.tsx";
+import { useFocusTopicContext } from "../../hooks/useFocusTopicContext.tsx";
 import { useNavigate } from "react-router-dom";
 import { scrollToTop } from "../../helpers/pageHelpers.ts";
 
@@ -17,7 +17,7 @@ function NavLink({ children, topic, className = "nav-btn" }: NavLinkProps) {
     setSelectedProject,
     setFocusAboutId,
     setSelectedAbout,
-  } = useSectionContext();
+  } = useFocusTopicContext();
 
   const navigate = useNavigate();
 

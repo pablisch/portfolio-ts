@@ -3,7 +3,7 @@
 import React from "react";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import { Link } from "react-router-dom";
-import { useSectionContext } from "../../hooks/useSectionContext.tsx";
+import { useFocusTopicContext } from "../../hooks/useFocusTopicContext.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import { extLinkData } from "../../data/extLinkData.tsx";
 import { extNavLinkObject } from "../../types/data.types.ts";
@@ -14,7 +14,7 @@ const settings = false;
 
 export default function NavRight() {
   const { theme, handleThemeChange, isIconRotating } = useThemeContext();
-  const { section, handleSectionChange } = useSectionContext();
+  const { section, handleSectionChange } = useFocusTopicContext();
   const {
     burgerMenuStage,
     handleBurgerClick,

@@ -1,12 +1,10 @@
 import "./App.css";
-// import { useEffect, useState } from "react";
-import { Route, Routes, Navigate } from "react-router";
+import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./features/Navbar/Navbar.tsx";
-import ProjectsPage from "./pages/ProjectsPage";
-import { SectionProvider } from "./context/SectionContext.tsx";
+import { SectionProvider } from "./context/FocusTopicContext.tsx";
 import { useThemeContext } from "./hooks/useThemeContext.tsx";
-import AboutPage from "./pages/AboutPage.tsx";
+import HomePage from "./pages/HomePage.tsx";
 
 function App() {
   const { theme } = useThemeContext();
@@ -18,9 +16,7 @@ function App() {
           <Navbar />
           <div className="subnav">
             <Routes>
-              <Route path="/" element={<Navigate to="/projects" />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/about-me" element={<AboutPage />} />
+              <Route path="/" element={<HomePage />} />
             </Routes>
           </div>
         </BrowserRouter>

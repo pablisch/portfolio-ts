@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { SectionContext } from "../../src/context/SectionContext";
+import { FocusTopicContext } from "../../src/context/FocusTopicContext";
 import { aboutObject, projectObject } from "../../src/types/data.types";
 
 interface MockSectionContextProps {
@@ -30,7 +30,7 @@ const MockSectionContext: React.FC<MockSectionContextProps> = ({
   setSelectedAbout = () => {},
 }) => {
   return (
-    <SectionContext.Provider
+    <FocusTopicContext.Provider
       value={{
         section,
         handleSectionChange,
@@ -45,7 +45,7 @@ const MockSectionContext: React.FC<MockSectionContextProps> = ({
       }}
     >
       {children}
-    </SectionContext.Provider>
+    </FocusTopicContext.Provider>
   );
 };
 
