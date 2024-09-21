@@ -246,6 +246,7 @@ export const aboutPanelData = aboutData.map((about) => ({
   panelName: about.panelName,
   summary: about.summary,
   image: about.image,
+  section: "about",
 }));
 
 export default aboutData;

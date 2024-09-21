@@ -824,6 +824,7 @@ export const projectPanelData = projectData.map((project) => ({
   panelName: project.panelName || project.name,
   summary: project.summary,
   image: project.image,
+  section: "project",
 }));
 
 // console.log(projectPanelData)

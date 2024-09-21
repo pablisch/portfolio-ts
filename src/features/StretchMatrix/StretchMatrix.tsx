@@ -92,43 +92,38 @@ function MatrixPanel({ panelData, rowIndex, colIndex }: MatrixPanelProps) {
     focusTopicId,
     handleSetFocusTopic,
     handleUnsetFocusTopic,
-    hoveredColumn,
     hoveredRow,
+    handleSelectTopic,
   } = useFocusTopicContext();
 
-  console.log("row:", hoveredRow, "col:", hoveredColumn);
-  console.log("selected topic:", focusTopicId);
+  // console.log("row:", hoveredRow, "col:", hoveredColumn);
 
   return (
     <li
       className={`panel ${!focusTopicId ? "passive-row" : focusTopicId === panelData.id ? "active" : ""} ${hoveredRow === rowIndex ? "active-row" : ""}`}
-      // className={`panel ${isHovered ? "active" : hoveredColumn === null ? "passive" : ""} ${hoveredRow === rowIndex ? "active-row" : hoveredRow === null ? "passive-row" : ""}`}
       onMouseEnter={() => handleSetFocusTopic(colIndex, panelData.id)}
       onMouseLeave={handleUnsetFocusTopic}
+      onClick={() => handleSelectTopic(panelData.id, panelData.section)}
     >
       <img
         src={`images/topic-images/${panelData.image}`}
         alt={panelData.panelName}
         className="topic-image"
       />
-      {/*<p>{panelData.id}</p>*/}
-      {/*<p>{panelData.panelName}</p>*/}
-      {/*<p>{panelData.summary}</p>*/}
-
-      {/*<div*/}
-      {/*  className={`project-label ${*/}
-      {/*    focusProjectId === panelData.id ? 'hover-fade' : ''*/}
-      {/*  }`}>*/}
-      {/*  {panelData.panelName}*/}
-      {/*</div>*/}
-
-      {/*<div*/}
-      {/*  onClick={() => handleClick(project)}*/}
-      {/*  className={`project-overlay project-overlay-${theme} ${*/}
-      {/*    focusProjectId === project.id || isAvatarHovered ? 'hover-focus' : ''*/}
-      {/*  }`}>*/}
-      {/*  {project.summary}*/}
-      {/*</div>*/}
+      <div
+        className={`project-label ${
+          focusTopicId === panelData.id ? "hover-fade" : ""
+        }`}
+      >
+        {panelData.panelName}
+      </div>
+      <div
+        className={`project-overlay ${
+          focusTopicId === panelData.id ? "hover-focus" : ""
+        }`}
+      >
+        {panelData.summary}
+      </div>
     </li>
   );
 }

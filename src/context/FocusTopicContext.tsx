@@ -1,5 +1,7 @@
 import React, { createContext, useState } from "react";
 import { aboutObject, projectObject } from "../types/data.types";
+import projectData from "../data/projectData.tsx";
+import aboutData from "../data/aboutData.tsx";
 
 export interface SectionContextType {
   // focusProjectId: string;
@@ -22,6 +24,7 @@ export interface SectionContextType {
   hoveredColumn: number | null;
   handleSetFocusTopic: (index: number, id: string) => void;
   handleUnsetFocusTopic: () => void;
+  handleSelectTopic: (topicId: string, section: string) => void;
 }
 
 export const FocusTopicContext = createContext<SectionContextType>({
@@ -45,6 +48,7 @@ export const FocusTopicContext = createContext<SectionContextType>({
   hoveredColumn: null,
   handleSetFocusTopic: () => {},
   handleUnsetFocusTopic: () => {},
+  handleSelectTopic: () => {},
 });
 
 export const SectionProvider = ({
@@ -90,6 +94,17 @@ export const SectionProvider = ({
     setFocusTopicId("");
   };
 
+  const handleSelectTopic = (topicId: string, section: string) => {
+    let topic: projectObject | aboutObject | null = null;
+    if (section === "project") {
+      topic = projectData.find((project) => project.id === topicId) || null;
+    } else if (section === "about") {
+      topic = aboutData.find((about) => about.id === topicId) || null;
+    }
+    setSelectedTopic(topic);
+    console.log("Selected topic:", topic?.name);
+  };
+
   return (
     <FocusTopicContext.Provider
       value={{
@@ -113,6 +128,7 @@ export const SectionProvider = ({
         hoveredColumn,
         handleSetFocusTopic,
         handleUnsetFocusTopic,
+        handleSelectTopic,
       }}
     >
       {children}

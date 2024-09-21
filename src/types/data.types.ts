@@ -65,4 +65,5 @@ export interface topicDataObject {
   panelName: string;
   summary: string;
   image: string;
+  section: string;
 }
