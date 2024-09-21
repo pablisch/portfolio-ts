@@ -22,4 +22,7 @@
   --active-height: 60vh;
   --inactive-height: calc((var(--total-height) - var(--active-height)) / 2);
   --passive-height: calc(var(--total-height) / 3);
+
+  /* PANEL */
+  --topic-panel-outline-radius: 15px;
 }
