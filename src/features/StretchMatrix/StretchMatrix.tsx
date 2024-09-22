@@ -110,13 +110,11 @@ function MatrixPanel({ panelData, rowIndex, colIndex }: MatrixPanelProps) {
         alt={panelData.panelName}
         className="topic-image"
       />
-      <div
-        className={`topic-label ${
-          focusTopicId === panelData.id ? "hover-fade" : ""
-        }`}
-      >
+      {/* Panel heading */}
+      <div className={`topic-label ${!focusTopicId ? "" : "hover-fade"}`}>
         {panelData.panelName}
       </div>
+      {/* Summary overlay */}
       <div
         className={`topic-overlay ${
           focusTopicId === panelData.id ? "hover-focus" : ""
