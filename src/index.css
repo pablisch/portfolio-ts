@@ -27,8 +27,7 @@ body {
   background-color: var(--bg-pri);
   color: var(--txt-pri);
   transition: var(--std-transition);
-  /*min-height: calc(100vh - var(--navbar-height));*/
-  /*min-height: 100vh;*/
+  max-height: calc(100vh - var(--navbar-height));
 }
 
 .subnav {
