@@ -47,21 +47,7 @@ interface MatrixRowProps {
 }
 
 function MatrixRow({ rowData, rowIndex }: MatrixRowProps) {
-  // const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
-
-  const {
-    handleSetHoveredRow,
-    handleUnsetHoveredRow,
-    // hoveredRow,
-  } = useFocusTopicContext();
-
-  // const handleMouseEnterCol = (index: number) => {
-  //   setHoveredColumn(index);
-  // };
-  //
-  // const handleMouseExitCol = () => {
-  //   setHoveredColumn(null);
-  // };
+  const { handleSetHoveredRow, handleUnsetHoveredRow } = useFocusTopicContext();
 
   return (
     <div
@@ -115,13 +101,25 @@ function MatrixPanel({ panelData, rowIndex, colIndex }: MatrixPanelProps) {
         {panelData.panelName}
       </div>
       {/* Summary overlay */}
-      <div
-        className={`topic-overlay ${
-          focusTopicId === panelData.id ? "hover-focus" : ""
-        }`}
-      >
-        {panelData.summary}
-      </div>
+      <PanelOverlay panelData={panelData} />
     </li>
+  );
+}
+
+interface PanelOverlayProps {
+  panelData: topicDataObject;
+}
+
+function PanelOverlay({ panelData }: PanelOverlayProps) {
+  const { focusTopicId } = useFocusTopicContext();
+
+  return (
+    <div
+      className={`topic-overlay ${
+        focusTopicId === panelData.id ? "hover-focus" : ""
+      }`}
+    >
+      {panelData.summary}
+    </div>
   );
 }

@@ -3,6 +3,12 @@ import { aboutObject, projectObject } from "../types/data.types";
 import projectData from "../data/projectData.tsx";
 import aboutData from "../data/aboutData.tsx";
 
+// TODO below only to force focus Id to be "1"
+let forceId1Focus;
+forceId1Focus = false;
+forceId1Focus = true;
+// forceId1Focus = false
+
 export interface SectionContextType {
   // focusProjectId: string;
   // setFocusProjectId: (projectId: string) => void;
@@ -73,10 +79,16 @@ export const SectionProvider = ({
 
   const handleSetHoveredRow = (index: number) => {
     setHoveredRow(index);
+
+    // TODO below only to force focus Id to be "1"
+    if (forceId1Focus) setHoveredRow(0);
   };
 
   const handleUnsetHoveredRow = () => {
     setHoveredRow(null);
+
+    // TODO below only to force focus Id to be "1"
+    if (forceId1Focus) setHoveredRow(0);
   };
 
   const handleSectionChange = () => {
@@ -87,11 +99,17 @@ export const SectionProvider = ({
   const handleSetFocusTopic = (index: number, id: string) => {
     setHoveredColumn(index);
     setFocusTopicId(id);
+
+    // TODO below only to force focus Id to be "1"
+    if (forceId1Focus) setFocusTopicId("1");
   };
 
   const handleUnsetFocusTopic = () => {
     setHoveredColumn(null);
     setFocusTopicId("");
+
+    // TODO below only to force focus Id to be "1"
+    if (forceId1Focus) setFocusTopicId("1");
   };
 
   const handleSelectTopic = (topicId: string, section: string) => {
