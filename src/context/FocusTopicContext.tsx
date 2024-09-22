@@ -7,7 +7,7 @@ import aboutData from "../data/aboutData.tsx";
 let forceId1Focus;
 forceId1Focus = false;
 forceId1Focus = true;
-// forceId1Focus = false
+forceId1Focus = false;
 
 export interface SectionContextType {
   // focusProjectId: string;

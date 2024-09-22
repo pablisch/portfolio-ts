@@ -119,7 +119,15 @@ function PanelOverlay({ panelData }: PanelOverlayProps) {
         focusTopicId === panelData.id ? "hover-focus" : ""
       }`}
     >
-      {panelData.summary}
+      <div className="overlay_details">
+        <h1>{panelData.panelName}</h1>
+        <p>{panelData.summary}</p>
+      </div>
+      <img
+        src={`images/topic-images/${panelData.image}`}
+        alt={panelData.panelName}
+        className="topic-panel-overlay-image-window"
+      />
     </div>
   );
 }
