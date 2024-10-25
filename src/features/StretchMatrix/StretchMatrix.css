@@ -96,9 +96,27 @@
   transition: opacity 0.9s ease-out;
 }
 
-.hover-focus {
+.hover-focus-panel {
   opacity: 1;
   transition: opacity 1.3s ease-out;
+}
+
+.overlay-body {
+  font-size: 0.22rem;
+}
+
+.hover-focus-body {
+  font-size: 1.4rem;
+  transition: font-size 1.3s ease-out;
+}
+
+.overlay-title {
+  font-size: 0.22rem;
+}
+
+.hover-focus-title {
+  font-size: 2.8rem;
+  transition: font-size 1.3s ease-out;
 }
 
 .overlay_details {

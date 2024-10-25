@@ -116,12 +116,24 @@ function PanelOverlay({ panelData }: PanelOverlayProps) {
   return (
     <div
       className={`topic-overlay ${
-        focusTopicId === panelData.id ? "hover-focus" : ""
+        focusTopicId === panelData.id ? "hover-focus-panel" : ""
       }`}
     >
       <div className="overlay_details">
-        <h1>{panelData.panelName}</h1>
-        <p>{panelData.summary}</p>
+        <h1
+          className={`overlay-title ${
+            focusTopicId === panelData.id ? "hover-focus-title" : ""
+          }`}
+        >
+          {panelData.panelName}
+        </h1>
+        <p
+          className={`overlay-body ${
+            focusTopicId === panelData.id ? "hover-focus-body" : ""
+          }`}
+        >
+          {panelData.summary}
+        </p>
       </div>
       <img
         src={`images/topic-images/${panelData.image}`}
