@@ -65,7 +65,9 @@
   transition: opacity 0.9s ease;
 }
 
-.topic-overlay {
+/* PANEL OVERLAY*/
+
+.topic-overlay /* the whole panel component */ {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -91,7 +93,13 @@
   opacity: 0;
 }
 
-.hover-fade {
+.overlay_details /* all overlay except the image */ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hover-fade /* fades standard titles of all panels when any panel is hovered */ {
   opacity: 0;
   transition: opacity 0.9s ease-out;
 }
@@ -100,7 +108,6 @@
   opacity: 1;
   transition: opacity 1.3s ease-out;
 }
-
 .overlay-body {
   font-size: 0.22rem;
 }
@@ -109,7 +116,6 @@
   font-size: 1.4rem;
   transition: font-size 1.3s ease-out;
 }
-
 .overlay-title {
   font-size: 0.22rem;
 }
@@ -117,12 +123,6 @@
 .hover-focus-title {
   font-size: 2.8rem;
   transition: font-size 1.3s ease-out;
-}
-
-.overlay_details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .topic-panel-overlay-image-window {

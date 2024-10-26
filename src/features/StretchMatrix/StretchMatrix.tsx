@@ -82,25 +82,24 @@ function MatrixPanel({ panelData, rowIndex, colIndex }: MatrixPanelProps) {
     handleSelectTopic,
   } = useFocusTopicContext();
 
-  // console.log("row:", hoveredRow, "col:", hoveredColumn);
-
   return (
+    // topic panel in unhovered state
     <li
       className={`panel ${!focusTopicId ? "passive-row" : focusTopicId === panelData.id ? "active" : ""} ${hoveredRow === rowIndex ? "active-row" : ""}`}
       onMouseEnter={() => handleSetFocusTopic(colIndex, panelData.id)}
       onMouseLeave={handleUnsetFocusTopic}
       onClick={() => handleSelectTopic(panelData.id, panelData.section)}
     >
-      <img
+      {/* unhovered panel heading */}
+      <div className={`topic-label ${!focusTopicId ? "" : "hover-fade"}`}>
+        {panelData.panelName}
+      </div>
+      <img // unhovered panel image
         src={`images/topic-images/${panelData.image}`}
         alt={panelData.panelName}
         className="topic-image"
       />
-      {/* Panel heading */}
-      <div className={`topic-label ${!focusTopicId ? "" : "hover-fade"}`}>
-        {panelData.panelName}
-      </div>
-      {/* Summary overlay */}
+      {/* hover overlay */}
       <PanelOverlay panelData={panelData} />
     </li>
   );
