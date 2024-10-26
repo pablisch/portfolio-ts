@@ -1,31 +1,9 @@
 // import { useState } from "react";
 import "./StretchMatrix.css";
 
-import { projectPanelData } from "../../data/projectData.tsx";
-import { aboutPanelData } from "../../data/aboutData.tsx";
 import { topicDataObject } from "../../types/data.types.ts";
 import { useFocusTopicContext } from "../../hooks/useFocusTopicContext.tsx";
-
-const topicData = [
-  [
-    projectPanelData[0],
-    projectPanelData[1],
-    aboutPanelData[0],
-    aboutPanelData[1],
-  ],
-  [
-    projectPanelData[2],
-    projectPanelData[3],
-    aboutPanelData[2],
-    aboutPanelData[3],
-  ],
-  [
-    projectPanelData[4],
-    projectPanelData[5],
-    aboutPanelData[4],
-    aboutPanelData[5],
-  ],
-];
+import { panelLayoutData } from "../../data/panelLayoutData.ts";
 
 export default function StretchMatrix() {
   return (
@@ -33,7 +11,7 @@ export default function StretchMatrix() {
       {[...Array(3).keys()].map((index) => (
         <MatrixRow
           key={`row-${index}`}
-          rowData={topicData[index]}
+          rowData={panelLayoutData[index]}
           rowIndex={index}
         />
       ))}
@@ -52,6 +30,7 @@ function MatrixRow({ rowData, rowIndex }: MatrixRowProps) {
   return (
     <div
       className={`single-row-container`}
+      data-test={`topic-row-${rowIndex}`}
       onMouseEnter={() => handleSetHoveredRow(rowIndex)}
       onMouseLeave={handleUnsetHoveredRow}
     >
@@ -86,6 +65,7 @@ function MatrixPanel({ panelData, rowIndex, colIndex }: MatrixPanelProps) {
     // topic panel in unhovered state
     <li
       className={`panel ${!focusTopicId ? "passive-row" : focusTopicId === panelData.id ? "active" : ""} ${hoveredRow === rowIndex ? "active-row" : ""}`}
+      data-test={`topic-row-${rowIndex}-col-${colIndex}`}
       onMouseEnter={() => handleSetFocusTopic(colIndex, panelData.id)}
       onMouseLeave={handleUnsetFocusTopic}
       onClick={() => handleSelectTopic(panelData.id, panelData.section)}
@@ -117,6 +97,7 @@ function PanelOverlay({ panelData }: PanelOverlayProps) {
       className={`topic-overlay ${
         focusTopicId === panelData.id ? "hover-focus-panel" : ""
       }`}
+      data-test={`topic-overlay-${panelData.panelName.replace(/\s/g, "").toLowerCase() || ""}`}
     >
       <div className="overlay_details">
         <h1
