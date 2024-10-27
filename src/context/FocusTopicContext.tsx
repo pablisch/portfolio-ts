@@ -3,93 +3,46 @@ import { aboutObject, projectObject } from "../types/data.types";
 import projectData from "../data/projectData.tsx";
 import aboutData from "../data/aboutData.tsx";
 
-// TODO below only to force focus Id to be "1"
+// TODO below only to force focus Id to be "1" for setting CSS with fake hovered topic
 let forceId1Focus;
 forceId1Focus = false;
 forceId1Focus = true;
 forceId1Focus = false;
 
 export interface SectionContextType {
-  // focusProjectId: string;
-  // setFocusProjectId: (projectId: string) => void;
-  // selectedProject: projectObject | null;
-  // setSelectedProject: (project: projectObject | null) => void;
-  // focusAboutId: string;
-  // setFocusAboutId: (aboutId: string) => void;
-  // selectedAbout: aboutObject | null;
-  // setSelectedAbout: (about: aboutObject | null) => void;
   section: string;
   handleSectionChange: () => void;
-  focusTopicId: string;
-  setFocusTopicId: (projectId: string) => void;
+  hoveredTopicId: string;
+  setHoveredTopicId: (projectId: string) => void;
   selectedTopic: projectObject | aboutObject | null;
   setSelectedTopic: (topic: projectObject | aboutObject | null) => void;
-  handleSetHoveredRow: (index: number) => void;
-  handleUnsetHoveredRow: () => void;
-  hoveredRow: number | null;
-  hoveredColumn: number | null;
   handleSetFocusTopic: (index: number, id: string) => void;
   handleUnsetFocusTopic: () => void;
   handleSelectTopic: (topicId: string, section: string) => void;
 }
 
 export const FocusTopicContext = createContext<SectionContextType>({
-  // focusProjectId: "",
-  // setFocusProjectId: () => {},
-  // selectedProject: null,
-  // setSelectedProject: () => {},
-  // focusAboutId: "",
-  // setFocusAboutId: () => {},
-  // selectedAbout: null,
-  // setSelectedAbout: () => {},
   section: "projects",
   handleSectionChange: () => {},
-  focusTopicId: "",
-  setFocusTopicId: () => {},
+  hoveredTopicId: "",
+  setHoveredTopicId: () => {},
   selectedTopic: null,
   setSelectedTopic: () => {},
-  handleSetHoveredRow: () => {},
-  handleUnsetHoveredRow: () => {},
-  hoveredRow: null,
-  hoveredColumn: null,
   handleSetFocusTopic: () => {},
   handleUnsetFocusTopic: () => {},
   handleSelectTopic: () => {},
 });
 
-export const SectionProvider = ({
+export const FocusTopicProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
   const [section, setSection] = useState<string>("projects");
-  // const [focusProjectId, setFocusProjectId] = useState<string>("");
-  // const [selectedProject, setSelectedProject] = useState<projectObject | null>(
-  //   null,
-  // );
-  // const [focusAboutId, setFocusAboutId] = useState<string>("");
-  // const [selectedAbout, setSelectedAbout] = useState<aboutObject | null>(null);
-  const [focusTopicId, setFocusTopicId] = useState<string>("");
+  const [hoveredTopicId, setHoveredTopicId] = useState<string>("");
   const [selectedTopic, setSelectedTopic] = useState<
     projectObject | aboutObject | null
   >(null);
-
-  const [hoveredRow, setHoveredRow] = useState<number | null>(null);
-  const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
-
-  const handleSetHoveredRow = (index: number) => {
-    setHoveredRow(index);
-
-    // TODO below only to force focus Id to be "1"
-    if (forceId1Focus) setHoveredRow(0);
-  };
-
-  const handleUnsetHoveredRow = () => {
-    setHoveredRow(null);
-
-    // TODO below only to force focus Id to be "1"
-    if (forceId1Focus) setHoveredRow(0);
-  };
 
   const handleSectionChange = () => {
     const newSection = section === "projects" ? "about" : "projects";
@@ -97,19 +50,17 @@ export const SectionProvider = ({
   };
 
   const handleSetFocusTopic = (index: number, id: string) => {
-    setHoveredColumn(index);
-    setFocusTopicId(id);
+    setHoveredTopicId(id);
 
-    // TODO below only to force focus Id to be "1"
-    if (forceId1Focus) setFocusTopicId("1");
+    // TODO below only to force focus Id to be "1" for setting CSS with fake hovered topic
+    if (forceId1Focus) setHoveredTopicId("1");
   };
 
   const handleUnsetFocusTopic = () => {
-    setHoveredColumn(null);
-    setFocusTopicId("");
+    setHoveredTopicId("");
 
-    // TODO below only to force focus Id to be "1"
-    if (forceId1Focus) setFocusTopicId("1");
+    // TODO below only to force focus Id to be "1" for setting CSS with fake hovered topic
+    if (forceId1Focus) setHoveredTopicId("1");
   };
 
   const handleSelectTopic = (topicId: string, section: string) => {
@@ -128,22 +79,10 @@ export const SectionProvider = ({
       value={{
         section,
         handleSectionChange,
-        // focusProjectId,
-        // setFocusProjectId,
-        // selectedProject,
-        // setSelectedProject,
-        // focusAboutId,
-        // setFocusAboutId,
-        // selectedAbout,
-        // setSelectedAbout,
-        focusTopicId,
-        setFocusTopicId,
+        hoveredTopicId,
+        setHoveredTopicId,
         selectedTopic,
         setSelectedTopic,
-        handleSetHoveredRow,
-        handleUnsetHoveredRow,
-        hoveredRow,
-        hoveredColumn,
         handleSetFocusTopic,
         handleUnsetFocusTopic,
         handleSelectTopic,

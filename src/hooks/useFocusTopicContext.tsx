@@ -8,7 +8,7 @@ export const useFocusTopicContext: () => SectionContextType = () => {
   const context = useContext(FocusTopicContext);
   if (!context) {
     throw new Error(
-      "useFocusTopicContext must be used within a SectionProvider",
+      "useFocusTopicContext must be used within a FocusTopicProvider",
     );
   }
   return context;

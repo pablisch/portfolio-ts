@@ -10,31 +10,28 @@ interface NavLinkProps {
   className?: string;
 }
 
-function NavLink({ children, topic, className = "nav-btn" }: NavLinkProps) {
-  const {
-    section,
-    setFocusProjectId,
-    setSelectedProject,
-    setFocusAboutId,
-    setSelectedAbout,
-  } = useFocusTopicContext();
+function NavTopicLink({
+  children,
+  topic,
+  className = "nav-btn",
+}: NavLinkProps) {
+  const { section, setHoveredTopicId, setSelectedTopic } =
+    useFocusTopicContext();
 
   const navigate = useNavigate();
 
   const handleHoverStart = () => {
-    if (section === "projects") setFocusProjectId(topic.id);
-    if (section === "about") setFocusAboutId(topic.id);
+    setHoveredTopicId(topic.id);
   };
 
   const handleHoverEnd = () => {
-    if (section === "projects") setFocusProjectId("");
-    if (section === "about") setFocusAboutId("");
+    setHoveredTopicId("");
   };
 
   const handleClick = (topic: projectObject | aboutObject) => {
     if (section === "projects" && topic.id)
-      setSelectedProject(topic as projectObject);
-    if (section === "about" && topic.id) setSelectedAbout(topic as aboutObject);
+      setSelectedTopic(topic as projectObject);
+    if (section === "about" && topic.id) setSelectedTopic(topic as aboutObject);
     localStorage.setItem("selectedTopic", JSON.stringify(topic));
     navigate(
       `/${Number(topic.id) < 10 ? "project" : "more-about-me"}/${topic.id}`,
@@ -56,4 +53,4 @@ function NavLink({ children, topic, className = "nav-btn" }: NavLinkProps) {
   );
 }
 
-export default NavLink;
+export default NavTopicLink;

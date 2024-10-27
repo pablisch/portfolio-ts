@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./features/Navbar/Navbar.tsx";
-import { SectionProvider } from "./context/FocusTopicContext.tsx";
+import { FocusTopicProvider } from "./context/FocusTopicContext.tsx";
 import { useThemeContext } from "./hooks/useThemeContext.tsx";
 import HomePage from "./pages/HomePage.tsx";
 
@@ -10,7 +10,7 @@ function App() {
   const { theme } = useThemeContext();
 
   return (
-    <SectionProvider>
+    <FocusTopicProvider>
       <div className="app" data-theme={theme}>
         <BrowserRouter>
           <Navbar />
@@ -21,7 +21,7 @@ function App() {
           </div>
         </BrowserRouter>
       </div>
-    </SectionProvider>
+    </FocusTopicProvider>
   );
 }
 

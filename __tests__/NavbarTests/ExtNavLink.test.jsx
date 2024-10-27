@@ -33,7 +33,7 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
-describe("first project NavLink", () => {
+describe("first project NavTopicLink", () => {
   test(`renders the GitHub ExtNavLink component`, () => {
     // Arrange
     const { container } = renderComponent();

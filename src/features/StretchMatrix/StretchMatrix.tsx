@@ -25,21 +25,17 @@ interface MatrixRowProps {
 }
 
 function MatrixRow({ rowData, rowIndex }: MatrixRowProps) {
-  const { handleSetHoveredRow, handleUnsetHoveredRow } = useFocusTopicContext();
+  const rowDataIds = rowData.map((data) => data.id);
 
   return (
-    <div
-      className={`single-row-container`}
-      data-test={`topic-row-${rowIndex}`}
-      onMouseEnter={() => handleSetHoveredRow(rowIndex)}
-      onMouseLeave={handleUnsetHoveredRow}
-    >
+    <div className={`single-row-container`} data-test={`topic-row-${rowIndex}`}>
       {[...Array(4).keys()].map((index) => (
         <MatrixPanel
           key={index}
           panelData={rowData[index]}
           rowIndex={rowIndex}
           colIndex={index}
+          rowDataIds={rowDataIds}
         />
       ))}
     </div>
@@ -50,28 +46,33 @@ interface MatrixPanelProps {
   panelData: topicDataObject;
   rowIndex: number;
   colIndex: number;
+  rowDataIds: Array<string>;
 }
 
-function MatrixPanel({ panelData, rowIndex, colIndex }: MatrixPanelProps) {
+function MatrixPanel({
+  panelData,
+  rowIndex,
+  colIndex,
+  rowDataIds,
+}: MatrixPanelProps) {
   const {
-    focusTopicId,
+    hoveredTopicId,
     handleSetFocusTopic,
     handleUnsetFocusTopic,
-    hoveredRow,
     handleSelectTopic,
   } = useFocusTopicContext();
 
   return (
     // topic panel in unhovered state
     <li
-      className={`panel ${!focusTopicId ? "passive-row" : focusTopicId === panelData.id ? "active" : ""} ${hoveredRow === rowIndex ? "active-row" : ""}`}
+      className={`panel ${!hoveredTopicId ? "passive-row" : hoveredTopicId === panelData.id ? "active" : ""} ${rowDataIds.includes(hoveredTopicId) ? "active-row" : ""}`}
       data-test={`topic-row-${rowIndex}-col-${colIndex}`}
       onMouseEnter={() => handleSetFocusTopic(colIndex, panelData.id)}
       onMouseLeave={handleUnsetFocusTopic}
       onClick={() => handleSelectTopic(panelData.id, panelData.section)}
     >
       {/* unhovered panel heading */}
-      <div className={`topic-label ${!focusTopicId ? "" : "hover-fade"}`}>
+      <div className={`topic-label ${!hoveredTopicId ? "" : "hover-fade"}`}>
         {panelData.panelName}
       </div>
       <img // unhovered panel image
@@ -90,26 +91,26 @@ interface PanelOverlayProps {
 }
 
 function PanelOverlay({ panelData }: PanelOverlayProps) {
-  const { focusTopicId } = useFocusTopicContext();
+  const { hoveredTopicId } = useFocusTopicContext();
 
   return (
     <div
       className={`topic-overlay ${
-        focusTopicId === panelData.id ? "hover-focus-panel" : ""
+        hoveredTopicId === panelData.id ? "hover-focus-panel" : ""
       }`}
       data-test={`topic-overlay-${panelData.panelName.replace(/\s/g, "").toLowerCase() || ""}`}
     >
       <div className="overlay_details">
         <h1
           className={`overlay-title ${
-            focusTopicId === panelData.id ? "hover-focus-title" : ""
+            hoveredTopicId === panelData.id ? "hover-focus-title" : ""
           }`}
         >
           {panelData.panelName}
         </h1>
         <p
           className={`overlay-body ${
-            focusTopicId === panelData.id ? "hover-focus-body" : ""
+            hoveredTopicId === panelData.id ? "hover-focus-body" : ""
           }`}
         >
           {panelData.summary}

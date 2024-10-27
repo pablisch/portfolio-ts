@@ -4,7 +4,7 @@ import React from "react";
 import { useFocusTopicContext } from "../../hooks/useFocusTopicContext.tsx";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
 import projectData from "../../data/projectData.tsx";
-import NavLink from "./NavLink.tsx";
+import NavTopicLink from "./NavTopicLink.tsx";
 import aboutData from "../../data/aboutData.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import "./NavLeft.css";
@@ -53,17 +53,17 @@ export default function NavLeft() {
         {section === "projects" &&
           !isBurgerMenuActive &&
           projectData.map((project) => (
-            <NavLink className="nav-btn" key={project.id} topic={project}>
+            <NavTopicLink className="nav-btn" key={project.id} topic={project}>
               {project.navName || project.name}
-            </NavLink>
+            </NavTopicLink>
           ))}
         {/* 👇🏻 ABOUT LINKS */}
         {section === "about" &&
           !isBurgerMenuActive &&
           aboutData.map((about) => (
-            <NavLink className="nav-btn" key={about.id} topic={about}>
+            <NavTopicLink className="nav-btn" key={about.id} topic={about}>
               {about.navName || about.name}
-            </NavLink>
+            </NavTopicLink>
           ))}
       </div>
     </section>

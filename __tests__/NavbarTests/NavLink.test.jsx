@@ -1,6 +1,6 @@
 import React from "react";
 import { test, describe, expect, vi, beforeEach } from "vitest";
-import NavLink from "../../src/features/Navbar/NavLink.tsx";
+import NavTopicLink from "../../src/features/Navbar/NavTopicLink.tsx";
 import {
   render,
   // screen,
@@ -24,7 +24,7 @@ const renderComponent = (
   currentTopic = exampleProject,
 ) => {
   const { container } = render(
-    <NavLink children={currentTopic.navName} topic={currentTopic} />,
+    <NavTopicLink children={currentTopic.navName} topic={currentTopic} />,
     {
       section: currentSection,
       setFocusProjectId: mockSetFocusProjectId,
@@ -51,7 +51,7 @@ vi.mock("../../src/helpers/pageHelpers", () => ({
   scrollToTop: vi.fn(),
 }));
 
-describe("first project NavLink", () => {
+describe("first project NavTopicLink", () => {
   beforeEach(() => {
     vi.clearAllMocks(); // or vi.resetAllMocks();
   });
@@ -132,7 +132,7 @@ describe("first project NavLink", () => {
   });
 });
 
-describe("first about NavLink", () => {
+describe("first about NavTopicLink", () => {
   beforeEach(() => {
     vi.clearAllMocks(); // or vi.resetAllMocks();
   });
