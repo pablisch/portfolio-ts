@@ -19,15 +19,16 @@ function NavTopicLink({
     section,
     handleSetHoveredTopic,
     handleUnsetHoveredTopic,
-    setSelectedTopic,
+    setSelectedTopicId,
   } = useFocusTopicContext();
 
   const navigate = useNavigate();
 
   const handleClick = (topic: projectObject | aboutObject) => {
     if (section === "projects" && topic.id)
-      setSelectedTopic(topic as projectObject);
-    if (section === "about" && topic.id) setSelectedTopic(topic as aboutObject);
+      setSelectedTopicId(topic as projectObject);
+    if (section === "about" && topic.id)
+      setSelectedTopicId(topic as aboutObject);
     localStorage.setItem("selectedTopic", JSON.stringify(topic));
     navigate(
       `/${Number(topic.id) < 10 ? "project" : "more-about-me"}/${topic.id}`,

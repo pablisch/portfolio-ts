@@ -1,7 +1,5 @@
 import React, { createContext, useState } from "react";
-import { aboutObject, projectObject } from "../types/data.types";
-import projectData from "../data/projectData.tsx";
-import aboutData from "../data/aboutData.tsx";
+import { sectionType } from "../types/data.types.ts";
 
 // TODO below only to force focus Id to be "1" for setting CSS with fake hovered topic
 let forceId1Focus;
@@ -10,27 +8,29 @@ forceId1Focus = true;
 forceId1Focus = false;
 
 export interface SectionContextType {
-  section: string;
-  handleSectionChange: () => void;
+  section: sectionType;
+  toggleSection: () => void;
+  handleSectionChange: (newSection: sectionType) => void;
   hoveredTopicId: string;
   setHoveredTopicId: (projectId: string) => void;
-  selectedTopic: projectObject | aboutObject | null;
-  setSelectedTopic: (topic: projectObject | aboutObject | null) => void;
+  selectedTopicId: string;
+  setSelectedTopicId: (topicId: string) => void;
   handleSetHoveredTopic: (id: string) => void;
   handleUnsetHoveredTopic: () => void;
-  handleSelectTopic: (topicId: string, section: string) => void;
+  handleSelectTopicId: (topicId: string) => void;
 }
 
 export const FocusTopicContext = createContext<SectionContextType>({
-  section: "projects",
+  section: sectionType.projects,
+  toggleSection: () => {},
   handleSectionChange: () => {},
   hoveredTopicId: "",
   setHoveredTopicId: () => {},
-  selectedTopic: null,
-  setSelectedTopic: () => {},
+  selectedTopicId: "",
+  setSelectedTopicId: () => {},
   handleSetHoveredTopic: () => {},
   handleUnsetHoveredTopic: () => {},
-  handleSelectTopic: () => {},
+  handleSelectTopicId: () => {},
 });
 
 export const FocusTopicProvider = ({
@@ -38,14 +38,19 @@ export const FocusTopicProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [section, setSection] = useState<string>("projects");
+  const [section, setSection] = useState<sectionType>(sectionType.projects);
   const [hoveredTopicId, setHoveredTopicId] = useState<string>("");
-  const [selectedTopic, setSelectedTopic] = useState<
-    projectObject | aboutObject | null
-  >(null);
+  const [selectedTopicId, setSelectedTopicId] = useState<string>("");
 
-  const handleSectionChange = () => {
-    const newSection = section === "projects" ? "about" : "projects";
+  const toggleSection = () => {
+    const newSection =
+      section === sectionType.projects
+        ? sectionType.abouts
+        : sectionType.projects;
+    setSection(newSection);
+  };
+
+  const handleSectionChange = (newSection: sectionType) => {
     setSection(newSection);
   };
 
@@ -63,29 +68,29 @@ export const FocusTopicProvider = ({
     if (forceId1Focus) setHoveredTopicId("1");
   };
 
-  const handleSelectTopic = (topicId: string, section: string) => {
-    let topic: projectObject | aboutObject | null = null;
-    if (section === "project") {
-      topic = projectData.find((project) => project.id === topicId) || null;
-    } else if (section === "about") {
-      topic = aboutData.find((about) => about.id === topicId) || null;
+  const handleSelectTopicId = (topicId: string) => {
+    // let topic: projectObject | aboutObject | null = null;
+    setSelectedTopicId(topicId);
+    if (Number(topicId) < 11) {
+      setSelectedTopicId("projects");
+    } else {
+      setSelectedTopicId("abouts");
     }
-    setSelectedTopic(topic);
-    console.log("Selected topic:", topic?.name);
   };
 
   return (
     <FocusTopicContext.Provider
       value={{
         section,
+        toggleSection,
         handleSectionChange,
         hoveredTopicId,
         setHoveredTopicId,
-        selectedTopic,
-        setSelectedTopic,
+        selectedTopicId,
+        setSelectedTopicId,
         handleSetHoveredTopic,
         handleUnsetHoveredTopic,
-        handleSelectTopic,
+        handleSelectTopicId,
       }}
     >
       {children}

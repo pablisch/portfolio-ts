@@ -65,5 +65,10 @@ export interface topicDataObject {
   panelName: string;
   summary: string;
   image: string;
-  section: string;
+  section: sectionType;
+}
+
+export enum sectionType {
+  projects = "projects",
+  abouts = "abouts",
 }
