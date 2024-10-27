@@ -56,6 +56,11 @@ export const FocusTopicProvider = ({
 
   const handleSetHoveredTopic = (id: string) => {
     setHoveredTopicId(id);
+    if (Number(id) < 11) {
+      setSection(sectionType.projects);
+    } else {
+      setSection(sectionType.abouts);
+    }
 
     // TODO below only to force focus Id to be "1" for setting CSS with fake hovered topic
     if (forceId1Focus) setHoveredTopicId("1");

@@ -16,7 +16,6 @@ function NavTopicLink({
   className = "nav-btn",
 }: NavLinkProps) {
   const {
-    // section,
     handleSetHoveredTopic,
     handleUnsetHoveredTopic,
     handleSelectTopicId,
