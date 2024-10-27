@@ -57,8 +57,8 @@ function MatrixPanel({
 }: MatrixPanelProps) {
   const {
     hoveredTopicId,
-    handleSetFocusTopic,
-    handleUnsetFocusTopic,
+    handleSetHoveredTopic,
+    handleUnsetHoveredTopic,
     handleSelectTopic,
   } = useFocusTopicContext();
 
@@ -67,8 +67,8 @@ function MatrixPanel({
     <li
       className={`panel ${!hoveredTopicId ? "passive-row" : hoveredTopicId === panelData.id ? "active" : ""} ${rowDataIds.includes(hoveredTopicId) ? "active-row" : ""}`}
       data-test={`topic-row-${rowIndex}-col-${colIndex}`}
-      onMouseEnter={() => handleSetFocusTopic(colIndex, panelData.id)}
-      onMouseLeave={handleUnsetFocusTopic}
+      onMouseEnter={() => handleSetHoveredTopic(panelData.id)}
+      onMouseLeave={handleUnsetHoveredTopic}
       onClick={() => handleSelectTopic(panelData.id, panelData.section)}
     >
       {/* unhovered panel heading */}

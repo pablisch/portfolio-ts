@@ -16,8 +16,8 @@ export interface SectionContextType {
   setHoveredTopicId: (projectId: string) => void;
   selectedTopic: projectObject | aboutObject | null;
   setSelectedTopic: (topic: projectObject | aboutObject | null) => void;
-  handleSetFocusTopic: (index: number, id: string) => void;
-  handleUnsetFocusTopic: () => void;
+  handleSetHoveredTopic: (id: string) => void;
+  handleUnsetHoveredTopic: () => void;
   handleSelectTopic: (topicId: string, section: string) => void;
 }
 
@@ -28,8 +28,8 @@ export const FocusTopicContext = createContext<SectionContextType>({
   setHoveredTopicId: () => {},
   selectedTopic: null,
   setSelectedTopic: () => {},
-  handleSetFocusTopic: () => {},
-  handleUnsetFocusTopic: () => {},
+  handleSetHoveredTopic: () => {},
+  handleUnsetHoveredTopic: () => {},
   handleSelectTopic: () => {},
 });
 
@@ -49,14 +49,14 @@ export const FocusTopicProvider = ({
     setSection(newSection);
   };
 
-  const handleSetFocusTopic = (index: number, id: string) => {
+  const handleSetHoveredTopic = (id: string) => {
     setHoveredTopicId(id);
 
     // TODO below only to force focus Id to be "1" for setting CSS with fake hovered topic
     if (forceId1Focus) setHoveredTopicId("1");
   };
 
-  const handleUnsetFocusTopic = () => {
+  const handleUnsetHoveredTopic = () => {
     setHoveredTopicId("");
 
     // TODO below only to force focus Id to be "1" for setting CSS with fake hovered topic
@@ -83,8 +83,8 @@ export const FocusTopicProvider = ({
         setHoveredTopicId,
         selectedTopic,
         setSelectedTopic,
-        handleSetFocusTopic,
-        handleUnsetFocusTopic,
+        handleSetHoveredTopic,
+        handleUnsetHoveredTopic,
         handleSelectTopic,
       }}
     >

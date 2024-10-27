@@ -15,18 +15,14 @@ function NavTopicLink({
   topic,
   className = "nav-btn",
 }: NavLinkProps) {
-  const { section, setHoveredTopicId, setSelectedTopic } =
-    useFocusTopicContext();
+  const {
+    section,
+    handleSetHoveredTopic,
+    handleUnsetHoveredTopic,
+    setSelectedTopic,
+  } = useFocusTopicContext();
 
   const navigate = useNavigate();
-
-  const handleHoverStart = () => {
-    setHoveredTopicId(topic.id);
-  };
-
-  const handleHoverEnd = () => {
-    setHoveredTopicId("");
-  };
 
   const handleClick = (topic: projectObject | aboutObject) => {
     if (section === "projects" && topic.id)
@@ -45,8 +41,8 @@ function NavTopicLink({
       data-test={`${topic.identifier}-nav-btn`}
       className={className}
       onClick={() => handleClick(topic)}
-      onMouseOver={handleHoverStart}
-      onMouseLeave={handleHoverEnd}
+      onMouseOver={() => handleSetHoveredTopic(topic.id)}
+      onMouseLeave={handleUnsetHoveredTopic}
     >
       {children}
     </div>
