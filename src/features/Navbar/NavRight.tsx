@@ -2,7 +2,6 @@
 // @ts-expect-error
 import React from "react";
 import { useThemeContext } from "../../hooks/useThemeContext.tsx";
-import { Link } from "react-router-dom";
 import { useFocusTopicContext } from "../../hooks/useFocusTopicContext.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import { extLinkData } from "../../data/extLinkData.tsx";
@@ -23,27 +22,25 @@ export default function NavRight() {
   } = useScreenWidthContext();
   return (
     <section className="nav-right nav-list" data-test="nav-right-container">
-      {/* 👇🏻 LINK TO PROJECTS SECTION */}
+      {/* 👇🏻 NAV FOCUS ON PROJECTS SECTION */}
       {section === sectionType.abouts && burgerMenuStage < 3 && (
-        <Link
+        <div
           onClick={toggleSection}
-          to="/"
           data-test="projects-section-link"
           className="nav-btn nav-section-link"
         >
           Software Projects
-        </Link>
+        </div>
       )}
-      {/* 👇🏻 LINK TO ABOUT ME SECTION */}
+      {/* 👇🏻 NAV FOCUS ON ABOUT ME SECTION */}
       {section === sectionType.projects && burgerMenuStage < 3 && (
-        <Link
+        <div
           onClick={toggleSection}
-          to="/about-me"
           data-test="about-section-link"
           className="nav-btn nav-section-link"
         >
           More About Me
-        </Link>
+        </div>
       )}
       {/* 👇🏻 EXTERNAL LINK BUTTONS */}
       {extLinkData.length &&

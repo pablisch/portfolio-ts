@@ -9,6 +9,7 @@ import aboutData from "../../data/aboutData.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import "./NavLeft.css";
 import { useNavigate } from "react-router-dom";
+import { sectionType } from "../../types/data.types.ts";
 
 export default function NavLeft() {
   const { handleAvatarHoverStart, handleAvatarHoverEnd } = useThemeContext();
@@ -42,7 +43,7 @@ export default function NavLeft() {
         <h1 data-test={`nav-${section}-title-text`}>
           {section === "projects"
             ? "My Projects"
-            : section === "about"
+            : section === sectionType.abouts
               ? "About Me"
               : ""}
         </h1>
@@ -58,7 +59,7 @@ export default function NavLeft() {
             </NavTopicLink>
           ))}
         {/* 👇🏻 ABOUT LINKS */}
-        {section === "about" &&
+        {section === sectionType.abouts &&
           !isBurgerMenuActive &&
           aboutData.map((about) => (
             <NavTopicLink className="nav-btn" key={about.id} topic={about}>
