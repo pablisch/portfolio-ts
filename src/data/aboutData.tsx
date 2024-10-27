@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import React from "react";
+import { sectionType } from "../types/data.types.ts";
 
 export const aboutData = [
   {
@@ -246,7 +247,7 @@ export const aboutPanelData = aboutData.map((about) => ({
   panelName: about.panelName,
   summary: about.summary,
   image: about.image,
-  section: "about",
+  section: sectionType.abouts,
 }));
 
 export default aboutData;

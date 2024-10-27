@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useFocusTopicContext } from "../../hooks/useFocusTopicContext.tsx";
 import { useScreenWidthContext } from "../../hooks/useScreenWidthContext.tsx";
 import { extLinkData } from "../../data/extLinkData.tsx";
-import { extNavLinkObject } from "../../types/data.types.ts";
+import { extNavLinkObject, sectionType } from "../../types/data.types.ts";
 import ExtNavLink from "./ExtNavLink.tsx";
 import "./NavRight.css";
 import "./Hamburger.css";
@@ -14,7 +14,7 @@ const settings = false;
 
 export default function NavRight() {
   const { theme, handleThemeChange, isIconRotating } = useThemeContext();
-  const { section, handleSectionChange } = useFocusTopicContext();
+  const { section, toggleSection } = useFocusTopicContext();
   const {
     burgerMenuStage,
     handleBurgerClick,
@@ -24,9 +24,9 @@ export default function NavRight() {
   return (
     <section className="nav-right nav-list" data-test="nav-right-container">
       {/* 👇🏻 LINK TO PROJECTS SECTION */}
-      {section === "about" && burgerMenuStage < 3 && (
+      {section === sectionType.abouts && burgerMenuStage < 3 && (
         <Link
-          onClick={handleSectionChange}
+          onClick={toggleSection}
           to="/"
           data-test="projects-section-link"
           className="nav-btn nav-section-link"
@@ -35,9 +35,9 @@ export default function NavRight() {
         </Link>
       )}
       {/* 👇🏻 LINK TO ABOUT ME SECTION */}
-      {section === "projects" && burgerMenuStage < 3 && (
+      {section === sectionType.projects && burgerMenuStage < 3 && (
         <Link
-          onClick={handleSectionChange}
+          onClick={toggleSection}
           to="/about-me"
           data-test="about-section-link"
           className="nav-btn nav-section-link"
