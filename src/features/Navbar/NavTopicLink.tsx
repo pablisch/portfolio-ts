@@ -19,32 +19,15 @@ function NavTopicLink({
     // section,
     handleSetHoveredTopic,
     handleUnsetHoveredTopic,
-    // setSelectedTopicId,
+    handleSelectTopicId,
   } = useFocusTopicContext();
-
-  // const navigate = useNavigate();
-
-  // const handleClick = (topic: projectObject | aboutObject) => {
-  //   if (section === "projects" && topic.id)
-  //     setSelectedTopicId(topic as projectObject);
-  //   if (section === "about" && topic.id)
-  //     setSelectedTopicId(topic as aboutObject);
-  //   localStorage.setItem("selectedTopic", JSON.stringify(topic));
-  //   navigate(
-  //     `/${Number(topic.id) < 10 ? "project" : "more-about-me"}/${topic.id}`,
-  //   );
-  //   scrollToTop();
-  // };
-  const handleClick = () => {
-    console.log("Do something here!");
-  };
 
   return (
     <div
       role="button"
       data-test={`${topic.identifier}-nav-btn`}
       className={className}
-      onClick={() => handleClick()}
+      onClick={() => handleSelectTopicId(topic.id)}
       onMouseOver={() => handleSetHoveredTopic(topic.id)}
       onMouseLeave={handleUnsetHoveredTopic}
     >

@@ -69,13 +69,13 @@ export const FocusTopicProvider = ({
   };
 
   const handleSelectTopicId = (topicId: string) => {
-    // let topic: projectObject | aboutObject | null = null;
     setSelectedTopicId(topicId);
     if (Number(topicId) < 11) {
-      setSelectedTopicId("projects");
+      setSection(sectionType.projects);
     } else {
-      setSelectedTopicId("abouts");
+      setSection(sectionType.abouts);
     }
+    console.log(`Topic ID set to ${topicId}`);
   };
 
   return (
