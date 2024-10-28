@@ -19,7 +19,7 @@ export default function NavLeft() {
   const navigate = useNavigate();
 
   const handleNavTitleClick = () => {
-    navigate("/projects");
+    navigate("/");
   };
 
   return (
@@ -41,7 +41,7 @@ export default function NavLeft() {
         className="nav-title"
       >
         <h1 data-test={`nav-${section}-title-text`}>
-          {section === "projects"
+          {section === sectionType.projects
             ? "My Projects"
             : section === sectionType.abouts
               ? "About Me"
@@ -51,7 +51,7 @@ export default function NavLeft() {
       {/* Current Section links */}
       <div className="nav-list" data-test="topic-links-container">
         {/* 👇🏻 PROJECT LINKS */}
-        {section === "projects" &&
+        {section === sectionType.projects &&
           !isBurgerMenuActive &&
           projectData.map((project) => (
             <NavTopicLink className="nav-btn" key={project.id} topic={project}>

@@ -1,24 +1,30 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import React, { ReactNode } from "react";
 import { FocusTopicContext } from "../../src/context/FocusTopicContext";
-import { aboutObject, projectObject } from "../../src/types/data.types";
+import {
+  aboutObject,
+  projectObject,
+  sectionType,
+} from "../../src/types/data.types";
 
 interface MockSectionContextProps {
   children: ReactNode;
-  section: string;
-  handleSectionChange: () => void;
-  focusProjectId: string;
-  setFocusProjectId: (projectId: string) => void;
-  selectedProject: projectObject | null;
-  setSelectedProject: (project: projectObject | null) => void;
-  focusAboutId: string;
-  setFocusAboutId: (aboutId: string) => void;
-  selectedAbout: aboutObject | null;
-  setSelectedAbout: (about: aboutObject | null) => void;
+  section: sectionType;
+  toggleSection: () => void;
+  handleSectionChange: (section: sectionType) => void;
+  hoveredTopicId: string;
+  setHoveredTopicId: (topicId: string) => void;
+  selectedTopicId: string;
+  setSelectedTopicId: (topicId: string) => void;
+  handleSetHoveredTopic: (topicId: string) => void;
+  handleUnsetHoveredTopic: () => void;
+  handleSelectTopicId: (topicId: string) => void;
 }
 
 const MockSectionContext: React.FC<MockSectionContextProps> = ({
   children,
-  section = "projects",
+  section = sectionType.projects,
   handleSectionChange = () => {},
   focusProjectId = "",
   setFocusProjectId = () => {},

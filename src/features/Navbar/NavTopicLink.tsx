@@ -18,7 +18,7 @@ function NavTopicLink({
   const {
     handleSetHoveredTopic,
     handleUnsetHoveredTopic,
-    handleSelectTopicId,
+    handleSelectedTopicId,
   } = useFocusTopicContext();
 
   return (
@@ -26,7 +26,7 @@ function NavTopicLink({
       role="button"
       data-test={`${topic.identifier}-nav-btn`}
       className={className}
-      onClick={() => handleSelectTopicId(topic.id)}
+      onClick={() => handleSelectedTopicId(topic.id)}
       onMouseOver={() => handleSetHoveredTopic(topic.id)}
       onMouseLeave={handleUnsetHoveredTopic}
     >

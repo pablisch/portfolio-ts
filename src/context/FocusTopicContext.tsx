@@ -12,12 +12,10 @@ export interface SectionContextType {
   toggleSection: () => void;
   handleSectionChange: (newSection: sectionType) => void;
   hoveredTopicId: string;
-  setHoveredTopicId: (projectId: string) => void;
-  selectedTopicId: string;
-  setSelectedTopicId: (topicId: string) => void;
   handleSetHoveredTopic: (id: string) => void;
   handleUnsetHoveredTopic: () => void;
-  handleSelectTopicId: (topicId: string) => void;
+  selectedTopicId: string;
+  handleSelectedTopicId: (topicId: string) => void;
 }
 
 export const FocusTopicContext = createContext<SectionContextType>({
@@ -25,12 +23,10 @@ export const FocusTopicContext = createContext<SectionContextType>({
   toggleSection: () => {},
   handleSectionChange: () => {},
   hoveredTopicId: "",
-  setHoveredTopicId: () => {},
-  selectedTopicId: "",
-  setSelectedTopicId: () => {},
   handleSetHoveredTopic: () => {},
   handleUnsetHoveredTopic: () => {},
-  handleSelectTopicId: () => {},
+  selectedTopicId: "",
+  handleSelectedTopicId: () => {},
 });
 
 export const FocusTopicProvider = ({
@@ -90,12 +86,10 @@ export const FocusTopicProvider = ({
         toggleSection,
         handleSectionChange,
         hoveredTopicId,
-        setHoveredTopicId,
-        selectedTopicId,
-        setSelectedTopicId,
         handleSetHoveredTopic,
         handleUnsetHoveredTopic,
-        handleSelectTopicId,
+        selectedTopicId,
+        handleSelectedTopicId: handleSelectTopicId,
       }}
     >
       {children}

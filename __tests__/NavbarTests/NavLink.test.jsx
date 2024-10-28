@@ -10,6 +10,7 @@ import user from "@testing-library/user-event";
 import { projectData } from "../../src/data/projectData.tsx";
 import { aboutData } from "../../src/data/aboutData.tsx";
 import { scrollToTop } from "../../src/helpers/pageHelpers.ts";
+import { sectionType } from "../../src/types/data.types.js";
 
 const mockSetFocusProjectId = vi.fn();
 const mockSetFocusAboutId = vi.fn();
@@ -20,7 +21,7 @@ const exampleProject = projectData[0];
 const exampleAbout = aboutData[0];
 
 const renderComponent = (
-  currentSection = "projects",
+  currentSection = sectionType.projects,
   currentTopic = exampleProject,
 ) => {
   const { container } = render(
@@ -139,7 +140,7 @@ describe("first about NavTopicLink", () => {
 
   test(`renders the about NavLink component with a button of expected text, "${exampleProject.navName}"`, () => {
     // Arrange
-    const { container } = renderComponent("about", exampleAbout);
+    const { container } = renderComponent(sectionType.abouts, exampleAbout);
     const spaceNavLink = within(container).getByRole("button", {
       name: /Space Explorer/i,
     });
@@ -152,7 +153,7 @@ describe("first about NavTopicLink", () => {
 
   test(`clicking the about NavLink button calls the setFocusProjectId function once`, () => {
     // Arrange
-    const { container } = renderComponent("about", exampleAbout);
+    const { container } = renderComponent(sectionType.abouts, exampleAbout);
     const spaceNavLink = within(container).getByRole("button", {
       name: /Space Explorer/i,
     });
@@ -169,7 +170,7 @@ describe("first about NavTopicLink", () => {
 
   test(`hovering over the about NavLink button calls the setFocusProjectId function once`, async () => {
     // Arrange
-    const { container } = renderComponent("about", exampleAbout);
+    const { container } = renderComponent(sectionType.abouts, exampleAbout);
     const spaceNavLink = within(container).getByRole("button", {
       name: /Space Explorer/i,
     });
@@ -184,7 +185,7 @@ describe("first about NavTopicLink", () => {
 
   test(`unhovering the about NavLink button calls the setFocusProjectId function once`, async () => {
     // Arrange
-    const { container } = renderComponent("about", exampleAbout);
+    const { container } = renderComponent(sectionType.abouts, exampleAbout);
     const spaceNavLink = within(container).getByRole("button", {
       name: /Space Explorer/i,
     });

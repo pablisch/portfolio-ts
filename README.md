@@ -28,3 +28,33 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+# Portfolio TS
+
+## Tests
+
+### Component tests
+
+The component tests use vitest, the React testing library and jest-dom
+
+Run `npm test` to run continual tests.
+Stop continual tests using `ctrl-c`.
+
+The current `test` script runs `vitest --globals --reporter verbose`.
+
+You may also run tests in continuous WATCH:
+`npx vitest`
+`npx vitest --reporter=verbose` for maximum feedback
+`npx vitest --reporter=basic` for minimum feedback
+`npx vitest --globals` including global imports, e.g. of `describe` which should not be needed here.
+
+And the same options for running all tests ONCE:
+`npx vitest --run`
+`npx vitest --reporter=verbose --run` for maximum feedback
+`npx vitest --reporter=basic --run` for minimum feedback
+`npx vitest --globals --run` including global imports, e.g. of `describe` which should not be needed here.
+
+You may also run select tests with a regex pattern:
+`npx vitest left` will run any test with `left` in the path or filename
+`npx vitest link` will run any test with `link` in the path or filename
+**NOTE**: This is case insensitive and since it also includes the filepath (at least to some extent) you need to be aware of what you may be including.

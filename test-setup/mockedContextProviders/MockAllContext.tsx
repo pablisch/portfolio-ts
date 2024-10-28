@@ -3,55 +3,61 @@
 import React, { ReactNode } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import MockSectionContext from "../mockContexts/MockSectionContext";
 import MockScreenWidthContext from "../mockContexts/MockScreenWidthContext";
 import MockThemeContext from "../mockContexts/MockThemeContext";
-import { aboutObject, projectObject } from "../../src/types/data.types";
+import { sectionType } from "../../src/types/data.types";
+import MockSectionContext from "../mockContexts/MockSectionContext";
 
 interface CustomRenderProps {
+  // from ThemeContext
   theme?: string;
   handleThemeChange?: () => void;
   isIconRotating?: boolean;
   handleAvatarHoverStart?: () => void;
   handleAvatarHoverEnd?: () => void;
+  // from ScreenWidthContext
   isBurgerMenuActive?: boolean;
   burgerMenuStage?: number;
   isBurgerMenuOpen?: boolean;
   handleBurgerClick?: () => void;
-  section?: string;
+  // from FocusTopicContext
+  section?: sectionType;
+  toggleSection?: () => void;
   handleSectionChange?: () => void;
-  focusProjectId?: string;
-  setFocusProjectId?: () => void;
-  focusAboutId?: string;
-  setFocusAboutId?: (id: string) => void;
-  selectedProject?: projectObject | null;
-  setSelectedProject?: () => void;
-  selectedAbout?: aboutObject | null;
-  setSelectedAbout?: () => void;
+  hoveredTopicId?: string;
+  setHoveredTopicId?: () => void;
+  selectedTopicId?: string;
+  setSelectedTopicId?: () => void;
+  handleSetHoveredTopic?: () => void;
+  handleUnsetHoveredTopic?: () => void;
+  handleSelectTopicId?: () => void;
 }
 
 const customRender = (
   ui: ReactNode,
   {
+    // from ThemeContext
     theme = "light",
     handleThemeChange = () => {},
     isIconRotating = false,
     handleAvatarHoverStart = () => {},
     handleAvatarHoverEnd = () => {},
+    // from ScreenWidthContext
     isBurgerMenuActive = false,
     burgerMenuStage = 1,
     isBurgerMenuOpen = false,
     handleBurgerClick = () => {},
-    section = "projects",
+    // from FocusTopicContext
+    section = sectionType.projects,
+    toggleSection = () => {},
     handleSectionChange = () => {},
-    focusProjectId = "",
-    setFocusProjectId = () => {},
-    focusAboutId = "",
-    setFocusAboutId = () => {},
-    selectedProject = null,
-    setSelectedProject = () => {},
-    selectedAbout = null,
-    setSelectedAbout = () => {},
+    hoveredTopicId = "",
+    setHoveredTopicId = () => {},
+    selectedTopicId = "",
+    setSelectedTopicId = () => {},
+    handleSetHoveredTopic = () => {},
+    handleUnsetHoveredTopic = () => {},
+    handleSelectTopicId = () => {},
     ...options
   }: CustomRenderProps = {},
 ) => {
@@ -71,15 +77,15 @@ const customRender = (
       >
         <MockSectionContext
           section={section}
+          toggleSection={toggleSection}
           handleSectionChange={handleSectionChange}
-          focusProjectId={focusProjectId}
-          setFocusProjectId={setFocusProjectId}
-          focusAboutId={focusAboutId}
-          setFocusAboutId={setFocusAboutId}
-          selectedProject={selectedProject}
-          setSelectedProject={setSelectedProject}
-          selectedAbout={selectedAbout}
-          setSelectedAbout={setSelectedAbout}
+          hoveredTopicId={hoveredTopicId}
+          setHoveredTopicId={setHoveredTopicId}
+          selectedTopicId={selectedTopicId}
+          setSelectedTopicId={setSelectedTopicId}
+          handleSetHoveredTopic={handleSetHoveredTopic}
+          handleUnsetHoveredTopic={handleUnsetHoveredTopic}
+          handleSelectTopicId={handleSelectTopicId}
         >
           <BrowserRouter>{ui}</BrowserRouter>
         </MockSectionContext>

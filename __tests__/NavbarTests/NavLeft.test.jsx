@@ -7,6 +7,7 @@ import {
   within,
 } from "../../test-setup/mockedContextProviders/MockAllContext.tsx";
 import user from "@testing-library/user-event";
+import { sectionType } from "../../src/types/data.types.js";
 
 const mockHandleAvatarHoverStart = vi.fn();
 const mockHandleAvatarHoverEnd = vi.fn();
@@ -24,7 +25,7 @@ vi.mock("react-router-dom", async () => {
 
 const renderComponent = (
   currentTheme = "light",
-  currentSection = "projects",
+  currentSection = sectionType.projects,
   isBurgerMenuActive = false,
 ) => {
   const { container } = render(<NavLeft />, {

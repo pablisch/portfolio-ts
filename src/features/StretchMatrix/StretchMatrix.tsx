@@ -59,7 +59,7 @@ function MatrixPanel({
     hoveredTopicId,
     handleSetHoveredTopic,
     handleUnsetHoveredTopic,
-    handleSelectTopicId,
+    handleSelectedTopicId,
   } = useFocusTopicContext();
 
   return (
@@ -69,7 +69,7 @@ function MatrixPanel({
       data-test={`topic-row-${rowIndex}-col-${colIndex}`}
       onMouseEnter={() => handleSetHoveredTopic(panelData.id)}
       onMouseLeave={handleUnsetHoveredTopic}
-      onClick={() => handleSelectTopicId(panelData.id)}
+      onClick={() => handleSelectedTopicId(panelData.id)}
     >
       {/* unhovered panel heading */}
       <div className={`topic-label ${!hoveredTopicId ? "" : "hover-fade"}`}>

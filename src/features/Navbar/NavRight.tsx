@@ -25,6 +25,7 @@ export default function NavRight() {
       {/* 👇🏻 NAV FOCUS ON PROJECTS SECTION */}
       {section === sectionType.abouts && burgerMenuStage < 3 && (
         <div
+          role="button"
           onClick={toggleSection}
           data-test="projects-section-link"
           className="nav-btn nav-section-link"
@@ -35,6 +36,7 @@ export default function NavRight() {
       {/* 👇🏻 NAV FOCUS ON ABOUT ME SECTION */}
       {section === sectionType.projects && burgerMenuStage < 3 && (
         <div
+          role="button"
           onClick={toggleSection}
           data-test="about-section-link"
           className="nav-btn nav-section-link"
