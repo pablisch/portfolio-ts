@@ -1,4 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import React, { ReactNode } from "react";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import { ScreenWidthContext } from "../../src/context/ScreenWidthContext";
 
 interface MockScreenWidthContextProviderProps {
@@ -17,6 +21,7 @@ const MockScreenWidthContext: React.FC<MockScreenWidthContextProviderProps> = ({
   handleBurgerClick = () => {},
 }) => {
   return (
+    // @ts-expect-error TS17004
     <ScreenWidthContext.Provider
       value={{
         isBurgerMenuActive,

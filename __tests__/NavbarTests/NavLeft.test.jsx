@@ -7,7 +7,7 @@ import {
   within,
 } from "../../test-setup/mockedContextProviders/MockAllContext.tsx";
 import user from "@testing-library/user-event";
-import { sectionType } from "../../src/types/data.types.js";
+import { sectionType } from "../../src/types/data.types.ts";
 
 const mockHandleAvatarHoverStart = vi.fn();
 const mockHandleAvatarHoverEnd = vi.fn();
@@ -58,7 +58,7 @@ describe("NavLeft component", () => {
     expect(navLeft).toBeInTheDocument();
   });
 
-  test("NavLeft has an avatar logo, a project section button and six project links when section === 'projects'", () => {
+  test("NavLeft has an avatar logo, a project section button and six project links when section === sectionType.projects", () => {
     // Arrange
     const { container } = renderComponent();
     const avatar = screen.getByRole("img", { name: /avatar icon/i });
@@ -92,6 +92,7 @@ describe("NavLeft component", () => {
 
     // Assert
     expect(mockNavigate).toHaveBeenCalledTimes(1);
+    expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 
   test("handleAvatarHoverStart is called when the navbar avatar is hovered over", async () => {

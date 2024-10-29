@@ -9,6 +9,25 @@
     }
   ],
   "compilerOptions": {
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": [
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "testing-library__jest-dom"
+    ]
   }
 }
+
+//{
+//  "files": [],
+//  "references": [
+//    {
+//      "path": "./tsconfig.app.json"
+//    },
+//    {
+//      "path": "./tsconfig.node.json"
+//    }
+//  ],
+//  "compilerOptions": {
+//    "types": ["vitest/globals", "testing-library__jest-dom"]
+//  }
+//}

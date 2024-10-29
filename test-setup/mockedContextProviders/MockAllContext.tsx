@@ -3,10 +3,16 @@
 import React, { ReactNode } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import MockScreenWidthContext from "../mockContexts/MockScreenWidthContext";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import MockThemeContext from "../mockContexts/MockThemeContext";
 import { sectionType } from "../../src/types/data.types";
-import MockSectionContext from "../mockContexts/MockSectionContext";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import MockFocusTopicContext from "../mockContexts/MockFocusTopicContext";
 
 interface CustomRenderProps {
   // from ThemeContext
@@ -25,11 +31,9 @@ interface CustomRenderProps {
   toggleSection?: () => void;
   handleSectionChange?: () => void;
   hoveredTopicId?: string;
-  setHoveredTopicId?: () => void;
-  selectedTopicId?: string;
-  setSelectedTopicId?: () => void;
   handleSetHoveredTopic?: () => void;
   handleUnsetHoveredTopic?: () => void;
+  selectedTopicId?: string;
   handleSelectTopicId?: () => void;
 }
 
@@ -52,16 +56,15 @@ const customRender = (
     toggleSection = () => {},
     handleSectionChange = () => {},
     hoveredTopicId = "",
-    setHoveredTopicId = () => {},
-    selectedTopicId = "",
-    setSelectedTopicId = () => {},
     handleSetHoveredTopic = () => {},
     handleUnsetHoveredTopic = () => {},
+    selectedTopicId = "",
     handleSelectTopicId = () => {},
     ...options
   }: CustomRenderProps = {},
 ) => {
   return render(
+    // @ts-expect-error TS17004
     <MockThemeContext
       theme={theme}
       handleThemeChange={handleThemeChange}
@@ -69,26 +72,27 @@ const customRender = (
       handleAvatarHoverStart={handleAvatarHoverStart}
       handleAvatarHoverEnd={handleAvatarHoverEnd}
     >
+      {/*@ts-expect-error TS17004*/}
       <MockScreenWidthContext
         isBurgerMenuActive={isBurgerMenuActive}
         burgerMenuStage={burgerMenuStage}
         isBurgerMenuOpen={isBurgerMenuOpen}
         handleBurgerClick={handleBurgerClick}
       >
-        <MockSectionContext
+        {/*@ts-expect-error TS17004*/}
+        <MockFocusTopicContext
           section={section}
           toggleSection={toggleSection}
           handleSectionChange={handleSectionChange}
           hoveredTopicId={hoveredTopicId}
-          setHoveredTopicId={setHoveredTopicId}
-          selectedTopicId={selectedTopicId}
-          setSelectedTopicId={setSelectedTopicId}
           handleSetHoveredTopic={handleSetHoveredTopic}
           handleUnsetHoveredTopic={handleUnsetHoveredTopic}
+          selectedTopicId={selectedTopicId}
           handleSelectTopicId={handleSelectTopicId}
         >
+          {/*@ts-expect-error TS17004*/}
           <BrowserRouter>{ui}</BrowserRouter>
-        </MockSectionContext>
+        </MockFocusTopicContext>
       </MockScreenWidthContext>
     </MockThemeContext>,
     options as RenderOptions,

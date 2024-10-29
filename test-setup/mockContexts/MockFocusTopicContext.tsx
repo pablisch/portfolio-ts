@@ -1,12 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import React, { ReactNode } from "react";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import { FocusTopicContext } from "../../src/context/FocusTopicContext";
-import {
-  aboutObject,
-  projectObject,
-  sectionType,
-} from "../../src/types/data.types";
+import { sectionType } from "../../src/types/data.types";
 
 interface MockSectionContextProps {
   children: ReactNode;
@@ -14,40 +12,35 @@ interface MockSectionContextProps {
   toggleSection: () => void;
   handleSectionChange: (section: sectionType) => void;
   hoveredTopicId: string;
-  setHoveredTopicId: (topicId: string) => void;
-  selectedTopicId: string;
-  setSelectedTopicId: (topicId: string) => void;
   handleSetHoveredTopic: (topicId: string) => void;
   handleUnsetHoveredTopic: () => void;
+  selectedTopicId: string;
   handleSelectTopicId: (topicId: string) => void;
 }
 
-const MockSectionContext: React.FC<MockSectionContextProps> = ({
+const MockFocusTopicContext: React.FC<MockSectionContextProps> = ({
   children,
   section = sectionType.projects,
+  toggleSection = () => {},
   handleSectionChange = () => {},
-  focusProjectId = "",
-  setFocusProjectId = () => {},
-  focusAboutId = "",
-  setFocusAboutId = () => {},
-  selectedProject = null,
-  setSelectedProject = () => {},
-  selectedAbout = null,
-  setSelectedAbout = () => {},
+  hoveredTopicId = "",
+  handleSetHoveredTopic = () => {},
+  handleUnsetHoveredTopic = () => {},
+  selectedTopicId = "",
+  handleSelectTopicId = () => {},
 }) => {
   return (
+    // @ts-expect-error TS17004
     <FocusTopicContext.Provider
       value={{
         section,
+        toggleSection,
         handleSectionChange,
-        focusProjectId,
-        setFocusProjectId,
-        focusAboutId,
-        setFocusAboutId,
-        selectedProject,
-        setSelectedProject,
-        selectedAbout,
-        setSelectedAbout,
+        hoveredTopicId,
+        handleSetHoveredTopic,
+        handleUnsetHoveredTopic,
+        selectedTopicId,
+        handleSelectTopicId,
       }}
     >
       {children}
@@ -55,4 +48,4 @@ const MockSectionContext: React.FC<MockSectionContextProps> = ({
   );
 };
 
-export default MockSectionContext;
+export default MockFocusTopicContext;
