@@ -34,7 +34,7 @@ interface CustomRenderProps {
   handleSetHoveredTopic?: () => void;
   handleUnsetHoveredTopic?: () => void;
   selectedTopicId?: string;
-  handleSelectTopicId?: () => void;
+  handleSelectedTopicId?: () => void;
 }
 
 const customRender = (
@@ -59,7 +59,7 @@ const customRender = (
     handleSetHoveredTopic = () => {},
     handleUnsetHoveredTopic = () => {},
     selectedTopicId = "",
-    handleSelectTopicId = () => {},
+    handleSelectedTopicId = () => {},
     ...options
   }: CustomRenderProps = {},
 ) => {
@@ -88,7 +88,7 @@ const customRender = (
           handleSetHoveredTopic={handleSetHoveredTopic}
           handleUnsetHoveredTopic={handleUnsetHoveredTopic}
           selectedTopicId={selectedTopicId}
-          handleSelectTopicId={handleSelectTopicId}
+          handleSelectedTopicId={handleSelectedTopicId}
         >
           {/*@ts-expect-error TS17004*/}
           <BrowserRouter>{ui}</BrowserRouter>

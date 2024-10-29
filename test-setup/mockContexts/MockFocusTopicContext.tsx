@@ -15,7 +15,7 @@ interface MockSectionContextProps {
   handleSetHoveredTopic: (topicId: string) => void;
   handleUnsetHoveredTopic: () => void;
   selectedTopicId: string;
-  handleSelectTopicId: (topicId: string) => void;
+  handleSelectedTopicId: (topicId: string) => void;
 }
 
 const MockFocusTopicContext: React.FC<MockSectionContextProps> = ({
@@ -27,7 +27,7 @@ const MockFocusTopicContext: React.FC<MockSectionContextProps> = ({
   handleSetHoveredTopic = () => {},
   handleUnsetHoveredTopic = () => {},
   selectedTopicId = "",
-  handleSelectTopicId = () => {},
+  handleSelectedTopicId = () => {},
 }) => {
   return (
     // @ts-expect-error TS17004
@@ -40,7 +40,7 @@ const MockFocusTopicContext: React.FC<MockSectionContextProps> = ({
         handleSetHoveredTopic,
         handleUnsetHoveredTopic,
         selectedTopicId,
-        handleSelectTopicId,
+        handleSelectedTopicId,
       }}
     >
       {children}

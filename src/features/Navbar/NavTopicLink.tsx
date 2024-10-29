@@ -24,7 +24,7 @@ function NavTopicLink({
   return (
     <div
       role="button"
-      data-test={`${topic.identifier}-nav-btn`}
+      data-test={`nav-btn-${topic.identifier}`}
       className={className}
       onClick={() => handleSelectedTopicId(topic.id)}
       onMouseOver={() => handleSetHoveredTopic(topic.id)}

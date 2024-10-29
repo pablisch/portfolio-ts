@@ -69,7 +69,7 @@ export const FocusTopicProvider = ({
     if (forceId1Focus) setHoveredTopicId("1");
   };
 
-  const handleSelectTopicId = (topicId: string) => {
+  const handleSelectedTopicId = (topicId: string) => {
     setSelectedTopicId(topicId);
     if (Number(topicId) < 11) {
       setSection(sectionType.projects);
@@ -89,7 +89,7 @@ export const FocusTopicProvider = ({
         handleSetHoveredTopic,
         handleUnsetHoveredTopic,
         selectedTopicId,
-        handleSelectedTopicId: handleSelectTopicId,
+        handleSelectedTopicId,
       }}
     >
       {children}
