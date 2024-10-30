@@ -51,7 +51,7 @@ describe("NavLeft component", () => {
     const navLeft = container.querySelector(
       "section[data-test='nav-left-container']",
     );
-    screen.logTestingPlaygroundURL();
+    // screen.logTestingPlaygroundURL()
     // screen.debug();
 
     // Assert
