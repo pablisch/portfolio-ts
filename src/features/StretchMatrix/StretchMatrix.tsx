@@ -76,7 +76,7 @@ function MatrixPanel({
         {panelData.panelName}
       </div>
       <img // unhovered panel image
-        src={`images/topic-images/${panelData.image}`}
+        src={`images/topic-images/${panelData.image2}`}
         alt={panelData.panelName}
         className="topic-image"
       />
