@@ -77,7 +77,7 @@ describe("first project NavTopicLink", () => {
     expect(LupoNavLink).toBeInTheDocument();
   });
 
-  test(`clicking the project NavLink button calls the setFocusProjectId function once`, () => {
+  test(`clicking the project NavLink button calls the handleSelectedTopicId function once`, () => {
     // Arrange
     const { container } = renderComponent();
     const lupoNavLink = within(container).getByRole("button", {
@@ -90,52 +90,40 @@ describe("first project NavTopicLink", () => {
     // Assert
     expect(mockHandleSelectedTopicId).toHaveBeenCalledTimes(1);
     expect(mockHandleSetHoveredTopic).toHaveBeenCalledTimes(0);
+    expect(mockHandleUnsetHoveredTopic).toHaveBeenCalledTimes(0);
   });
 
-  // test(`hovering over the project NavLink button calls the setFocusProjectId function once`, async () => {
-  //   // Arrange
-  //   const { container } = renderComponent();
-  //   const lupoNavLink = within(container).getByRole("button", {
-  //     name: /LUPO/i,
-  //   });
-  //
-  //   // Act
-  //   await user.hover(lupoNavLink);
-  //
-  //   // Assert
-  //   expect(mockSetFocusProjectId).toHaveBeenCalledTimes(1);
-  //   expect(mockSetFocusAboutId).toHaveBeenCalledTimes(0);
-  // });
-  //
-  // test(`unhovering the project NavLink button calls the setFocusProjectId function once`, async () => {
-  //   // Arrange
-  //   const { container } = renderComponent();
-  //   const lupoNavLink = within(container).getByRole("button", {
-  //     name: /LUPO/i,
-  //   });
-  //
-  //   // Act
-  //   await user.unhover(lupoNavLink);
-  //
-  //   // Assert
-  //   expect(mockSetFocusProjectId).toHaveBeenCalledTimes(1);
-  //   expect(mockSetFocusAboutId).toHaveBeenCalledTimes(0);
-  // });
-  //
-  // test(`unhovering the project NavLink button calls the setFocusProjectId function once`, async () => {
-  //   // Arrange
-  //   const { container } = renderComponent();
-  //   const lupoNavLink = within(container).getByRole("button", {
-  //     name: /LUPO/i,
-  //   });
-  //
-  //   // Act
-  //   await user.unhover(lupoNavLink);
-  //
-  //   // Assert
-  //   expect(mockSetFocusProjectId).toHaveBeenCalledTimes(1);
-  //   expect(mockSetFocusAboutId).toHaveBeenCalledTimes(0);
-  // });
+  test(`hovering over the project NavLink button calls the handleSetHoveredTopic function once`, async () => {
+    // Arrange
+    const { container } = renderComponent();
+    const lupoNavLink = within(container).getByRole("button", {
+      name: /LUPO/i,
+    });
+
+    // Act
+    await user.hover(lupoNavLink);
+
+    // Assert
+    expect(mockHandleSetHoveredTopic).toHaveBeenCalledTimes(1);
+    expect(mockHandleUnsetHoveredTopic).toHaveBeenCalledTimes(0);
+    expect(mockHandleSelectedTopicId).toHaveBeenCalledTimes(0);
+  });
+
+  test(`unhovering the project NavLink button calls the handleUnsetHoveredTopic function once`, async () => {
+    // Arrange
+    const { container } = renderComponent();
+    const lupoNavLink = within(container).getByRole("button", {
+      name: /LUPO/i,
+    });
+
+    // Act
+    await user.unhover(lupoNavLink);
+
+    // Assert
+    expect(mockHandleUnsetHoveredTopic).toHaveBeenCalledTimes(1);
+    expect(mockHandleSetHoveredTopic).toHaveBeenCalledTimes(0);
+    expect(mockHandleSelectedTopicId).toHaveBeenCalledTimes(0);
+  });
 });
 
 describe("first about NavTopicLink", () => {
@@ -156,50 +144,51 @@ describe("first about NavTopicLink", () => {
     expect(spaceNavLink).toBeInTheDocument();
   });
 
-  // test(`clicking the about NavLink button calls the setFocusProjectId function once`, () => {
-  //   // Arrange
-  //   const { container } = renderComponent(sectionType.abouts, exampleAbout);
-  //   const spaceNavLink = within(container).getByRole("button", {
-  //     name: /Space Explorer/i,
-  //   });
-  //
-  //   // Act
-  //   spaceNavLink.click();
-  //
-  //   // Assert
-  //   expect(mockSetSelectedAbout).toHaveBeenCalledTimes(1);
-  //   expect(mockSetSelectedProject).toHaveBeenCalledTimes(0);
-  //   expect(mockNavigate).toHaveBeenCalledTimes(1);
-  //   expect(scrollToTop).toHaveBeenCalledTimes(1);
-  // });
-  //
-  // test(`hovering over the about NavLink button calls the setFocusProjectId function once`, async () => {
-  //   // Arrange
-  //   const { container } = renderComponent(sectionType.abouts, exampleAbout);
-  //   const spaceNavLink = within(container).getByRole("button", {
-  //     name: /Space Explorer/i,
-  //   });
-  //
-  //   // Act
-  //   await user.hover(spaceNavLink);
-  //
-  //   // Assert
-  //   expect(mockSetFocusAboutId).toHaveBeenCalledTimes(1);
-  //   expect(mockSetFocusProjectId).toHaveBeenCalledTimes(0);
-  // });
-  //
-  // test(`unhovering the about NavLink button calls the setFocusProjectId function once`, async () => {
-  //   // Arrange
-  //   const { container } = renderComponent(sectionType.abouts, exampleAbout);
-  //   const spaceNavLink = within(container).getByRole("button", {
-  //     name: /Space Explorer/i,
-  //   });
-  //
-  //   // Act
-  //   await user.unhover(spaceNavLink);
-  //
-  //   // Assert
-  //   expect(mockSetFocusAboutId).toHaveBeenCalledTimes(1);
-  //   expect(mockSetFocusProjectId).toHaveBeenCalledTimes(0);
-  // });
+  test(`clicking the about NavLink button calls the handleSelectedTopicId function once`, () => {
+    // Arrange
+    const { container } = renderComponent(sectionType.abouts, exampleAbout);
+    const spaceNavLink = within(container).getByRole("button", {
+      name: /Space Explorer/i,
+    });
+
+    // Act
+    spaceNavLink.click();
+
+    // Assert
+    expect(mockHandleSelectedTopicId).toHaveBeenCalledTimes(1);
+    expect(mockHandleSetHoveredTopic).toHaveBeenCalledTimes(0);
+    expect(mockHandleUnsetHoveredTopic).toHaveBeenCalledTimes(0);
+  });
+
+  test(`hovering over the about NavLink button calls the handleSetHoveredTopic function once`, async () => {
+    // Arrange
+    const { container } = renderComponent(sectionType.abouts, exampleAbout);
+    const spaceNavLink = within(container).getByRole("button", {
+      name: /Space Explorer/i,
+    });
+
+    // Act
+    await user.hover(spaceNavLink);
+
+    // Assert
+    expect(mockHandleSetHoveredTopic).toHaveBeenCalledTimes(1);
+    expect(mockHandleUnsetHoveredTopic).toHaveBeenCalledTimes(0);
+    expect(mockHandleSelectedTopicId).toHaveBeenCalledTimes(0);
+  });
+
+  test(`unhovering the about NavLink button calls the handleUnsetHoveredTopic function once`, async () => {
+    // Arrange
+    const { container } = renderComponent(sectionType.abouts, exampleAbout);
+    const spaceNavLink = within(container).getByRole("button", {
+      name: /Space Explorer/i,
+    });
+
+    // Act
+    await user.unhover(spaceNavLink);
+
+    // Assert
+    expect(mockHandleUnsetHoveredTopic).toHaveBeenCalledTimes(1);
+    expect(mockHandleSetHoveredTopic).toHaveBeenCalledTimes(0);
+    expect(mockHandleSelectedTopicId).toHaveBeenCalledTimes(0);
+  });
 });
