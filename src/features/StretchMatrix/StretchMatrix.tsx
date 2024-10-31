@@ -100,7 +100,11 @@ function PanelOverlay({ panelData }: PanelOverlayProps) {
       }`}
       data-test={`topic-overlay-${panelData.panelName.replace(/\s/g, "").toLowerCase() || ""}`}
     >
-      <div className="overlay_details">
+      <div
+        className={`overlay-details ${
+          hoveredTopicId === panelData.id ? "hover-overlay-details" : ""
+        }`}
+      >
         <h1
           className={`overlay-title ${
             hoveredTopicId === panelData.id ? "hover-focus-title" : ""
