@@ -322,7 +322,7 @@ export const projectData = [
     name: "Knot Very Useful",
     // navName: 'Knot Very Useful',
     image: "knot-very-useful-small.png",
-    image2: "knot-very-useful-2.png",
+    image2: "knot-very-useful-2" + ".png",
     appUrl: "https://pablisch.github.io/knot-very-useful/",
     apiWakeUpUrl: null,
     repoUrl: "https://github.com/pablisch/knot-very-useful",
